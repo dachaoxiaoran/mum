@@ -44,9 +44,11 @@ public class DbInfo {
 	/**
 	 * 设置{@link #driver}
 	 * @param driver {@link #driver}
+	 * @return this{@link com.mum.db.pojo.DbInfo}对象
 	 */
-	public void setDriver(String driver) {
+	public DbInfo setDriver(String driver) {
 		this.driver = driver;
+		return this;
 	}
 
 	/**
@@ -60,9 +62,11 @@ public class DbInfo {
 	/**
 	 * 设置{@link #url}
 	 * @param url {@link #url}
+	 * @return this{@link com.mum.db.pojo.DbInfo}对象
 	 */
-	public void setUrl(String url) {
+	public DbInfo setUrl(String url) {
 		this.url = url;
+		return this;
 	}
 
 	/**
@@ -76,9 +80,11 @@ public class DbInfo {
 	/**
 	 * 设置{@link #user}
 	 * @param user {@link #user}
+	 * @return this{@link com.mum.db.pojo.DbInfo}对象
 	 */
-	public void setUser(String user) {
+	public DbInfo setUser(String user) {
 		this.user = user;
+		return this;
 	}
 
 	/**
@@ -92,9 +98,11 @@ public class DbInfo {
 	/**
 	 * 设置{@link #pwd}
 	 * @param pwd {@link #pwd}
+	 * @return this{@link com.mum.db.pojo.DbInfo}对象
 	 */
-	public void setPwd(String pwd) {
+	public DbInfo setPwd(String pwd) {
 		this.pwd = pwd;
+		return this;
 	}
 
 	/**
@@ -108,8 +116,10 @@ public class DbInfo {
 	/**
 	 * 设置{@link #dbTables}
 	 * @param dbTables {@link #dbTables}
+	 * @return this{@link com.mum.db.pojo.DbInfo}对象
 	 */
-	public void setDbTables(Map<String, DbTable> dbTables) {
+	public DbInfo setDbTables(Map<String, DbTable> dbTables) {
 		this.dbTables = dbTables;
+		return this;
 	}
 }

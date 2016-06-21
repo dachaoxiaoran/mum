@@ -59,6 +59,21 @@ public class DbField {
 	private String value;
 	
 	/**
+	 * 是否是操作字段。true：是；false：不是
+	 */
+	private boolean isOperation;
+	
+	/**
+	 * 是否条件字段。true：是；false：不是
+	 */
+	private boolean isCondition;
+	
+	/**
+	 * 条件值
+	 */
+	private String conditionValue;
+	
+	/**
 	 * 外键集合，key是表名
 	 */
 	private Map<String, DbField> foreignFields;
@@ -74,9 +89,11 @@ public class DbField {
 	/**
 	 * 设置{@link #name}
 	 * @param name {@link #name}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setName(String name) {
+	public DbField setName(String name) {
 		this.name = name;
+		return this;
 	}
 
 	/**
@@ -90,9 +107,11 @@ public class DbField {
 	/**
 	 * 设置{@link #type}
 	 * @param type {@link #type}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setType(String type) {
+	public DbField setType(String type) {
 		this.type = type;
+		return this;
 	}
 
 	/**
@@ -106,9 +125,11 @@ public class DbField {
 	/**
 	 * 设置{@link #collation}
 	 * @param collation {@link #collation}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setCollation(String collation) {
+	public DbField setCollation(String collation) {
 		this.collation = collation;
+		return this;
 	}
 
 	/**
@@ -122,9 +143,11 @@ public class DbField {
 	/**
 	 * 设置{@link #null_}
 	 * @param null_ {@link #null_}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setNull_(String null_) {
+	public DbField setNull_(String null_) {
 		this.null_ = null_;
+		return this;
 	}
 
 	/**
@@ -138,9 +161,11 @@ public class DbField {
 	/**
 	 * 设置{@link #key}
 	 * @param key {@link #key}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setKey(String key) {
+	public DbField setKey(String key) {
 		this.key = key;
+		return this;
 	}
 
 	/**
@@ -154,9 +179,11 @@ public class DbField {
 	/**
 	 * 设置{@link #default_}
 	 * @param default_ {@link #default_}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setDefault_(String default_) {
+	public DbField setDefault_(String default_) {
 		this.default_ = default_;
+		return this;
 	}
 
 	/**
@@ -170,9 +197,11 @@ public class DbField {
 	/**
 	 * 设置{@link #extra}
 	 * @param extra {@link #extra}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setExtra(String extra) {
+	public DbField setExtra(String extra) {
 		this.extra = extra;
+		return this;
 	}
 
 	/**
@@ -186,9 +215,11 @@ public class DbField {
 	/**
 	 * 设置{@link #privileges}
 	 * @param privileges {@link #privileges}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setPrivileges(String privileges) {
+	public DbField setPrivileges(String privileges) {
 		this.privileges = privileges;
+		return this;
 	}
 
 	/**
@@ -202,9 +233,11 @@ public class DbField {
 	/**
 	 * 设置{@link #comment}
 	 * @param comment {@link #comment}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setComment(String comment) {
+	public DbField setComment(String comment) {
 		this.comment = comment;
+		return this;
 	}
 
 	/**
@@ -218,9 +251,65 @@ public class DbField {
 	/**
 	 * 设置{@link #value}
 	 * @param value {@link #value}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setValue(String value) {
+	public DbField setValue(String value) {
 		this.value = value;
+		return this;
+	}
+
+	/**
+	 * 获得{@link #isOperation}
+	 * @return {@link #isOperation}
+	 */
+	public boolean isOperation() {
+		return isOperation;
+	}
+
+	/**
+	 * 设置{@link #isOperation}
+	 * @param isOperation {@link #isOperation}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
+	 */
+	public DbField setOperation(boolean isOperation) {
+		this.isOperation = isOperation;
+		return this;
+	}
+
+	/**
+	 * 获得{@link #isCondition}
+	 * @return {@link #isCondition}
+	 */
+	public boolean isCondition() {
+		return isCondition;
+	}
+
+	/**
+	 * 设置{@link #isCondition}
+	 * @param isCondition {@link #isCondition}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
+	 */
+	public DbField setCondition(boolean isCondition) {
+		this.isCondition = isCondition;
+		return this;
+	}
+
+	/**
+	 * 获得{@link #conditionValue}
+	 * @return {@link #conditionValue}
+	 */
+	public String getConditionValue() {
+		return conditionValue;
+	}
+
+	/**
+	 * 设置{@link #conditionValue}
+	 * @param conditionValue {@link #conditionValue}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
+	 */
+	public DbField setConditionValue(String conditionValue) {
+		this.conditionValue = conditionValue;
+		return this;
 	}
 
 	/**
@@ -234,8 +323,10 @@ public class DbField {
 	/**
 	 * 设置{@link #foreignFields}
 	 * @param foreignFields {@link #foreignFields}
+	 * @return this{@link com.mum.db.pojo.DbField}对象
 	 */
-	public void setForeignFields(Map<String, DbField> foreignFields) {
+	public DbField setForeignFields(Map<String, DbField> foreignFields) {
 		this.foreignFields = foreignFields;
+		return this;
 	}
 }

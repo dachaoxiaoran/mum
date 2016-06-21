@@ -29,9 +29,11 @@ public class DbTable {
 	/**
 	 * 设置{@link #name}
 	 * @param name {@link #name}
+	 * @return this{@link com.mum.db.pojo.DbTable}对象
 	 */
-	public void setName(String name) {
+	public DbTable setName(String name) {
 		this.name = name;
+		return this;
 	}
 
 	/**
@@ -45,8 +47,10 @@ public class DbTable {
 	/**
 	 * 设置{@link #dbFields}
 	 * @param dbFields {@link #dbFields}
+	 * @return this{@link com.mum.db.pojo.DbTable}对象
 	 */
-	public void setDbFields(Map<String, DbField> dbFields) {
+	public DbTable setDbFields(Map<String, DbField> dbFields) {
 		this.dbFields = dbFields;
+		return this;
 	}
 }
