@@ -46,28 +46,24 @@ public class SqlBuild {
 	 */
 	public StringBuilder insert(DbTable... dbTables) {
 		sqlBuilder.delete(0, sqlBuilder.length());
+		whereBuilder.delete(0, whereBuilder.length());
 		for (DbTable dbTable : dbTables) {
-			sqlBuilder.append("insert into ");
-			sqlBuilder.append(dbTable.getName());
+			sqlBuilder.append("insert into ").append(dbTable.getName()).append("(");
 			
-			String fieldSql = "";
-			String valuesSql = "";
 			Map<String, DbField> dbFields = dbTable.getDbFields();
 			Iterator<Map.Entry<String, DbField>> iterator = dbFields.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry<String, DbField> entry = iterator.next();
 				DbField dbField = entry.getValue();
-				fieldSql = fieldSql.concat(dbField.getName()).concat(", ");
-				valuesSql = valuesSql.concat("'").concat(dbField.getValue()).concat("', ");
+				sqlBuilder.append(dbField.getName());
+				whereBuilder.append("'").append(dbField.getValue()).append("'");
+				if (iterator.hasNext()) {		//存在下一个要操作的字段
+					sqlBuilder.append(", ");
+					whereBuilder.append(", ");
+				}
 			}
-			fieldSql = fieldSql.substring(0, fieldSql.length() - 2);
-			valuesSql = valuesSql.substring(0, valuesSql.length() - 2);
 			
-			sqlBuilder.append("(");
-			sqlBuilder.append(fieldSql);
-			sqlBuilder.append(") values(");
-			sqlBuilder.append(valuesSql);
-			sqlBuilder.append(");");
+			sqlBuilder.append(") values(").append(whereBuilder).append(");");
 		}
 		
 		return sqlBuilder;
@@ -82,8 +78,7 @@ public class SqlBuild {
 		sqlBuilder.delete(0, sqlBuilder.length());
 		whereBuilder.delete(0, whereBuilder.length());
 		for (DbTable dbTable : dbTables) {
-			sqlBuilder.append("delete from ");
-			sqlBuilder.append(dbTable.getName());
+			sqlBuilder.append("delete from ").append(dbTable.getName());
 			
 			Map<String, DbField> dbFields = dbTable.getDbFields();
 			if (dbFields != null) {					//字段集合不为null
@@ -91,11 +86,8 @@ public class SqlBuild {
 				while (iterator.hasNext()) {
 					Map.Entry<String, DbField> entry = iterator.next();
 					DbField dbField = entry.getValue();
-					whereBuilder.append(dbField.getName());
-					whereBuilder.append(" = '");
-					whereBuilder.append(dbField.getValue());
-					whereBuilder.append("'");
-					if (iterator.hasNext()) {
+					whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("'");
+					if (iterator.hasNext()) {		//存在下一个要操作的字段
 						whereBuilder.append(" and ");
 					}
 				}
@@ -125,14 +117,10 @@ public class SqlBuild {
 				Map.Entry<String, DbField> entry = iterator.next();
 				DbField dbField = entry.getValue();
 				if (dbField.isOperation()) {								//操作字段
-					sqlBuilder.append(dbField.getName());
-					sqlBuilder.append(" = '");
-					sqlBuilder.append(dbField.getValue());
-					sqlBuilder.append("', ");
+					sqlBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("', ");
 				}
 				if (dbField.isCondition()) {								//条件字段
-					whereBuilder.append(dbField.getName());
-					whereBuilder.append(" = '");
+					whereBuilder.append(dbField.getName()).append(" = '");
 					if (Objects.isNull(dbField.getConditionValue())) {		//没有指定条件值
 						whereBuilder.append(dbField.getValue());
 					} else {												//制定了条件值，适用于字段既是操作项，又是条件项的情况
@@ -141,18 +129,13 @@ public class SqlBuild {
 					whereBuilder.append("' and ");
 				}
 				if (sqlBuilder.length() != 0) {								//有操作项
-					sqlBuilder.insert(0, " set ");
-					sqlBuilder.insert(0, dbTable.getName());
-					sqlBuilder.insert(0, "update ");
-					sqlBuilder.delete(sqlBuilder.length() - 2, sqlBuilder.length());
+					sqlBuilder.insert(0, " set ").insert(0, dbTable.getName()).insert(0, "update ").delete(sqlBuilder.length() - 2, sqlBuilder.length());
 				}
 				if (whereBuilder.length() != 0) {							//有条件项
-					whereBuilder.insert(0, " where ");
-					whereBuilder.delete(whereBuilder.length() - 5, whereBuilder.length());
+					whereBuilder.insert(0, " where ").delete(whereBuilder.length() - 5, whereBuilder.length());
 				}
 			}
-			sqlBuilder.append(whereBuilder);
-			sqlBuilder.append(";");
+			sqlBuilder.append(whereBuilder).append(";");
 		}
 		
 		return sqlBuilder;
@@ -173,29 +156,20 @@ public class SqlBuild {
 				Map.Entry<String, DbField> entry = iterator.next();
 				DbField dbField = entry.getValue();
 				if (Objects.nonNull(dbField.getValue())) {		//字段存在值
-					whereBuilder.append(dbField.getName());
-					whereBuilder.append(" = '");
-					whereBuilder.append(dbField.getValue());
-					whereBuilder.append("' and ");
+					whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("' and ");
 				}
 				if (dbField.isOperation()) {					//字段是操作项
-					sqlBuilder.append(dbField.getName());
-					sqlBuilder.append(", ");
+					sqlBuilder.append(dbField.getName()).append(", ");
 				}
 			}
 		}
 		if (sqlBuilder.length() == 0) {							//查询全部
-			sqlBuilder.append("select * from ");
-			sqlBuilder.append(dbTable.getName());
+			sqlBuilder.append("select * from ").append(dbTable.getName());
 		} else {												//查询部分字段
-			sqlBuilder.insert(0, "select ");
-			sqlBuilder.delete(sqlBuilder.length() - 2, sqlBuilder.length());
-			sqlBuilder.append(" from ");
-			sqlBuilder.append(dbTable.getName());
+			sqlBuilder.insert(0, "select ").delete(sqlBuilder.length() - 2, sqlBuilder.length()).append(" from ").append(dbTable.getName());
 		}
 		if (whereBuilder.length() != 0) {						//查询条件
-			whereBuilder.insert(0, " where ");
-			whereBuilder.delete(whereBuilder.length() - 5, whereBuilder.length());
+			whereBuilder.insert(0, " where ").delete(whereBuilder.length() - 5, whereBuilder.length());
 			sqlBuilder.append(whereBuilder);
 		}
 		sqlBuilder.append(";");
