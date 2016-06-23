@@ -59,8 +59,7 @@ public class Injection {
 		try (PreparedStatement preparedStatement = (PreparedStatement) conn.getConnection().prepareStatement(SHOW_TABLES);
 			ResultSet resultSet = preparedStatement.executeQuery()) {
 			while (resultSet.next()) {
-				DbTable dbTable = new DbTable();
-				dbTable.setName(resultSet.getString(TABLES_IN_MUM));
+				DbTable dbTable = new DbTable(resultSet.getString(TABLES_IN_MUM));
 				dbTables.put(resultSet.getString(TABLES_IN_MUM), dbTable);
 			}
 		}
