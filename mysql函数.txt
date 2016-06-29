@@ -1,5 +1,5 @@
 CONV(N,from_base,to_base) 
-ÔÚ²»Í¬µÄÊý×Ö»ùÖ®¼ä±ä»»Êý×Ö¡£·µ»ØÊý×ÖNµÄ×Ö·û´®Êý×Ö£¬´Ófrom_base»ù±ä»»Îªto_base»ù£¬Èç¹ûÈÎºÎ²ÎÊýÊÇNULL£¬·µ»ØNULL¡£²ÎÊýN½âÊÍÎªÒ»¸öÕûÊý£¬µ«ÊÇ¿ÉÒÔÖ¸¶¨ÎªÒ»¸öÕûÊý»òÒ»¸ö×Ö·û´®¡£×îÐ¡»ùÊÇ2ÇÒ×î´óµÄ»ùÊÇ36¡£Èç¹ûto_baseÊÇÒ»¸ö¸ºÊý£¬N±»ÈÏÎªÊÇÒ»¸öÓÐ·ûºÅÊý£¬·ñÔò£¬N±»µ±×÷ÎÞ·ûºÅÊý¡£ CONVÒÔ64Î»µã¾«¶È¹¤×÷¡£ 
+åœ¨ä¸åŒçš„æ•°å­—åŸºä¹‹é—´å˜æ¢æ•°å­—ã€‚è¿”å›žæ•°å­—Nçš„å­—ç¬¦ä¸²æ•°å­—ï¼Œä»Žfrom_baseåŸºå˜æ¢ä¸ºto_baseåŸºï¼Œå¦‚æžœä»»ä½•å‚æ•°æ˜¯NULLï¼Œè¿”å›žNULLã€‚å‚æ•°Nè§£é‡Šä¸ºä¸€ä¸ªæ•´æ•°ï¼Œä½†æ˜¯å¯ä»¥æŒ‡å®šä¸ºä¸€ä¸ªæ•´æ•°æˆ–ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚æœ€å°åŸºæ˜¯2ä¸”æœ€å¤§çš„åŸºæ˜¯36ã€‚å¦‚æžœto_baseæ˜¯ä¸€ä¸ªè´Ÿæ•°ï¼ŒNè¢«è®¤ä¸ºæ˜¯ä¸€ä¸ªæœ‰ç¬¦å·æ•°ï¼Œå¦åˆ™ï¼ŒNè¢«å½“ä½œæ— ç¬¦å·æ•°ã€‚ CONVä»¥64ä½ç‚¹ç²¾åº¦å·¥ä½œã€‚ 
 mysql> select CONV("a",16,2);
     -> '1010'
 mysql> select CONV("6E",18,8);
@@ -10,14 +10,14 @@ mysql> select CONV(10+"10"+'10'+0xa,10,10);
     -> '40'
 
 CHAR(N,...) 
-CHAR()½«²ÎÊý½âÊÍÎªÕûÊý²¢ÇÒ·µ»ØÓÉÕâÐ©ÕûÊýµÄASCII´úÂë×Ö·û×é³ÉµÄÒ»¸ö×Ö·û´®¡£NULLÖµ±»Ìø¹ý¡£ 
+CHAR()å°†å‚æ•°è§£é‡Šä¸ºæ•´æ•°å¹¶ä¸”è¿”å›žç”±è¿™äº›æ•´æ•°çš„ASCIIä»£ç å­—ç¬¦ç»„æˆçš„ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚NULLå€¼è¢«è·³è¿‡ã€‚ 
 mysql> select CHAR(77,121,83,81,'76');
     -> 'MySQL'
 mysql> select CHAR(77,77.3,'77.3');
     -> 'MMM'
 
 CONCAT(str1,str2,...) 
-·µ»ØÀ´×ÔÓÚ²ÎÊýÁ¬½áµÄ×Ö·û´®¡£Èç¹ûÈÎºÎ²ÎÊýÊÇNULL£¬·µ»ØNULL¡£¿ÉÒÔÓÐ³¬¹ý2¸öµÄ²ÎÊý¡£Ò»¸öÊý×Ö²ÎÊý±»±ä»»ÎªµÈ¼ÛµÄ×Ö·û´®ÐÎÊ½¡£ 
+è¿”å›žæ¥è‡ªäºŽå‚æ•°è¿žç»“çš„å­—ç¬¦ä¸²ã€‚å¦‚æžœä»»ä½•å‚æ•°æ˜¯NULLï¼Œè¿”å›žNULLã€‚å¯ä»¥æœ‰è¶…è¿‡2ä¸ªçš„å‚æ•°ã€‚ä¸€ä¸ªæ•°å­—å‚æ•°è¢«å˜æ¢ä¸ºç­‰ä»·çš„å­—ç¬¦ä¸²å½¢å¼ã€‚ 
 mysql> select CONCAT('My', 'S', 'QL');
     -> 'MySQL'
 mysql> select CONCAT('My', NULL, 'QL');
@@ -26,75 +26,75 @@ mysql> select CONCAT(14.3);
     -> '14.3'
 	
 LOCATE(substr,str) 
-¡¡ 
+ã€€ 
 POSITION(substr IN str) 
-·µ»Ø×Ó´®substrÔÚ×Ö·û´®strµÚÒ»¸ö³öÏÖµÄÎ»ÖÃ£¬Èç¹ûsubstr²»ÊÇÔÚstrÀïÃæ£¬·µ»Ø0. 
+è¿”å›žå­ä¸²substråœ¨å­—ç¬¦ä¸²strç¬¬ä¸€ä¸ªå‡ºçŽ°çš„ä½ç½®ï¼Œå¦‚æžœsubsträ¸æ˜¯åœ¨stré‡Œé¢ï¼Œè¿”å›ž0. 
 mysql> select LOCATE('bar', 'foobarbar');
     -> 4
 mysql> select LOCATE('xbar', 'foobar');
     -> 0
-¸Ãº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 LOCATE(substr,str,pos) 
-·µ»Ø×Ó´®substrÔÚ×Ö·û´®strµÚÒ»¸ö³öÏÖµÄÎ»ÖÃ£¬´ÓÎ»ÖÃpos¿ªÊ¼¡£Èç¹ûsubstr²»ÊÇÔÚstrÀïÃæ£¬·µ»Ø0¡£
+è¿”å›žå­ä¸²substråœ¨å­—ç¬¦ä¸²strç¬¬ä¸€ä¸ªå‡ºçŽ°çš„ä½ç½®ï¼Œä»Žä½ç½®poså¼€å§‹ã€‚å¦‚æžœsubsträ¸æ˜¯åœ¨stré‡Œé¢ï¼Œè¿”å›ž0ã€‚
 mysql> select LOCATE('bar', 'foobarbar',5);
     -> 7
-Õâº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¿™å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 INSTR(str,substr) 
-·µ»Ø×Ó´®substrÔÚ×Ö·û´®strÖÐµÄµÚÒ»¸ö³öÏÖµÄÎ»ÖÃ¡£ÕâÓëÓÐ2¸ö²ÎÊýÐÎÊ½µÄLOCATE()ÏàÍ¬£¬³ýÁË²ÎÊý±»µßµ¹¡£ 
+è¿”å›žå­ä¸²substråœ¨å­—ç¬¦ä¸²strä¸­çš„ç¬¬ä¸€ä¸ªå‡ºçŽ°çš„ä½ç½®ã€‚è¿™ä¸Žæœ‰2ä¸ªå‚æ•°å½¢å¼çš„LOCATE()ç›¸åŒï¼Œé™¤äº†å‚æ•°è¢«é¢ å€’ã€‚ 
 mysql> select INSTR('foobarbar', 'bar');
     -> 4
 mysql> select INSTR('xbar', 'foobar');
     -> 0
-Õâº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¿™å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 LPAD(str,len,padstr) 
-·µ»Ø×Ö·û´®str£¬×óÃæÓÃ×Ö·û´®padstrÌî²¹Ö±µ½strÊÇlen¸ö×Ö·û³¤¡£ 
+è¿”å›žå­—ç¬¦ä¸²strï¼Œå·¦é¢ç”¨å­—ç¬¦ä¸²padstrå¡«è¡¥ç›´åˆ°stræ˜¯lenä¸ªå­—ç¬¦é•¿ã€‚ 
 mysql> select LPAD('hi',4,'??');
     -> '??hi'
 
 RPAD(str,len,padstr) 
-·µ»Ø×Ö·û´®str£¬ÓÒÃæÓÃ×Ö·û´®padstrÌî²¹Ö±µ½strÊÇlen¸ö×Ö·û³¤¡£ 
+è¿”å›žå­—ç¬¦ä¸²strï¼Œå³é¢ç”¨å­—ç¬¦ä¸²padstrå¡«è¡¥ç›´åˆ°stræ˜¯lenä¸ªå­—ç¬¦é•¿ã€‚ 
 mysql> select RPAD('hi',5,'?');
     -> 'hi???'
 LEFT(str,len) 
-·µ»Ø×Ö·û´®strµÄ×î×óÃælen¸ö×Ö·û¡£
+è¿”å›žå­—ç¬¦ä¸²strçš„æœ€å·¦é¢lenä¸ªå­—ç¬¦ã€‚
 mysql> select LEFT('foobarbar', 5);
     -> 'fooba'
-¸Ãº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 RIGHT(str,len) 
-·µ»Ø×Ö·û´®strµÄ×îÓÒÃælen¸ö×Ö·û¡£ 
+è¿”å›žå­—ç¬¦ä¸²strçš„æœ€å³é¢lenä¸ªå­—ç¬¦ã€‚ 
 mysql> select RIGHT('foobarbar', 4);
     -> 'rbar'
-¸Ãº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 SUBSTRING(str,pos,len) 
-¡¡ 
+ã€€ 
 SUBSTRING(str FROM pos FOR len) 
-¡¡ 
+ã€€ 
 MID(str,pos,len) 
-´Ó×Ö·û´®str·µ»ØÒ»¸ölen¸ö×Ö·ûµÄ×Ó´®£¬´ÓÎ»ÖÃpos¿ªÊ¼¡£Ê¹ÓÃFROMµÄ±äÖÖÐÎÊ½ÊÇANSI SQL92Óï·¨¡£ 
+ä»Žå­—ç¬¦ä¸²strè¿”å›žä¸€ä¸ªlenä¸ªå­—ç¬¦çš„å­ä¸²ï¼Œä»Žä½ç½®poså¼€å§‹ã€‚ä½¿ç”¨FROMçš„å˜ç§å½¢å¼æ˜¯ANSI SQL92è¯­æ³•ã€‚ 
 mysql> select SUBSTRING('Quadratically',5,6);
     -> 'ratica'
-¸Ãº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 SUBSTRING(str,pos) 
-¡¡ 
+ã€€ 
 SUBSTRING(str FROM pos) 
-´Ó×Ö·û´®strµÄÆðÊ¼Î»ÖÃpos·µ»ØÒ»¸ö×Ó´®¡£ 
+ä»Žå­—ç¬¦ä¸²strçš„èµ·å§‹ä½ç½®posè¿”å›žä¸€ä¸ªå­ä¸²ã€‚ 
 mysql> select SUBSTRING('Quadratically',5);
     -> 'ratically'
 mysql> select SUBSTRING('foobarbar' FROM 4);
     -> 'barbar'
-¸Ãº¯ÊýÊÇ¶à×Ö½Ú¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°æ˜¯å¤šå­—èŠ‚å¯é çš„ã€‚ 
 SUBSTRING_INDEX(str,delim,count) 
-·µ»Ø´Ó×Ö·û´®strµÄµÚcount¸ö³öÏÖµÄ·Ö¸ô·ûdelimÖ®ºóµÄ×Ó´®¡£Èç¹ûcountÊÇÕýÊý£¬·µ»Ø×îºóµÄ·Ö¸ô·ûµ½×ó±ß(´Ó×ó±ßÊý) µÄËùÓÐ×Ö·û¡£Èç¹ûcountÊÇ¸ºÊý£¬·µ»Ø×îºóµÄ·Ö¸ô·ûµ½ÓÒ±ßµÄËùÓÐ×Ö·û(´ÓÓÒ±ßÊý)¡£ 
+è¿”å›žä»Žå­—ç¬¦ä¸²strçš„ç¬¬countä¸ªå‡ºçŽ°çš„åˆ†éš”ç¬¦delimä¹‹åŽçš„å­ä¸²ã€‚å¦‚æžœcountæ˜¯æ­£æ•°ï¼Œè¿”å›žæœ€åŽçš„åˆ†éš”ç¬¦åˆ°å·¦è¾¹(ä»Žå·¦è¾¹æ•°) çš„æ‰€æœ‰å­—ç¬¦ã€‚å¦‚æžœcountæ˜¯è´Ÿæ•°ï¼Œè¿”å›žæœ€åŽçš„åˆ†éš”ç¬¦åˆ°å³è¾¹çš„æ‰€æœ‰å­—ç¬¦(ä»Žå³è¾¹æ•°)ã€‚ 
 mysql> select SUBSTRING_INDEX('www.mysql.com', '.', 2);
     -> 'www.mysql'
 mysql> select SUBSTRING_INDEX('www.mysql.com', '.', -2);
     -> 'mysql.com'
-¸Ãº¯Êý¶Ô¶à×Ö½ÚÊÇ¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°å¯¹å¤šå­—èŠ‚æ˜¯å¯é çš„ã€‚ 
 
 TRIM([[BOTH | LEA
 
 DING | TRAILING] [remstr] FROM] str) 
-·µ»Ø×Ö·û´®str£¬ÆäËùÓÐremstrÇ°×º»òºó×º±»É¾³ýÁË¡£Èç¹ûÃ»ÓÐÐÞÊÎ·ûBOTH¡¢LEADING»òTRAILING¸ø³ö£¬BOTH±»¼Ù¶¨¡£Èç¹ûremstrÃ»±»Ö¸¶¨£¬¿Õ¸ñ±»É¾³ý¡£ 
+è¿”å›žå­—ç¬¦ä¸²strï¼Œå…¶æ‰€æœ‰remstrå‰ç¼€æˆ–åŽç¼€è¢«åˆ é™¤äº†ã€‚å¦‚æžœæ²¡æœ‰ä¿®é¥°ç¬¦BOTHã€LEADINGæˆ–TRAILINGç»™å‡ºï¼ŒBOTHè¢«å‡å®šã€‚å¦‚æžœremstræ²¡è¢«æŒ‡å®šï¼Œç©ºæ ¼è¢«åˆ é™¤ã€‚ 
 mysql> select TRIM(' bar   ');
     -> 'bar'
 mysql> select TRIM(LEADING 'x' FROM 'xxxbarxxx');
@@ -103,43 +103,43 @@ mysql> select TRIM(BOTH 'x' FROM 'xxxbarxxx');
     -> 'bar'
 mysql> select TRIM(TRAILING 'xyz' FROM 'barxxyz');
     -> 'barx'
-¸Ãº¯Êý¶Ô¶à×Ö½ÚÊÇ¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°å¯¹å¤šå­—èŠ‚æ˜¯å¯é çš„ã€‚ 
 
 REPLACE(str,from_str,to_str) 
-·µ»Ø×Ö·û´®str£¬Æä×Ö·û´®from_strµÄËùÓÐ³öÏÖÓÉ×Ö·û´®to_str´úÌæ¡£ 
+è¿”å›žå­—ç¬¦ä¸²strï¼Œå…¶å­—ç¬¦ä¸²from_strçš„æ‰€æœ‰å‡ºçŽ°ç”±å­—ç¬¦ä¸²to_strä»£æ›¿ã€‚ 
 mysql> select REPLACE('www.mysql.com', 'w', 'Ww');
     -> 'WwWwWw.mysql.com'
-¸Ãº¯Êý¶Ô¶à×Ö½ÚÊÇ¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°å¯¹å¤šå­—èŠ‚æ˜¯å¯é çš„ã€‚ 
 REPEAT(str,count) 
-·µ»ØÓÉÖØ¸´countTimes´ÎµÄ×Ö·û´®str×é³ÉµÄÒ»¸ö×Ö·û´®¡£Èç¹ûcount <= 0£¬·µ»ØÒ»¸ö¿Õ×Ö·û´®¡£Èç¹ûstr»òcountÊÇNULL£¬·µ»ØNULL¡£ 
+è¿”å›žç”±é‡å¤countTimesæ¬¡çš„å­—ç¬¦ä¸²strç»„æˆçš„ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚å¦‚æžœcount <= 0ï¼Œè¿”å›žä¸€ä¸ªç©ºå­—ç¬¦ä¸²ã€‚å¦‚æžœstræˆ–countæ˜¯NULLï¼Œè¿”å›žNULLã€‚ 
 mysql> select REPEAT('MySQL', 3);
     -> 'MySQLMySQLMySQL'
 
 
 INSERT(str,pos,len,newstr) 
-·µ»Ø×Ö·û´®str£¬ÔÚÎ»ÖÃposÆðÊ¼µÄ×Ó´®ÇÒlen¸ö×Ö·û³¤µÃ×Ó´®ÓÉ×Ö·û´®newstr´úÌæ¡£ 
+è¿”å›žå­—ç¬¦ä¸²strï¼Œåœ¨ä½ç½®posèµ·å§‹çš„å­ä¸²ä¸”lenä¸ªå­—ç¬¦é•¿å¾—å­ä¸²ç”±å­—ç¬¦ä¸²newsträ»£æ›¿ã€‚ 
 mysql> select INSERT('Quadratic', 3, 4, 'What');
     -> 'QuWhattic'
-¸Ãº¯Êý¶Ô¶à×Ö½ÚÊÇ¿É¿¿µÄ¡£ 
+è¯¥å‡½æ•°å¯¹å¤šå­—èŠ‚æ˜¯å¯é çš„ã€‚ 
 ELT(N,str1,str2,str3,...) 
-Èç¹ûN= 1£¬·µ»Østr1£¬Èç¹ûN= 2£¬·µ»Østr2£¬µÈµÈ¡£Èç¹ûNÐ¡ÓÚ1»ò´óÓÚ²ÎÊý¸öÊý£¬·µ»ØNULL¡£ELT()ÊÇFIELD()·´ÔËËã¡£ 
+å¦‚æžœN= 1ï¼Œè¿”å›žstr1ï¼Œå¦‚æžœN= 2ï¼Œè¿”å›žstr2ï¼Œç­‰ç­‰ã€‚å¦‚æžœNå°äºŽ1æˆ–å¤§äºŽå‚æ•°ä¸ªæ•°ï¼Œè¿”å›žNULLã€‚ELT()æ˜¯FIELD()åè¿ç®—ã€‚ 
 mysql> select ELT(1, 'ej', 'Heja', 'hej', 'foo');
     -> 'ej'
 mysql> select ELT(4, 'ej', 'Heja', 'hej', 'foo');
     -> 'foo'
 FIELD(str,str1,str2,str3,...) 
-·µ»ØstrÔÚstr1, str2, str3, ...Çåµ¥µÄË÷Òý¡£Èç¹ûstrÃ»ÕÒµ½£¬·µ»Ø0¡£FIELD()ÊÇELT()·´ÔËËã¡£ 
+è¿”å›žstråœ¨str1, str2, str3, ...æ¸…å•çš„ç´¢å¼•ã€‚å¦‚æžœstræ²¡æ‰¾åˆ°ï¼Œè¿”å›ž0ã€‚FIELD()æ˜¯ELT()åè¿ç®—ã€‚ 
 mysql> select FIELD('ej', 'Hej', 'ej', 'Heja', 'hej', 'foo');
     -> 2
 mysql> select FIELD('fo', 'Hej', 'ej', 'Heja', 'hej', 'foo');
     -> 0
 FIND_IN_SET(str,strlist) 
-Èç¹û×Ö·û´®strÔÚÓÉN×Ó´®×é³ÉµÄ±ístrlistÖ®ÖÐ£¬·µ»ØÒ»¸ö1µ½NµÄÖµ¡£Ò»¸ö×Ö·û´®±íÊÇ±»¡°,¡±·Ö¸ôµÄ×Ó´®×é³ÉµÄÒ»¸ö×Ö·û´®¡£Èç¹ûµÚÒ»¸ö²ÎÊýÊÇÒ»¸ö³£Êý×Ö·û´®²¢ÇÒµÚ¶þ¸ö²ÎÊýÊÇÒ»ÖÖÀàÐÍÎªSETµÄÁÐ£¬FIND_IN_SET()º¯Êý±»ÓÅ»¯¶øÊ¹ÓÃÎ»ÔËËã£¡Èç¹ûstr²»ÊÇÔÚstrlistÀïÃæ»òÈç¹ûstrlistÊÇ¿Õ×Ö·û´®£¬·µ»Ø0¡£Èç¹ûÈÎºÎÒ»¸ö²ÎÊýÊÇNULL£¬·µ»ØNULL¡£Èç¹ûµÚÒ»¸ö²ÎÊý°üº¬Ò»¸ö¡°,¡±£¬¸Ãº¯Êý½«¹¤×÷²»Õý³£¡£ 
+å¦‚æžœå­—ç¬¦ä¸²stråœ¨ç”±Nå­ä¸²ç»„æˆçš„è¡¨strlistä¹‹ä¸­ï¼Œè¿”å›žä¸€ä¸ª1åˆ°Nçš„å€¼ã€‚ä¸€ä¸ªå­—ç¬¦ä¸²è¡¨æ˜¯è¢«â€œ,â€åˆ†éš”çš„å­ä¸²ç»„æˆçš„ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚å¦‚æžœç¬¬ä¸€ä¸ªå‚æ•°æ˜¯ä¸€ä¸ªå¸¸æ•°å­—ç¬¦ä¸²å¹¶ä¸”ç¬¬äºŒä¸ªå‚æ•°æ˜¯ä¸€ç§ç±»åž‹ä¸ºSETçš„åˆ—ï¼ŒFIND_IN_SET()å‡½æ•°è¢«ä¼˜åŒ–è€Œä½¿ç”¨ä½è¿ç®—ï¼å¦‚æžœsträ¸æ˜¯åœ¨strlisté‡Œé¢æˆ–å¦‚æžœstrlistæ˜¯ç©ºå­—ç¬¦ä¸²ï¼Œè¿”å›ž0ã€‚å¦‚æžœä»»ä½•ä¸€ä¸ªå‚æ•°æ˜¯NULLï¼Œè¿”å›žNULLã€‚å¦‚æžœç¬¬ä¸€ä¸ªå‚æ•°åŒ…å«ä¸€ä¸ªâ€œ,â€ï¼Œè¯¥å‡½æ•°å°†å·¥ä½œä¸æ­£å¸¸ã€‚ 
 mysql> SELECT FIND_IN_SET('b','a,b,c,d');
     -> 2
 
 MAKE_SET(bits,str1,str2,...) 
-·µ»ØÒ»¸ö¼¯ºÏ (°üº¬ÓÉ¡°,¡±×Ö·û·Ö¸ôµÄ×Ó´®×é³ÉµÄÒ»¸ö×Ö·û´®)£¬ÓÉÏàÓ¦µÄÎ»ÔÚbits¼¯ºÏÖÐµÄµÄ×Ö·û´®×é³É¡£str1¶ÔÓ¦ÓÚÎ»0£¬str2¶ÔÓ¦Î»1£¬µÈµÈ¡£ÔÚstr1, str2, ...ÖÐµÄNULL´®²»Ìí¼Óµ½½á¹ûÖÐ¡£ 
+è¿”å›žä¸€ä¸ªé›†åˆ (åŒ…å«ç”±â€œ,â€å­—ç¬¦åˆ†éš”çš„å­ä¸²ç»„æˆçš„ä¸€ä¸ªå­—ç¬¦ä¸²)ï¼Œç”±ç›¸åº”çš„ä½åœ¨bitsé›†åˆä¸­çš„çš„å­—ç¬¦ä¸²ç»„æˆã€‚str1å¯¹åº”äºŽä½0ï¼Œstr2å¯¹åº”ä½1ï¼Œç­‰ç­‰ã€‚åœ¨str1, str2, ...ä¸­çš„NULLä¸²ä¸æ·»åŠ åˆ°ç»“æžœä¸­ã€‚ 
 mysql> SELECT MAKE_SET(1,'a','b','c');
     -> 'a'
 mysql> SELECT MAKE_SET(1 | 4,'hello','nice','world');
@@ -147,307 +147,213 @@ mysql> SELECT MAKE_SET(1 | 4,'hello','nice','world');
 mysql> SELECT MAKE_SET(0,'a','b','c');
     -> ''
 EXPORT_SET(bits,on,off,[separator,[number_of_bits]]) 
-·µ»ØÒ»¸ö×Ö·û´®£¬ÔÚÕâÀï¶ÔÓÚÔÚ¡°bits¡±ÖÐÉè¶¨Ã¿Ò»Î»£¬ÄãµÃµ½Ò»¸ö¡°on¡±×Ö·û´®£¬²¢ÇÒ¶ÔÓÚÃ¿¸ö¸´Î»(reset)µÄÎ»£¬ÄãµÃµ½Ò»¸ö¡°off¡±×Ö·û´®¡£Ã¿¸ö×Ö·û´®ÓÃ¡°separator¡±·Ö¸ô(È±Ê¡¡°,¡±)£¬²¢ÇÒÖ»ÓÐ¡°bits¡±µÄ¡°number_of_bits¡± (È±Ê¡64)Î»±»Ê¹ÓÃ¡£ 
+è¿”å›žä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œåœ¨è¿™é‡Œå¯¹äºŽåœ¨â€œbitsâ€ä¸­è®¾å®šæ¯ä¸€ä½ï¼Œä½ å¾—åˆ°ä¸€ä¸ªâ€œonâ€å­—ç¬¦ä¸²ï¼Œå¹¶ä¸”å¯¹äºŽæ¯ä¸ªå¤ä½(reset)çš„ä½ï¼Œä½ å¾—åˆ°ä¸€ä¸ªâ€œoffâ€å­—ç¬¦ä¸²ã€‚æ¯ä¸ªå­—ç¬¦ä¸²ç”¨â€œseparatorâ€åˆ†éš”(ç¼ºçœâ€œ,â€)ï¼Œå¹¶ä¸”åªæœ‰â€œbitsâ€çš„â€œnumber_of_bitsâ€ (ç¼ºçœ64)ä½è¢«ä½¿ç”¨ã€‚ 
 mysql> select EXPORT_SET(5,'Y','N',',',4)
     -> Y,N,Y,N 
 
 
 
-MySQL±ØÒªÊ±×Ô¶¯±ä»»Êý×ÖÎª×Ö·û´®£¬²¢ÇÒ·´¹ýÀ´Ò²Èç´Ë£º 
+MySQLå¿…è¦æ—¶è‡ªåŠ¨å˜æ¢æ•°å­—ä¸ºå­—ç¬¦ä¸²ï¼Œå¹¶ä¸”åè¿‡æ¥ä¹Ÿå¦‚æ­¤ï¼š 
 mysql> SELECT 1+"1";
     -> 2
 mysql> SELECT CONCAT(2,' test');
     -> '2 test'
-Èç¹ûÄãÏëÒªÃ÷È·µØ±ä»»Ò»¸öÊý×Öµ½Ò»¸ö×Ö·û´®£¬°ÑËü×÷Îª²ÎÊý´«µÝµ½CONCAT()¡£ 
-Èç¹û×Ö·û´®º¯ÊýÌá¹©Ò»¸ö¶þ½øÖÆ×Ö·û´®×÷Îª²ÎÊý£¬½á¹û×Ö·û´®Ò²ÊÇÒ»¸ö¶þ½øÖÆ×Ö·û´®¡£±»±ä»»µ½Ò»¸ö×Ö·û´®µÄÊý×Ö±»µ±×÷ÊÇÒ»¸ö¶þ½øÖÆ×Ö·û´®¡£Õâ½öÓ°Ïì±È½Ï
+å¦‚æžœä½ æƒ³è¦æ˜Žç¡®åœ°å˜æ¢ä¸€ä¸ªæ•°å­—åˆ°ä¸€ä¸ªå­—ç¬¦ä¸²ï¼ŒæŠŠå®ƒä½œä¸ºå‚æ•°ä¼ é€’åˆ°CONCAT()ã€‚ 
+å¦‚æžœå­—ç¬¦ä¸²å‡½æ•°æä¾›ä¸€ä¸ªäºŒè¿›åˆ¶å­—ç¬¦ä¸²ä½œä¸ºå‚æ•°ï¼Œç»“æžœå­—ç¬¦ä¸²ä¹Ÿæ˜¯ä¸€ä¸ªäºŒè¿›åˆ¶å­—ç¬¦ä¸²ã€‚è¢«å˜æ¢åˆ°ä¸€ä¸ªå­—ç¬¦ä¸²çš„æ•°å­—è¢«å½“ä½œæ˜¯ä¸€ä¸ªäºŒè¿›åˆ¶å­—ç¬¦ä¸²ã€‚è¿™ä»…å½±å“æ¯”è¾ƒ
 
  
 
-                                       mysql Ê±¼äº¯ÊýÓÃ·¨¼¯ºÏ
+                                       mysql æ—¶é—´å‡½æ•°ç”¨æ³•é›†åˆ
 
  
 
-ÕâÀïÊÇÒ»¸öÊ¹ÓÃÈÕÆÚº¯ÊýµÄÀý×Ó¡£ÏÂÃæµÄ²éÑ¯Ñ¡ÔñÁËËùÓÐ¼ÇÂ¼£¬Æädate_colµÄÖµÊÇÔÚ×îºó30ÌìÒÔÄÚ£º 
+è¿™é‡Œæ˜¯ä¸€ä¸ªä½¿ç”¨æ—¥æœŸå‡½æ•°çš„ä¾‹å­ã€‚ä¸‹é¢çš„æŸ¥è¯¢é€‰æ‹©äº†æ‰€æœ‰è®°å½•ï¼Œå…¶date_colçš„å€¼æ˜¯åœ¨æœ€åŽ30å¤©ä»¥å†…ï¼š 
 
-¡¡¡¡mysql> SELECT something FROM table  
-¡¡¡¡WHERE TO_DAYS(NOW()) - TO_DAYS(date_col) <= 30; 
+ã€€ã€€mysql> SELECT something FROM table  
+ã€€ã€€WHERE TO_DAYS(NOW()) - TO_DAYS(date_col) <= 30; 
 
-¡¡¡¡DAYOFWEEK(date)  
-¡¡¡¡·µ»ØÈÕÆÚdateµÄÐÇÆÚË÷Òý(1=ÐÇÆÚÌì£¬2=ÐÇÆÚÒ», ¡­¡­7=ÐÇÆÚÁù)¡£ÕâÐ©Ë÷ÒýÖµ¶ÔÓ¦ÓÚODBC±ê×¼¡£  
-¡¡¡¡mysql> select DAYOFWEEK('1998-02-03');  
-¡¡¡¡-> 3 
+ã€€ã€€WEEK(date)  
+ã€€ã€€ã€€  
+ã€€ã€€WEEK(date,first)  
+ã€€ã€€å¯¹äºŽæ˜ŸæœŸå¤©æ˜¯ä¸€å‘¨çš„ç¬¬ä¸€å¤©çš„åœ°æ–¹ï¼Œæœ‰ä¸€ä¸ªå•ä¸ªå‚æ•°ï¼Œè¿”å›ždateçš„å‘¨æ•°ï¼ŒèŒƒå›´åœ¨0åˆ°52ã€‚2ä¸ªå‚æ•°å½¢å¼WEEK()å…è®¸ä½ æŒ‡å®šæ˜ŸæœŸæ˜¯å¦å¼€å§‹äºŽæ˜ŸæœŸå¤©æˆ–æ˜ŸæœŸä¸€ã€‚å¦‚æžœç¬¬äºŒä¸ªå‚æ•°æ˜¯0ï¼Œæ˜ŸæœŸä»Žæ˜ŸæœŸå¤©å¼€å§‹ï¼Œå¦‚æžœç¬¬äºŒä¸ªå‚æ•°æ˜¯1ï¼Œä»Žæ˜ŸæœŸä¸€å¼€å§‹ã€‚  
+ã€€ã€€mysql> select WEEK('1998-02-20');  
+ã€€ã€€-> 7  
+ã€€ã€€mysql> select WEEK('1998-02-20',0);  
+ã€€ã€€-> 7  
+ã€€ã€€mysql> select WEEK('1998-02-20',1);  
+ã€€ã€€-> 8 
 
-¡¡¡¡WEEKDAY(date)  
-¡¡¡¡·µ»ØdateµÄÐÇÆÚË÷Òý(0=ÐÇÆÚÒ»£¬1=ÐÇÆÚ¶þ, ¡­¡­6= ÐÇÆÚÌì)¡£  
-¡¡¡¡mysql> select WEEKDAY('1997-10-04 22:23:00');  
-¡¡¡¡-> 5  
-¡¡¡¡mysql> select WEEKDAY('1997-11-05');  
-¡¡¡¡-> 2 
+ã€€ã€€PERIOD_ADD(P,N)  
+ã€€ã€€å¢žåŠ Nä¸ªæœˆåˆ°é˜¶æ®µPï¼ˆä»¥æ ¼å¼YYMMæˆ–YYYYMM)ã€‚ä»¥æ ¼å¼YYYYMMè¿”å›žå€¼ã€‚æ³¨æ„é˜¶æ®µå‚æ•°Pä¸æ˜¯æ—¥æœŸå€¼ã€‚  
+ã€€ã€€mysql> select PERIOD_ADD(9801,2);  
+ã€€ã€€-> 199803 
 
-¡¡¡¡DAYOFMONTH(date)  
-¡¡¡¡·µ»ØdateµÄÔÂ·ÝÖÐÈÕÆÚ£¬ÔÚ1µ½31·¶Î§ÄÚ¡£  
-¡¡¡¡mysql> select DAYOFMONTH('1998-02-03');  
-¡¡¡¡-> 3 
+ã€€ã€€PERIOD_DIFF(P1,P2)  
+ã€€ã€€è¿”å›žåœ¨æ—¶æœŸP1å’ŒP2ä¹‹é—´æœˆæ•°ï¼ŒP1å’ŒP2åº”è¯¥ä»¥æ ¼å¼YYMMæˆ–YYYYMMã€‚æ³¨æ„ï¼Œæ—¶æœŸå‚æ•°P1å’ŒP2ä¸æ˜¯æ—¥æœŸå€¼ã€‚  
+ã€€ã€€mysql> select PERIOD_DIFF(9802,199703);  
+ã€€ã€€-> 11 
 
-¡¡¡¡DAYOFYEAR(date)  
-¡¡¡¡·µ»ØdateÔÚÒ»ÄêÖÐµÄÈÕÊý, ÔÚ1µ½366·¶Î§ÄÚ¡£  
-¡¡¡¡mysql> select DAYOFYEAR('1998-02-03');  
-¡¡¡¡-> 34 
+ã€€ã€€DATE_ADD(date,INTERVAL expr type)  
+ã€€ã€€ã€€  
+ã€€ã€€DATE_SUB(date,INTERVAL expr type)  
+ã€€ã€€ã€€  
+ã€€ã€€ADDDATE(date,INTERVAL expr type)  
+ã€€ã€€ã€€  
+ã€€ã€€SUBDATE(date,INTERVAL expr type)  
+ã€€ã€€è¿™äº›åŠŸèƒ½æ‰§è¡Œæ—¥æœŸè¿ç®—ã€‚å¯¹äºŽMySQL 3.22ï¼Œä»–ä»¬æ˜¯æ–°çš„ã€‚ADDDATE()å’ŒSUBDATE()æ˜¯DATE_ADD()å’ŒDATE_SUB()çš„åŒä¹‰è¯ã€‚ 
+ã€€ã€€åœ¨MySQL 3.23ä¸­ï¼Œä½ å¯ä»¥ä½¿ç”¨+å’Œ-è€Œä¸æ˜¯DATE_ADD()å’ŒDATE_SUB()ã€‚ï¼ˆè§ä¾‹å­ï¼‰dateæ˜¯ä¸€ä¸ªæŒ‡å®šå¼€å§‹æ—¥æœŸçš„ 
+ã€€ã€€DATETIMEæˆ–DATEå€¼ï¼Œexpræ˜¯æŒ‡å®šåŠ åˆ°å¼€å§‹æ—¥æœŸæˆ–ä»Žå¼€å§‹æ—¥æœŸå‡åŽ»çš„é—´éš”å€¼ä¸€ä¸ªè¡¨è¾¾å¼ï¼Œexpræ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²ï¼›å®ƒå¯ä»¥ä»¥ 
+ã€€ã€€ä¸€ä¸ªâ€œ-â€å¼€å§‹è¡¨ç¤ºè´Ÿé—´éš”ã€‚typeæ˜¯ä¸€ä¸ªå…³é”®è¯ï¼ŒæŒ‡æ˜Žè¡¨è¾¾å¼åº”è¯¥å¦‚ä½•è¢«è§£é‡Šã€‚EXTRACT(type FROM date)å‡½æ•°ä»Žæ—¥æœŸ 
+ã€€ã€€ä¸­è¿”å›žâ€œtypeâ€é—´éš”ã€‚ä¸‹è¡¨æ˜¾ç¤ºäº†typeå’Œexprå‚æ•°æ€Žæ ·è¢«å…³è”ï¼š typeå€¼ å«ä¹‰ æœŸæœ›çš„expræ ¼å¼  
+ã€€ã€€SECOND ç§’ SECONDS  
+ã€€ã€€MINUTE åˆ†é’Ÿ MINUTES  
+ã€€ã€€HOUR æ—¶é—´ HOURS  
+ã€€ã€€DAY å¤© DAYS  
+ã€€ã€€MONTH æœˆ MONTHS  
+ã€€ã€€YEAR å¹´ YEARS  
+ã€€ã€€MINUTE_SECOND åˆ†é’Ÿå’Œç§’ "MINUTES:SECONDS"  
+ã€€ã€€HOUR_MINUTE å°æ—¶å’Œåˆ†é’Ÿ "HOURS:MINUTES"  
+ã€€ã€€DAY_HOUR å¤©å’Œå°æ—¶ "DAYS HOURS"  
+ã€€ã€€YEAR_MONTH å¹´å’Œæœˆ "YEARS-MONTHS"  
+ã€€ã€€HOUR_SECOND å°æ—¶, åˆ†é’Ÿï¼Œ "HOURS:MINUTES:SECONDS"  
+ã€€ã€€DAY_MINUTE å¤©, å°æ—¶, åˆ†é’Ÿ "DAYS HOURS:MINUTES"  
+ã€€ã€€DAY_SECOND å¤©, å°æ—¶, åˆ†é’Ÿ, ç§’ "DAYS HOURS:MINUTES:SECONDS" 
 
-¡¡¡¡MONTH(date)  
-¡¡¡¡·µ»ØdateµÄÔÂ·Ý£¬·¶Î§1µ½12¡£  
-¡¡¡¡mysql> select MONTH('1998-02-03');  
-¡¡¡¡-> 2 
+ã€€ã€€MySQLåœ¨expræ ¼å¼ä¸­å…è®¸ä»»ä½•æ ‡ç‚¹åˆ†éš”ç¬¦ã€‚è¡¨ç¤ºæ˜¾ç¤ºçš„æ˜¯å»ºè®®çš„åˆ†éš”ç¬¦ã€‚å¦‚æžœdateå‚æ•°æ˜¯ä¸€ä¸ªDATEå€¼å¹¶ä¸”ä½ çš„è®¡ç®—ä»…ä»…åŒ…å«YEARã€MONTHå’ŒDAYéƒ¨åˆ†(å³ï¼Œæ²¡æœ‰æ—¶é—´éƒ¨åˆ†)ï¼Œç»“æžœæ˜¯ä¸€ä¸ªDATEå€¼ã€‚å¦åˆ™ç»“æžœæ˜¯ä¸€ä¸ªDATETIMEå€¼ã€‚ 
 
-¡¡¡¡DAYNAME(date)  
-¡¡¡¡·µ»ØdateµÄÐÇÆÚÃû×Ö¡£  
-¡¡¡¡mysql> select DAYNAME("1998-02-05");  
-¡¡¡¡-> 'Thursday' 
+ã€€ã€€mysql> SELECT "1997-12-31 23:59:59" + INTERVAL 1 SECOND;  
+ã€€ã€€-> 1998-01-01 00:00:00  
+ã€€ã€€mysql> SELECT INTERVAL 1 DAY + "1997-12-31";  
+ã€€ã€€-> 1998-01-01  
+ã€€ã€€mysql> SELECT "1998-01-01" - INTERVAL 1 SECOND;  
+ã€€ã€€-> 1997-12-31 23:59:59  
+ã€€ã€€mysql> SELECT DATE_ADD("1997-12-31 23:59:59",  
+ã€€ã€€INTERVAL 1 SECOND);  
+ã€€ã€€-> 1998-01-01 00:00:00  
+ã€€ã€€mysql> SELECT DATE_ADD("1997-12-31 23:59:59",  
+ã€€ã€€INTERVAL 1 DAY);  
+ã€€ã€€-> 1998-01-01 23:59:59  
+ã€€ã€€mysql> SELECT DATE_ADD("1997-12-31 23:59:59",  
+ã€€ã€€INTERVAL "1:1" MINUTE_SECOND);  
+ã€€ã€€-> 1998-01-01 00:01:00  
+ã€€ã€€mysql> SELECT DATE_SUB("1998-01-01 00:00:00",  
+ã€€ã€€INTERVAL "1 1:1:1" DAY_SECOND);  
+ã€€ã€€-> 1997-12-30 22:58:59  
+ã€€ã€€mysql> SELECT DATE_ADD("1998-01-01 00:00:00",  
+ã€€ã€€INTERVAL "-1 10" DAY_HOUR);  
+ã€€ã€€-> 1997-12-30 14:00:00  
+ã€€ã€€mysql> SELECT DATE_SUB("1998-01-02", INTERVAL 31 DAY);  
+ã€€ã€€-> 1997-12-02  
+ã€€ã€€mysql> SELECT EXTRACT(YEAR FROM "1999-07-02");  
+ã€€ã€€-> 1999  
+ã€€ã€€mysql> SELECT EXTRACT(YEAR_MONTH FROM "1999-07-02 01:02:03");  
+ã€€ã€€-> 199907  
+ã€€ã€€mysql> SELECT EXTRACT(DAY_MINUTE FROM "1999-07-02 01:02:03");  
+ã€€ã€€-> 20102 
 
-¡¡¡¡MONTHNAME(date)  
-¡¡¡¡·µ»ØdateµÄÔÂ·ÝÃû×Ö¡£  
-¡¡¡¡mysql> select MONTHNAME("1998-02-05");  
-¡¡¡¡-> 'February' 
+ã€€ ã€€å¦‚æžœä½ æŒ‡å®šå¤ªçŸ­çš„é—´éš”å€¼(ä¸åŒ…æ‹¬typeå…³é”®è¯æœŸæœ›çš„é—´éš”éƒ¨åˆ†)ï¼ŒMySQLå‡è®¾ä½ çœæŽ‰äº†é—´éš”å€¼çš„æœ€å·¦é¢éƒ¨åˆ†ã€‚ä¾‹å¦‚ï¼Œå¦‚æžœä½ æŒ‡å®šä¸€ä¸ªtypeæ˜¯ DAY_SECONDï¼Œå€¼exprè¢«å¸Œæœ›æœ‰å¤©ã€å°æ—¶ã€åˆ†é’Ÿå’Œç§’éƒ¨åˆ†ã€‚å¦‚æžœä½ è±¡"1:10"è¿™æ ·æŒ‡å®šå€¼ï¼ŒMySQLå‡è®¾æ—¥å­å’Œå°æ—¶éƒ¨åˆ†æ˜¯ä¸¢å¤±çš„å¹¶ä¸”å€¼ä»£è¡¨åˆ† é’Ÿå’Œç§’ã€‚æ¢å¥è¯è¯´ï¼Œ"1:10" DAY_SECONDä»¥å®ƒç­‰ä»·äºŽ"1:10" MINUTE_SECONDçš„æ–¹å¼è§£é‡Šï¼Œè¿™å¯¹é‚£MySQLè§£é‡ŠTIMEå€¼è¡¨ç¤ºç»è¿‡çš„æ—¶é—´è€Œéžä½œä¸ºä¸€å¤©çš„æ—¶é—´çš„æ–¹å¼æœ‰äºŒä¹‰æ€§ã€‚å¦‚æžœä½ ä½¿ç”¨ç¡®å®žä¸æ­£ç¡®çš„æ—¥æœŸï¼Œç»“æžœæ˜¯NULLã€‚å¦‚æžœä½ å¢žåŠ MONTHã€YEAR_MONTHæˆ–YEARå¹¶ä¸”ç»“æžœæ—¥æœŸå¤§äºŽæ–°æœˆä»½çš„æœ€å¤§å€¼å¤©æ•°ï¼Œæ—¥å­åœ¨æ–°æœˆç”¨æœ€å¤§çš„å¤©è°ƒæ•´ã€‚ 
 
-¡¡¡¡QUARTER(date)  
-¡¡¡¡·µ»ØdateÒ»ÄêÖÐµÄ¼¾¶È£¬·¶Î§1µ½4¡£  
-¡¡¡¡mysql> select QUARTER('98-04-01');  
-¡¡¡¡-> 2 
+ã€€ã€€mysql> select DATE_ADD('1998-01-30', Interval 1 month);  
+ã€€ã€€-> 1998-02-28 
 
-¡¡¡¡WEEK(date)  
-¡¡¡¡¡¡  
-¡¡¡¡WEEK(date,first)  
-¡¡¡¡¶ÔÓÚÐÇÆÚÌìÊÇÒ»ÖÜµÄµÚÒ»ÌìµÄµØ·½£¬ÓÐÒ»¸öµ¥¸ö²ÎÊý£¬·µ»ØdateµÄÖÜÊý£¬·¶Î§ÔÚ0µ½52¡£2¸ö²ÎÊýÐÎÊ½WEEK()ÔÊÐíÄãÖ¸¶¨ÐÇÆÚÊÇ·ñ¿ªÊ¼ÓÚÐÇÆÚÌì»òÐÇÆÚÒ»¡£Èç¹ûµÚ¶þ¸ö²ÎÊýÊÇ0£¬ÐÇÆÚ´ÓÐÇÆÚÌì¿ªÊ¼£¬Èç¹ûµÚ¶þ¸ö²ÎÊýÊÇ1£¬´ÓÐÇÆÚÒ»¿ªÊ¼¡£  
-¡¡¡¡mysql> select WEEK('1998-02-20');  
-¡¡¡¡-> 7  
-¡¡¡¡mysql> select WEEK('1998-02-20',0);  
-¡¡¡¡-> 7  
-¡¡¡¡mysql> select WEEK('1998-02-20',1);  
-¡¡¡¡-> 8 
+ã€€ã€€æ³¨æ„ï¼Œä»Žå‰é¢çš„ä¾‹å­ä¸­è¯INTERVALå’Œtypeå…³é”®è¯ä¸æ˜¯åŒºåˆ†å¤§å°å†™çš„ã€‚  
 
-¡¡¡¡YEAR(date)  
-¡¡¡¡·µ»ØdateµÄÄê·Ý£¬·¶Î§ÔÚ1000µ½9999¡£  
-¡¡¡¡mysql> select YEAR('98-02-03');  
-¡¡¡¡-> 1998 
+ã€€ã€€TO_DAYS()
+ã€€ã€€ä¸æ‰“ç®—ç”¨äºŽä½¿ç”¨æ ¼åˆ—é«˜é‡ŒåŽ†(1582)å‡ºçŽ°å‰çš„å€¼ã€‚ 
 
-¡¡¡¡HOUR(time)  
-¡¡¡¡·µ»ØtimeµÄÐ¡Ê±£¬·¶Î§ÊÇ0µ½23¡£  
-¡¡¡¡mysql> select HOUR('10:05:03');  
-¡¡¡¡-> 10 
+ã€€ã€€DATE_FORMAT(date,format)  
+ã€€ã€€æ ¹æ®formatå­—ç¬¦ä¸²æ ¼å¼åŒ–dateå€¼ã€‚ä¸‹åˆ—ä¿®é¥°ç¬¦å¯ä»¥è¢«ç”¨åœ¨formatå­—ç¬¦ä¸²ä¸­ï¼š %M æœˆåå­—(Januaryâ€¦â€¦December)  
+ã€€ã€€%W æ˜ŸæœŸåå­—(Sundayâ€¦â€¦Saturday)  
+ã€€ã€€%D æœ‰è‹±è¯­å‰ç¼€çš„æœˆä»½çš„æ—¥æœŸ(1st, 2nd, 3rd, ç­‰ç­‰ã€‚ï¼‰  
+ã€€ã€€%Y å¹´, æ•°å­—, 4 ä½  
+ã€€ã€€%y å¹´, æ•°å­—, 2 ä½  
+ã€€ã€€%a ç¼©å†™çš„æ˜ŸæœŸåå­—(Sunâ€¦â€¦Sat)  
+ã€€ã€€%d æœˆä»½ä¸­çš„å¤©æ•°, æ•°å­—(00â€¦â€¦31)  
+ã€€ã€€%e æœˆä»½ä¸­çš„å¤©æ•°, æ•°å­—(0â€¦â€¦31)  
+ã€€ã€€%m æœˆ, æ•°å­—(01â€¦â€¦12)  
+ã€€ã€€%c æœˆ, æ•°å­—(1â€¦â€¦12)  
+ã€€ã€€%b ç¼©å†™çš„æœˆä»½åå­—(Janâ€¦â€¦Dec)  
+ã€€ã€€%j ä¸€å¹´ä¸­çš„å¤©æ•°(001â€¦â€¦366)  
+ã€€ã€€%H å°æ—¶(00â€¦â€¦23)  
+ã€€ã€€%k å°æ—¶(0â€¦â€¦23)  
+ã€€ã€€%h å°æ—¶(01â€¦â€¦12)  
+ã€€ã€€%I å°æ—¶(01â€¦â€¦12)  
+ã€€ã€€%l å°æ—¶(1â€¦â€¦12)  
+ã€€ã€€%i åˆ†é’Ÿ, æ•°å­—(00â€¦â€¦59)  
+ã€€ã€€%r æ—¶é—´,12 å°æ—¶(hh:mm:ss [AP]M)  
+ã€€ã€€%T æ—¶é—´,24 å°æ—¶(hh:mm:ss)  
+ã€€ã€€%S ç§’(00â€¦â€¦59)  
+ã€€ã€€%s ç§’(00â€¦â€¦59)  
+ã€€ã€€%p AMæˆ–PM  
+ã€€ã€€%w ä¸€ä¸ªæ˜ŸæœŸä¸­çš„å¤©æ•°(0=Sunday â€¦â€¦6=Saturday ï¼‰  
+ã€€ã€€%U æ˜ŸæœŸ(0â€¦â€¦52), è¿™é‡Œæ˜ŸæœŸå¤©æ˜¯æ˜ŸæœŸçš„ç¬¬ä¸€å¤©  
+ã€€ã€€%u æ˜ŸæœŸ(0â€¦â€¦52), è¿™é‡Œæ˜ŸæœŸä¸€æ˜¯æ˜ŸæœŸçš„ç¬¬ä¸€å¤©  
+ã€€ã€€%% ä¸€ä¸ªæ–‡å­—â€œ%â€ã€‚ 
 
-¡¡¡¡MINUTE(time)  
-¡¡¡¡·µ»ØtimeµÄ·ÖÖÓ£¬·¶Î§ÊÇ0µ½59¡£  
-¡¡¡¡mysql> select MINUTE('98-02-03 10:05:03');  
-¡¡¡¡-> 5 
+ã€€ã€€æ‰€æœ‰çš„å…¶ä»–å­—ç¬¦ä¸åšè§£é‡Šè¢«å¤åˆ¶åˆ°ç»“æžœä¸­ã€‚ 
 
-¡¡¡¡SECOND(time)  
-¡¡¡¡»ØÀ´timeµÄÃëÊý£¬·¶Î§ÊÇ0µ½59¡£  
-¡¡¡¡mysql> select SECOND('10:05:03');  
-¡¡¡¡-> 3 
+ã€€ã€€mysql> select DATE_FORMAT('1997-10-04 22:23:00', '%W %M %Y');  
+ã€€ã€€-> 'Saturday October 1997'  
+ã€€ã€€mysql> select DATE_FORMAT('1997-10-04 22:23:00', '%H:%i:%s');  
+ã€€ã€€-> '22:23:00'  
+ã€€ã€€mysql> select DATE_FORMAT('1997-10-04 22:23:00',  
+ã€€ã€€'%D %y %a %d %m %b %j');  
+ã€€ã€€-> '4th 97 Sat 04 10 Oct 277'  
+ã€€ã€€mysql> select DATE_FORMAT('1997-10-04 22:23:00',  
+ã€€ã€€'%H %k %I %r %T %S %w');  
+ã€€ã€€-> '22 22 10 10:23:00 PM 22:23:00 00 6'  
+ã€€ã€€MySQL3.23ä¸­ï¼Œåœ¨æ ¼å¼ä¿®é¥°ç¬¦å­—ç¬¦å‰éœ€è¦%ã€‚åœ¨MySQLæ›´æ—©çš„ç‰ˆæœ¬ä¸­ï¼Œ%æ˜¯å¯é€‰çš„ã€‚ 
 
-¡¡¡¡PERIOD_ADD(P,N)  
-¡¡¡¡Ôö¼ÓN¸öÔÂµ½½×¶ÎP£¨ÒÔ¸ñÊ½YYMM»òYYYYMM)¡£ÒÔ¸ñÊ½YYYYMM·µ»ØÖµ¡£×¢Òâ½×¶Î²ÎÊýP²»ÊÇÈÕÆÚÖµ¡£  
-¡¡¡¡mysql> select PERIOD_ADD(9801,2);  
-¡¡¡¡-> 199803 
+ã€€ã€€TIME_FORMAT(time,format)  
+ã€€ã€€è¿™è±¡ä¸Šé¢çš„DATE_FORMAT()å‡½æ•°ä¸€æ ·ä½¿ç”¨ï¼Œä½†æ˜¯formatå­—ç¬¦ä¸²åªèƒ½åŒ…å«å¤„ç†å°æ—¶ã€åˆ†é’Ÿå’Œç§’çš„é‚£äº›æ ¼å¼ä¿®é¥°ç¬¦ã€‚å…¶ä»–ä¿®é¥°ç¬¦äº§ç”Ÿä¸€ä¸ªNULLå€¼æˆ–0ã€‚  
+ã€€ã€€
+ã€€ã€€CURDATE()  
+ã€€ã€€ã€€  
+ã€€ã€€CURRENT_DATE  
+ã€€ã€€ä»¥'YYYY-MM-DD'æˆ–YYYYMMDDæ ¼å¼è¿”å›žä»Šå¤©æ—¥æœŸå€¼ï¼Œå–å†³äºŽå‡½æ•°æ˜¯åœ¨ä¸€ä¸ªå­—ç¬¦ä¸²è¿˜æ˜¯æ•°å­—ä¸Šä¸‹æ–‡è¢«ä½¿ç”¨ã€‚  
+ã€€ã€€mysql> select CURDATE();  
+ã€€ã€€-> '1997-12-15'  
+ã€€ã€€mysql> select CURDATE() + 0;  
+ã€€ã€€-> 19971215 
 
-¡¡¡¡PERIOD_DIFF(P1,P2)  
-¡¡¡¡·µ»ØÔÚÊ±ÆÚP1ºÍP2Ö®¼äÔÂÊý£¬P1ºÍP2Ó¦¸ÃÒÔ¸ñÊ½YYMM»òYYYYMM¡£×¢Òâ£¬Ê±ÆÚ²ÎÊýP1ºÍP2²»ÊÇÈÕÆÚÖµ¡£  
-¡¡¡¡mysql> select PERIOD_DIFF(9802,199703);  
-¡¡¡¡-> 11 
+ã€€ã€€CURTIME()  
+ã€€ã€€ã€€  
+ã€€ã€€CURRENT_TIME  
+ã€€ã€€ä»¥'HH:MM:SS'æˆ–HHMMSSæ ¼å¼è¿”å›žå½“å‰æ—¶é—´å€¼ï¼Œå–å†³äºŽå‡½æ•°æ˜¯åœ¨ä¸€ä¸ªå­—ç¬¦ä¸²è¿˜æ˜¯åœ¨æ•°å­—çš„ä¸Šä¸‹æ–‡è¢«ä½¿ç”¨ã€‚  
+ã€€ã€€mysql> select CURTIME();  
+ã€€ã€€-> '23:50:26'  
+ã€€ã€€mysql> select CURTIME() + 0;  
+ã€€ã€€-> 235026 
 
-¡¡¡¡DATE_ADD(date,INTERVAL expr type)  
-¡¡¡¡¡¡  
-¡¡¡¡DATE_SUB(date,INTERVAL expr type)  
-¡¡¡¡¡¡  
-¡¡¡¡ADDDATE(date,INTERVAL expr type)  
-¡¡¡¡¡¡  
-¡¡¡¡SUBDATE(date,INTERVAL expr type)  
-¡¡¡¡ÕâÐ©¹¦ÄÜÖ´ÐÐÈÕÆÚÔËËã¡£¶ÔÓÚMySQL 3.22£¬ËûÃÇÊÇÐÂµÄ¡£ADDDATE()ºÍSUBDATE()ÊÇDATE_ADD()ºÍDATE_SUB()µÄÍ¬Òå´Ê¡£ 
-¡¡¡¡ÔÚMySQL 3.23ÖÐ£¬Äã¿ÉÒÔÊ¹ÓÃ+ºÍ-¶ø²»ÊÇDATE_ADD()ºÍDATE_SUB()¡££¨¼ûÀý×Ó£©dateÊÇÒ»¸öÖ¸¶¨¿ªÊ¼ÈÕÆÚµÄ 
-¡¡¡¡DATETIME»òDATEÖµ£¬exprÊÇÖ¸¶¨¼Óµ½¿ªÊ¼ÈÕÆÚ»ò´Ó¿ªÊ¼ÈÕÆÚ¼õÈ¥µÄ¼ä¸ôÖµÒ»¸ö±í´ïÊ½£¬exprÊÇÒ»¸ö×Ö·û´®£»Ëü¿ÉÒÔÒÔ 
-¡¡¡¡Ò»¸ö¡°-¡±¿ªÊ¼±íÊ¾¸º¼ä¸ô¡£typeÊÇÒ»¸ö¹Ø¼ü´Ê£¬Ö¸Ã÷±í´ïÊ½Ó¦¸ÃÈçºÎ±»½âÊÍ¡£EXTRACT(type FROM date)º¯Êý´ÓÈÕÆÚ 
-¡¡¡¡ÖÐ·µ»Ø¡°type¡±¼ä¸ô¡£ÏÂ±íÏÔÊ¾ÁËtypeºÍexpr²ÎÊýÔõÑù±»¹ØÁª£º typeÖµ º¬Òå ÆÚÍûµÄexpr¸ñÊ½  
-¡¡¡¡SECOND Ãë SECONDS  
-¡¡¡¡MINUTE ·ÖÖÓ MINUTES  
-¡¡¡¡HOUR Ê±¼ä HOURS  
-¡¡¡¡DAY Ìì DAYS  
-¡¡¡¡MONTH ÔÂ MONTHS  
-¡¡¡¡YEAR Äê YEARS  
-¡¡¡¡MINUTE_SECOND ·ÖÖÓºÍÃë "MINUTES:SECONDS"  
-¡¡¡¡HOUR_MINUTE Ð¡Ê±ºÍ·ÖÖÓ "HOURS:MINUTES"  
-¡¡¡¡DAY_HOUR ÌìºÍÐ¡Ê± "DAYS HOURS"  
-¡¡¡¡YEAR_MONTH ÄêºÍÔÂ "YEARS-MONTHS"  
-¡¡¡¡HOUR_SECOND Ð¡Ê±, ·ÖÖÓ£¬ "HOURS:MINUTES:SECONDS"  
-¡¡¡¡DAY_MINUTE Ìì, Ð¡Ê±, ·ÖÖÓ "DAYS HOURS:MINUTES"  
-¡¡¡¡DAY_SECOND Ìì, Ð¡Ê±, ·ÖÖÓ, Ãë "DAYS HOURS:MINUTES:SECONDS" 
+ã€€ã€€NOW()  
+ã€€ã€€ã€€  
+ã€€ã€€SYSDATE()  
+ã€€ã€€ã€€  
+ã€€ã€€CURRENT_TIMESTAMP  
+ã€€ã€€ä»¥'YYYY-MM-DD HH:MM:SS'æˆ–YYYYMMDDHHMMSSæ ¼å¼è¿”å›žå½“å‰çš„æ—¥æœŸå’Œæ—¶é—´ï¼Œå–å†³äºŽå‡½æ•°æ˜¯åœ¨ä¸€ä¸ªå­—ç¬¦ä¸²è¿˜æ˜¯åœ¨æ•°å­—çš„ä¸Šä¸‹æ–‡è¢«ä½¿ç”¨ã€‚  
+ã€€ã€€mysql> select NOW();  
+ã€€ã€€-> '1997-12-15 23:50:26'  
+ã€€ã€€mysql> select NOW() + 0;  
+ã€€ã€€-> 19971215235026 
 
-¡¡¡¡MySQLÔÚexpr¸ñÊ½ÖÐÔÊÐíÈÎºÎ±êµã·Ö¸ô·û¡£±íÊ¾ÏÔÊ¾µÄÊÇ½¨ÒéµÄ·Ö¸ô·û¡£Èç¹ûdate²ÎÊýÊÇÒ»¸öDATEÖµ²¢ÇÒÄãµÄ¼ÆËã½ö½ö°üº¬YEAR¡¢MONTHºÍDAY²¿·Ö(¼´£¬Ã»ÓÐÊ±¼ä²¿·Ö)£¬½á¹ûÊÇÒ»¸öDATEÖµ¡£·ñÔò½á¹ûÊÇÒ»¸öDATETIMEÖµ¡£ 
+ã€€ã€€UNIX_TIMESTAMP()  
+ã€€ã€€ã€€  
+ã€€ã€€UNIX_TIMESTAMP(date)  
+ã€€ã€€å¦‚æžœæ²¡æœ‰å‚æ•°è°ƒç”¨ï¼Œè¿”å›žä¸€ä¸ªUnixæ—¶é—´æˆ³è®°(ä»Ž'1970-01-01 00:00:00'GMTå¼€ å§‹çš„ç§’æ•°)ã€‚å¦‚æžœUNIX_TIMESTAMP()ç”¨ä¸€ä¸ªdateå‚æ•°è¢«è°ƒç”¨ï¼Œå®ƒè¿”å›žä»Ž'1970-01-01 00:00:00' GMTå¼€å§‹çš„ç§’æ•°å€¼ã€‚dateå¯ä»¥æ˜¯ä¸€ä¸ªDATEå­—ç¬¦ä¸²ã€ä¸€ä¸ªDATETIMEå­—ç¬¦ä¸²ã€ä¸€ä¸ªTIMESTAMPæˆ–ä»¥YYMMDDæˆ–YYYYMMDDæ ¼å¼çš„ æœ¬åœ°æ—¶é—´çš„ä¸€ä¸ªæ•°å­—ã€‚  
+ã€€ã€€mysql> select UNIX_TIMESTAMP();  
+ã€€ã€€-> 882226357  
+ã€€ã€€mysql> select UNIX_TIMESTAMP('1997-10-04 22:23:00');  
+ã€€ã€€-> 875996580  
+ã€€ã€€å½“UNIX_TIMESTAMPè¢«ç”¨äºŽä¸€ä¸ªTIMESTAMPåˆ—ï¼Œå‡½æ•°å°†ç›´æŽ¥æŽ¥å—å€¼ï¼Œæ²¡æœ‰éšå«çš„â€œstring-to-unix-timestampâ€å˜æ¢ã€‚ 
 
-¡¡¡¡mysql> SELECT "1997-12-31 23:59:59" + INTERVAL 1 SECOND;  
-¡¡¡¡-> 1998-01-01 00:00:00  
-¡¡¡¡mysql> SELECT INTERVAL 1 DAY + "1997-12-31";  
-¡¡¡¡-> 1998-01-01  
-¡¡¡¡mysql> SELECT "1998-01-01" - INTERVAL 1 SECOND;  
-¡¡¡¡-> 1997-12-31 23:59:59  
-¡¡¡¡mysql> SELECT DATE_ADD("1997-12-31 23:59:59",  
-¡¡¡¡INTERVAL 1 SECOND);  
-¡¡¡¡-> 1998-01-01 00:00:00  
-¡¡¡¡mysql> SELECT DATE_ADD("1997-12-31 23:59:59",  
-¡¡¡¡INTERVAL 1 DAY);  
-¡¡¡¡-> 1998-01-01 23:59:59  
-¡¡¡¡mysql> SELECT DATE_ADD("1997-12-31 23:59:59",  
-¡¡¡¡INTERVAL "1:1" MINUTE_SECOND);  
-¡¡¡¡-> 1998-01-01 00:01:00  
-¡¡¡¡mysql> SELECT DATE_SUB("1998-01-01 00:00:00",  
-¡¡¡¡INTERVAL "1 1:1:1" DAY_SECOND);  
-¡¡¡¡-> 1997-12-30 22:58:59  
-¡¡¡¡mysql> SELECT DATE_ADD("1998-01-01 00:00:00",  
-¡¡¡¡INTERVAL "-1 10" DAY_HOUR);  
-¡¡¡¡-> 1997-12-30 14:00:00  
-¡¡¡¡mysql> SELECT DATE_SUB("1998-01-02", INTERVAL 31 DAY);  
-¡¡¡¡-> 1997-12-02  
-¡¡¡¡mysql> SELECT EXTRACT(YEAR FROM "1999-07-02");  
-¡¡¡¡-> 1999  
-¡¡¡¡mysql> SELECT EXTRACT(YEAR_MONTH FROM "1999-07-02 01:02:03");  
-¡¡¡¡-> 199907  
-¡¡¡¡mysql> SELECT EXTRACT(DAY_MINUTE FROM "1999-07-02 01:02:03");  
-¡¡¡¡-> 20102 
+ã€€ã€€FROM_UNIXTIME(unix_timestamp,format)  
+ã€€ã€€è¿”å›žè¡¨ç¤º Unix æ—¶é—´æ ‡è®°çš„ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œæ ¹æ®formatå­—ç¬¦ä¸²æ ¼å¼åŒ–ã€‚formatå¯ä»¥åŒ…å«ä¸ŽDATE_FORMAT()å‡½æ•°åˆ—å‡ºçš„æ¡ç›®åŒæ ·çš„ä¿®é¥°ç¬¦ã€‚  
+ã€€ã€€mysql> select FROM_UNIXTIME(UNIX_TIMESTAMP(),  
+ã€€ã€€'%Y %D %M %h:%i:%s %x');  
+ã€€ã€€-> '1997 23rd December 03:43:30 x' 
 
-¡¡ ¡¡Èç¹ûÄãÖ¸¶¨Ì«¶ÌµÄ¼ä¸ôÖµ(²»°üÀ¨type¹Ø¼ü´ÊÆÚÍûµÄ¼ä¸ô²¿·Ö)£¬MySQL¼ÙÉèÄãÊ¡µôÁË¼ä¸ôÖµµÄ×î×óÃæ²¿·Ö¡£ÀýÈç£¬Èç¹ûÄãÖ¸¶¨Ò»¸ötypeÊÇ DAY_SECOND£¬Öµexpr±»Ï£ÍûÓÐÌì¡¢Ð¡Ê±¡¢·ÖÖÓºÍÃë²¿·Ö¡£Èç¹ûÄãÏó"1:10"ÕâÑùÖ¸¶¨Öµ£¬MySQL¼ÙÉèÈÕ×ÓºÍÐ¡Ê±²¿·ÖÊÇ¶ªÊ§µÄ²¢ÇÒÖµ´ú±í·Ö ÖÓºÍÃë¡£»»¾ä»°Ëµ£¬"1:10" DAY_SECONDÒÔËüµÈ¼ÛÓÚ"1:10" MINUTE_SECONDµÄ·½Ê½½âÊÍ£¬Õâ¶ÔÄÇMySQL½âÊÍTIMEÖµ±íÊ¾¾­¹ýµÄÊ±¼ä¶ø·Ç×÷ÎªÒ»ÌìµÄÊ±¼äµÄ·½Ê½ÓÐ¶þÒåÐÔ¡£Èç¹ûÄãÊ¹ÓÃÈ·Êµ²»ÕýÈ·µÄÈÕÆÚ£¬½á¹ûÊÇNULL¡£Èç¹ûÄãÔö¼ÓMONTH¡¢YEAR_MONTH»òYEAR²¢ÇÒ½á¹ûÈÕÆÚ´óÓÚÐÂÔÂ·ÝµÄ×î´óÖµÌìÊý£¬ÈÕ×ÓÔÚÐÂÔÂÓÃ×î´óµÄÌìµ÷Õû¡£ 
 
-¡¡¡¡mysql> select DATE_ADD('1998-01-30', Interval 1 month);  
-¡¡¡¡-> 1998-02-28 
-
-¡¡¡¡×¢Òâ£¬´ÓÇ°ÃæµÄÀý×ÓÖÐ´ÊINTERVALºÍtype¹Ø¼ü´Ê²»ÊÇÇø·Ö´óÐ¡Ð´µÄ¡£  
-¡¡¡¡
-¡¡¡¡TO_DAYS(date)  
-¡¡¡¡¸ø³öÒ»¸öÈÕÆÚdate£¬·µ»ØÒ»¸öÌìÊý(´Ó0ÄêµÄÌìÊý)¡£  
-¡¡¡¡mysql> select TO_DAYS(950501);  
-¡¡¡¡-> 728779  
-¡¡¡¡mysql> select TO_DAYS('1997-10-07');  
-¡¡¡¡-> 729669 
-
-¡¡¡¡TO_DAYS()
-¡¡¡¡²»´òËãÓÃÓÚÊ¹ÓÃ¸ñÁÐ¸ßÀïÀú(1582)³öÏÖÇ°µÄÖµ¡£ 
-
-¡¡¡¡FROM_DAYS(N)  
-¡¡¡¡¸ø³öÒ»¸öÌìÊýN£¬·µ»ØÒ»¸öDATEÖµ¡£  
-¡¡¡¡mysql> select FROM_DAYS(729669);  
-¡¡¡¡-> '1997-10-07' 
-
-¡¡¡¡DATE_FORMAT(date,format)  
-¡¡¡¡¸ù¾Ýformat×Ö·û´®¸ñÊ½»¯dateÖµ¡£ÏÂÁÐÐÞÊÎ·û¿ÉÒÔ±»ÓÃÔÚformat×Ö·û´®ÖÐ£º %M ÔÂÃû×Ö(January¡­¡­December)  
-¡¡¡¡%W ÐÇÆÚÃû×Ö(Sunday¡­¡­Saturday)  
-¡¡¡¡%D ÓÐÓ¢ÓïÇ°×ºµÄÔÂ·ÝµÄÈÕÆÚ(1st, 2nd, 3rd, µÈµÈ¡££©  
-¡¡¡¡%Y Äê, Êý×Ö, 4 Î»  
-¡¡¡¡%y Äê, Êý×Ö, 2 Î»  
-¡¡¡¡%a ËõÐ´µÄÐÇÆÚÃû×Ö(Sun¡­¡­Sat)  
-¡¡¡¡%d ÔÂ·ÝÖÐµÄÌìÊý, Êý×Ö(00¡­¡­31)  
-¡¡¡¡%e ÔÂ·ÝÖÐµÄÌìÊý, Êý×Ö(0¡­¡­31)  
-¡¡¡¡%m ÔÂ, Êý×Ö(01¡­¡­12)  
-¡¡¡¡%c ÔÂ, Êý×Ö(1¡­¡­12)  
-¡¡¡¡%b ËõÐ´µÄÔÂ·ÝÃû×Ö(Jan¡­¡­Dec)  
-¡¡¡¡%j Ò»ÄêÖÐµÄÌìÊý(001¡­¡­366)  
-¡¡¡¡%H Ð¡Ê±(00¡­¡­23)  
-¡¡¡¡%k Ð¡Ê±(0¡­¡­23)  
-¡¡¡¡%h Ð¡Ê±(01¡­¡­12)  
-¡¡¡¡%I Ð¡Ê±(01¡­¡­12)  
-¡¡¡¡%l Ð¡Ê±(1¡­¡­12)  
-¡¡¡¡%i ·ÖÖÓ, Êý×Ö(00¡­¡­59)  
-¡¡¡¡%r Ê±¼ä,12 Ð¡Ê±(hh:mm:ss [AP]M)  
-¡¡¡¡%T Ê±¼ä,24 Ð¡Ê±(hh:mm:ss)  
-¡¡¡¡%S Ãë(00¡­¡­59)  
-¡¡¡¡%s Ãë(00¡­¡­59)  
-¡¡¡¡%p AM»òPM  
-¡¡¡¡%w Ò»¸öÐÇÆÚÖÐµÄÌìÊý(0=Sunday ¡­¡­6=Saturday £©  
-¡¡¡¡%U ÐÇÆÚ(0¡­¡­52), ÕâÀïÐÇÆÚÌìÊÇÐÇÆÚµÄµÚÒ»Ìì  
-¡¡¡¡%u ÐÇÆÚ(0¡­¡­52), ÕâÀïÐÇÆÚÒ»ÊÇÐÇÆÚµÄµÚÒ»Ìì  
-¡¡¡¡%% Ò»¸öÎÄ×Ö¡°%¡±¡£ 
-
-¡¡¡¡ËùÓÐµÄÆäËû×Ö·û²»×ö½âÊÍ±»¸´ÖÆµ½½á¹ûÖÐ¡£ 
-
-¡¡¡¡mysql> select DATE_FORMAT('1997-10-04 22:23:00', '%W %M %Y');  
-¡¡¡¡-> 'Saturday October 1997'  
-¡¡¡¡mysql> select DATE_FORMAT('1997-10-04 22:23:00', '%H:%i:%s');  
-¡¡¡¡-> '22:23:00'  
-¡¡¡¡mysql> select DATE_FORMAT('1997-10-04 22:23:00',  
-¡¡¡¡'%D %y %a %d %m %b %j');  
-¡¡¡¡-> '4th 97 Sat 04 10 Oct 277'  
-¡¡¡¡mysql> select DATE_FORMAT('1997-10-04 22:23:00',  
-¡¡¡¡'%H %k %I %r %T %S %w');  
-¡¡¡¡-> '22 22 10 10:23:00 PM 22:23:00 00 6'  
-¡¡¡¡MySQL3.23ÖÐ£¬ÔÚ¸ñÊ½ÐÞÊÎ·û×Ö·ûÇ°ÐèÒª%¡£ÔÚMySQL¸üÔçµÄ°æ±¾ÖÐ£¬%ÊÇ¿ÉÑ¡µÄ¡£ 
-
-¡¡¡¡TIME_FORMAT(time,format)  
-¡¡¡¡ÕâÏóÉÏÃæµÄDATE_FORMAT()º¯ÊýÒ»ÑùÊ¹ÓÃ£¬µ«ÊÇformat×Ö·û´®Ö»ÄÜ°üº¬´¦ÀíÐ¡Ê±¡¢·ÖÖÓºÍÃëµÄÄÇÐ©¸ñÊ½ÐÞÊÎ·û¡£ÆäËûÐÞÊÎ·û²úÉúÒ»¸öNULLÖµ»ò0¡£  
-¡¡¡¡
-¡¡¡¡CURDATE()  
-¡¡¡¡¡¡  
-¡¡¡¡CURRENT_DATE  
-¡¡¡¡ÒÔ'YYYY-MM-DD'»òYYYYMMDD¸ñÊ½·µ»Ø½ñÌìÈÕÆÚÖµ£¬È¡¾öÓÚº¯ÊýÊÇÔÚÒ»¸ö×Ö·û´®»¹ÊÇÊý×ÖÉÏÏÂÎÄ±»Ê¹ÓÃ¡£  
-¡¡¡¡mysql> select CURDATE();  
-¡¡¡¡-> '1997-12-15'  
-¡¡¡¡mysql> select CURDATE() + 0;  
-¡¡¡¡-> 19971215 
-
-¡¡¡¡CURTIME()  
-¡¡¡¡¡¡  
-¡¡¡¡CURRENT_TIME  
-¡¡¡¡ÒÔ'HH:MM:SS'»òHHMMSS¸ñÊ½·µ»Øµ±Ç°Ê±¼äÖµ£¬È¡¾öÓÚº¯ÊýÊÇÔÚÒ»¸ö×Ö·û´®»¹ÊÇÔÚÊý×ÖµÄÉÏÏÂÎÄ±»Ê¹ÓÃ¡£  
-¡¡¡¡mysql> select CURTIME();  
-¡¡¡¡-> '23:50:26'  
-¡¡¡¡mysql> select CURTIME() + 0;  
-¡¡¡¡-> 235026 
-
-¡¡¡¡NOW()  
-¡¡¡¡¡¡  
-¡¡¡¡SYSDATE()  
-¡¡¡¡¡¡  
-¡¡¡¡CURRENT_TIMESTAMP  
-¡¡¡¡ÒÔ'YYYY-MM-DD HH:MM:SS'»òYYYYMMDDHHMMSS¸ñÊ½·µ»Øµ±Ç°µÄÈÕÆÚºÍÊ±¼ä£¬È¡¾öÓÚº¯ÊýÊÇÔÚÒ»¸ö×Ö·û´®»¹ÊÇÔÚÊý×ÖµÄÉÏÏÂÎÄ±»Ê¹ÓÃ¡£  
-¡¡¡¡mysql> select NOW();  
-¡¡¡¡-> '1997-12-15 23:50:26'  
-¡¡¡¡mysql> select NOW() + 0;  
-¡¡¡¡-> 19971215235026 
-
-¡¡¡¡UNIX_TIMESTAMP()  
-¡¡¡¡¡¡  
-¡¡¡¡UNIX_TIMESTAMP(date)  
-¡¡¡¡Èç¹ûÃ»ÓÐ²ÎÊýµ÷ÓÃ£¬·µ»ØÒ»¸öUnixÊ±¼ä´Á¼Ç(´Ó'1970-01-01 00:00:00'GMT¿ª Ê¼µÄÃëÊý)¡£Èç¹ûUNIX_TIMESTAMP()ÓÃÒ»¸ödate²ÎÊý±»µ÷ÓÃ£¬Ëü·µ»Ø´Ó'1970-01-01 00:00:00' GMT¿ªÊ¼µÄÃëÊýÖµ¡£date¿ÉÒÔÊÇÒ»¸öDATE×Ö·û´®¡¢Ò»¸öDATETIME×Ö·û´®¡¢Ò»¸öTIMESTAMP»òÒÔYYMMDD»òYYYYMMDD¸ñÊ½µÄ ±¾µØÊ±¼äµÄÒ»¸öÊý×Ö¡£  
-¡¡¡¡mysql> select UNIX_TIMESTAMP();  
-¡¡¡¡-> 882226357  
-¡¡¡¡mysql> select UNIX_TIMESTAMP('1997-10-04 22:23:00');  
-¡¡¡¡-> 875996580  
-¡¡¡¡µ±UNIX_TIMESTAMP±»ÓÃÓÚÒ»¸öTIMESTAMPÁÐ£¬º¯Êý½«Ö±½Ó½ÓÊÜÖµ£¬Ã»ÓÐÒþº¬µÄ¡°string-to-unix-timestamp¡±±ä»»¡£ 
-
-¡¡¡¡FROM_UNIXTIME(unix_timestamp)  
-¡¡¡¡ÒÔ'YYYY-MM-DD HH:MM:SS'»òYYYYMMDDHHMMSS¸ñÊ½·µ»Øunix_timestamp²ÎÊýËù±íÊ¾µÄÖµ£¬È¡¾öÓÚº¯ÊýÊÇÔÚÒ»¸ö×Ö·û´®»¹ÊÇ»òÊý×ÖÉÏÏÂÎÄÖÐ±»Ê¹ÓÃ¡£  
-¡¡¡¡mysql> select FROM_UNIXTIME(875996580);  
-¡¡¡¡-> '1997-10-04 22:23:00'  
-¡¡¡¡mysql> select FROM_UNIXTIME(875996580) + 0;  
-¡¡¡¡-> 19971004222300 
-
-¡¡¡¡FROM_UNIXTIME(unix_timestamp,format)  
-¡¡¡¡·µ»Ø±íÊ¾ Unix Ê±¼ä±ê¼ÇµÄÒ»¸ö×Ö·û´®£¬¸ù¾Ýformat×Ö·û´®¸ñÊ½»¯¡£format¿ÉÒÔ°üº¬ÓëDATE_FORMAT()º¯ÊýÁÐ³öµÄÌõÄ¿Í¬ÑùµÄÐÞÊÎ·û¡£  
-¡¡¡¡mysql> select FROM_UNIXTIME(UNIX_TIMESTAMP(),  
-¡¡¡¡'%Y %D %M %h:%i:%s %x');  
-¡¡¡¡-> '1997 23rd December 03:43:30 x' 
-
-¡¡¡¡SEC_TO_TIME(seconds)  
-¡¡¡¡·µ»Øseconds²ÎÊý£¬±ä»»³ÉÐ¡Ê±¡¢·ÖÖÓºÍÃë£¬ÖµÒÔ'HH:MM:SS'»òHHMMSS¸ñÊ½»¯£¬È¡¾öÓÚº¯ÊýÊÇÔÚÒ»¸ö×Ö·û´®»¹ÊÇÔÚÊý×ÖÉÏÏÂÎÄÖÐ±»Ê¹ÓÃ¡£  
-¡¡¡¡mysql> select SEC_TO_TIME(2378);  
-¡¡¡¡-> '00:39:38'  
-¡¡¡¡mysql> select SEC_TO_TIME(2378) + 0;  
-¡¡¡¡-> 3938 
-
-¡¡¡¡TIME_TO_SEC(time)  
-¡¡¡¡·µ»Øtime²ÎÊý£¬×ª»»³ÉÃë¡£  
-¡¡¡¡mysql> select TIME_TO_SEC('22:23:00');  
-¡¡¡¡-> 80580  
-¡¡¡¡mysql> select TIME_TO_SEC('00:39:38');  
-¡¡¡¡-> 2378
-
-MysqlÈ¡ÏµÍ³º¯Êý£º
+Mysqlå–ç³»ç»Ÿå‡½æ•°ï¼š
 
 Select curtime();
 
@@ -456,1633 +362,1392 @@ Select curdate():
 Select sysdate():
 select now();
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Ò»¡¢ ¿ØÖÆÁ÷³Ìº¯Êý
-
- 
-
-a)   CASE WHEN THEN º¯Êý
-
- 
-
-Óï·¨£º CASE value WHEN [compare-value] THEN result [WHEN [compare-value] THEN result ¡­¡­] [ELSE result ] END CASE WHEN [condition] THEN result [WHEN[condition] THEN result ¡­¡­] [ELSE result] END £»
-
- 
-
-º¯ÊýÓÃ·¨ËµÃ÷£ºÔÚµÚÒ»¸ö·½°¸µÄ·µ»Ø½á¹ûÖÐ£¬ value =compare-value ¡£¶øµÚ¶þ¸ö·½°¸µÄ·µ»Ø½á¹ûÊÇµÚÒ»ÖÖÇé¿öµÄÕæÊµ½á¹û¡£Èç¹ûÃ»ÓÐÆ¥ÅäµÄ½á¹ûÖµ£¬Ôò·µ»Ø½á¹ûÎª ELSE ºóµÄ½á¹û£¬Èç¹ûÃ»ÓÐ ELSE ²¿·Ö£¬Ôò·µ»ØÖµÎª NULL
-
- 
-
-b)        IF º¯ÊýÓÃ·¨
-
- 
-
-Óï·¨£º IF(expr1,expr2,expr3)
-
- 
-
-º¯ÊýÓÃ·¨ËµÃ÷£ºÈç¹û expr1 ÊÇ TRUE (expr1 <> 0 and expr1 <> NULL) £¬Ôò IF() µÄ·µ»ØÖµÎª expr2 ; ·ñÔò·µ»ØÖµÔòÎª expr3 ¡£ IF() µÄ·µ»ØÖµÎªÊý×ÖÖµ»ò×Ö·û´®Öµ£¬¾ßÌåÇé¿öÊÓÆäËùÔÚÓï¾³¶ø¶¨
-
- 
-
-c)        IFNULL º¯Êý
-
- 
-
-Óï·¨£º IFNULL(expr1,expr2)
-
- 
-
-º¯ÊýÓÃ·¨ËµÃ÷£º¼ÙÈç expr1 ²»Îª NULL £¬Ôò IFNULL() µÄ·µ»ØÖµÎª expr1 ; ·ñÔòÆä·µ»ØÖµÎª expr2 ¡£ IFNULL() µÄ·µ»ØÖµÊÇÊý×Ö»òÊÇ×Ö·û´®£¬¾ßÌåÇé¿öÈ¡¾öÓÚÆäËùÊ¹ÓÃµÄÓï¾³
-
- 
-
-¶þ¡¢ ×Ö·û´®±È½Ïº¯Êý
-
- 
-
-a)         º¯Êý ascii(str)
 
- 
-
-º¯ÊýÓÃ·¨ËµÃ÷£º·µ»ØÖµÎª×Ö·û´® str µÄ×î×ó×Ö·ûµÄÊýÖµ¡£¼ÙÈç str Îª¿Õ×Ö·û´®£¬Ôò·µ»ØÖµÎª 0 ¡£¼ÙÈç str Îª NULL £¬Ôò·µ»ØÖµÎª NULL ¡£ ASCII() ÓÃÓÚ´øÓÐ´Ó 0 µ½ 255 µÄÊýÖµµÄ×Ö·û
-
- 
-
-b)        º¯Êý BIN(N)
-
- 
-
-º¯ÊýÓÃ·¨ËµÃ÷£º·µ»ØÖµÎª N µÄ¶þ½øÖÆÖµµÄ×Ö·û´®±íÊ¾£¬ÆäÖÐ   N ÎªÒ»¸ö longlong (BIGINT) Êý×Ö¡£ÕâµÈÍ¬ÓÚ CONV(N ,10,2) ¡£¼ÙÈç N Îª NULL £¬Ôò·µ»ØÖµÎª NULL ¡£
-
- 
-
-c)        º¯ÊýCHAR(N ,... [USING charset ])
-
- 
-
-º¯ÊýÓÃ·¨ËµÃ÷£º CHAR() ½«Ã¿¸ö²ÎÊý N Àí½âÎªÒ»¸öÕûÊý£¬Æä·µ»ØÖµÎªÒ»¸ö°üº¬ÕâÐ©ÕûÊýµÄ´úÂëÖµËù¸ø³öµÄ×Ö·ûµÄ×Ö·û´®¡£ NULL Öµ±»Ê¡ÂÔ¡£
-
- 
-
-d)        º¯ÊýCHAR_LENGTH(str )
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÖµÎª×Ö·û´® str µÄ³¤¶È£¬³¤¶ÈµÄµ¥Î»Îª×Ö·û¡£Ò»¸ö¶à×Ö½Ú×Ö·ûËã×÷Ò»¸öµ¥×Ö·û¡£¶ÔÓÚÒ»¸ö °üº¬Îå¸ö¶þ×Ö½Ú×Ö·û¼¯ , LENGTH() ·µ»ØÖµÎª 10, ¶ø CHAR_LENGTH() µÄ·µ»ØÖµÎª 5
-
- 
-
-e)         º¯Êý CHARACTER_LENGTH(str )
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º CHARACTER_LENGTH() ÊÇ CHAR_LENGTH() µÄÍ¬Òå´Ê¡£
-
- 
-
-f)         º¯Êý COMPRESS(string_to_compress )
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º COMPRESS( Ñ¹ËõÒ»¸ö×Ö·û´®¡£Õâ¸öº¯ÊýÒªÇó MySQL ÒÑ¾­ÓÃÒ»¸ö
-
- 
-
-ÖîÈç zlib µÄÑ¹Ëõ¿âÑ¹Ëõ¹ý¡£    ·ñÔò£¬·µ»ØÖµÊ¼ÖÕÊÇ NULL ¡£ UNCOMPRESS() ¿É½«Ñ¹Ëõ¹ýµÄ×Ö·û´®½øÐÐ½âÑ¹Ëõ ) ¡£
-
- 
-
-g)        º¯Êý CONCAT(str1 ,str2 ,...) 
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø½á¹ûÎªÁ¬½Ó²ÎÊý²úÉúµÄ×Ö·û´®¡£ÈçÓÐÈÎºÎÒ»¸ö²ÎÊýÎª NULL £¬Ôò
-
- 
-
-·µ»ØÖµÎª NULL ¡£»òÐíÓÐÒ»¸ö»ò¶à¸ö²ÎÊý¡£ Èç¹ûËùÓÐ²ÎÊý¾ùÎª·Ç¶þ½øÖÆ×Ö·û´®£¬Ôò½á¹ûÎª·Ç¶þ½øÖÆ×Ö·û´®¡£ Èç¹û×Ô±äÁ¿ÖÐº¬ÓÐÈÎÒ»¶þ½øÖÆ×Ö·û´®£¬Ôò½á¹ûÎªÒ»¸ö¶þ½øÖÆ×Ö·û´®¡£Ò»¸öÊý×Ö²ÎÊý±»×ª»¯ÎªÓëÖ®ÏàµÈµÄ¶þ½øÖÆ×Ö·û´®¸ñÊ½£»ÈôÒª±ÜÃâÕâÖÖÇé¿ö£¬¿ÉÊ¹ÓÃÏÔÊ½ÀàÐÍ cast, ÀýÈç£º SELECT CONCAT(CAST(int_col AS CHAR), char_col)
-
- 
-
-h)        º¯Êý CONCAT_WS(separator ,str1 ,str2 ,...)
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º CONCAT_WS() ´ú±í CONCAT With Separator £¬ÊÇ CONCAT() µÄ
+ä¸€ã€ æŽ§åˆ¶æµç¨‹å‡½æ•°
 
  
 
-ÌØÊâÐÎÊ½¡£    µÚÒ»¸ö²ÎÊýÊÇÆäËü²ÎÊýµÄ·Ö¸ô·û¡£·Ö¸ô·ûµÄÎ»ÖÃ·ÅÔÚÒªÁ¬½ÓµÄÁ½¸ö×Ö·û´®Ö®¼ä¡£·Ö¸ô·û¿ÉÒÔÊÇÒ»¸ö×Ö·û´®£¬Ò²¿ÉÒÔÊÇÆäËü²ÎÊý¡£Èç¹û·Ö¸ô·ûÎª NULL £¬Ôò½á¹ûÎª NULL ¡£º¯Êý»áºöÂÔÈÎºÎ·Ö¸ô·û²ÎÊýºóµÄ NULL Öµ¡£
+a)   CASE WHEN THEN å‡½æ•°
 
  
 
-i)      º¯ÊýCONV(N from_base, to_base)
+è¯­æ³•ï¼š CASE value WHEN [compare-value] THEN result [WHEN [compare-value] THEN result â€¦â€¦] [ELSE result ] END CASE WHEN [condition] THEN result [WHEN[condition] THEN result â€¦â€¦] [ELSE result] END ï¼›
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º²»Í¬Êý»ù¼ä×ª»»Êý×Ö¡£·µ»ØÖµÎªÊý×ÖµÄ N ×Ö·û´®±íÊ¾£¬ÓÉ from_base »ù×ª»¯Îª to_base »ù¡£ÈçÓÐÈÎÒâÒ»¸ö²ÎÊýÎª NULL £¬Ôò·µ»ØÖµÎª NULL ¡£×Ô±äÁ¿ N ±»Àí½âÎªÒ»¸öÕûÊý£¬µ«ÊÇ¿ÉÒÔ±»Ö¸¶¨ÎªÒ»¸öÕûÊý»ò×Ö·û´®¡£×îÐ¡»ùÊýÎª 2 £¬¶ø×î´ó»ùÊýÔòÎª 36 ¡£ If to_base ÊÇÒ»¸ö¸ºÊý£¬Ôò N ±»¿´×÷Ò»¸ö´ø·ûºÅÊý¡£·ñÔò£¬ N ±»¿´×÷ÎÞ·ûºÅÊý¡£ CONV() µÄÔËÐÐ¾«È·¶ÈÎª 64 ±ÈÌØ¡£
+å‡½æ•°ç”¨æ³•è¯´æ˜Žï¼šåœ¨ç¬¬ä¸€ä¸ªæ–¹æ¡ˆçš„è¿”å›žç»“æžœä¸­ï¼Œ value =compare-value ã€‚è€Œç¬¬äºŒä¸ªæ–¹æ¡ˆçš„è¿”å›žç»“æžœæ˜¯ç¬¬ä¸€ç§æƒ…å†µçš„çœŸå®žç»“æžœã€‚å¦‚æžœæ²¡æœ‰åŒ¹é…çš„ç»“æžœå€¼ï¼Œåˆ™è¿”å›žç»“æžœä¸º ELSE åŽçš„ç»“æžœï¼Œå¦‚æžœæ²¡æœ‰ ELSE éƒ¨åˆ†ï¼Œåˆ™è¿”å›žå€¼ä¸º NULL
 
  
 
-j)          º¯Êý ELT(N ,str1 ,str2 ,str3 ,...)
+b)        IF å‡½æ•°ç”¨æ³•
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÈô N = 1 £¬Ôò·µ»ØÖµÎª   str1 £¬Èô N = 2 £¬Ôò·µ»ØÖµÎª str2 £¬ÒÔ´Ë
+è¯­æ³•ï¼š IF(expr1,expr2,expr3)
 
  
 
-ÀàÍÆ¡£    Èô N Ð¡ÓÚ 1 »ò´óÓÚ²ÎÊýµÄÊýÄ¿£¬Ôò·µ»ØÖµÎª NULL ¡£ ELT() ÊÇ   FIELD() µÄ²¹Êý
+å‡½æ•°ç”¨æ³•è¯´æ˜Žï¼šå¦‚æžœ expr1 æ˜¯ TRUE (expr1 <> 0 and expr1 <> NULL) ï¼Œåˆ™ IF() çš„è¿”å›žå€¼ä¸º expr2 ; å¦åˆ™è¿”å›žå€¼åˆ™ä¸º expr3 ã€‚ IF() çš„è¿”å›žå€¼ä¸ºæ•°å­—å€¼æˆ–å­—ç¬¦ä¸²å€¼ï¼Œå…·ä½“æƒ…å†µè§†å…¶æ‰€åœ¨è¯­å¢ƒè€Œå®š
 
  
 
-k)      º¯Êý EXPORT_SET(bits ,on ,off [,separator [,number_of_bits ]])
+c)        IFNULL å‡½æ•°
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»ØÖµÎªÒ»¸ö×Ö·û´®£¬ÆäÖÐ¶ÔÓÚ bits ÖµÖÐµÄÃ¿¸öÎ»×é£¬¿ÉÒÔµÃµ½
+è¯­æ³•ï¼š IFNULL(expr1,expr2)
 
  
 
-Ò»¸ö on ×Ö·û´®£¬¶ø¶ÔÓÚÃ¿¸öÇåÁã±ÈÌØÎ»£¬¿ÉÒÔµÃµ½Ò»¸ö off ×Ö·û´®¡£ bits ÖÐµÄ±ÈÌØÖµ°´ÕÕ´ÓÓÒµ½×óµÄË³Ðò½ÓÊÜ¼ìÑé ( ÓÉµÍÎ»±ÈÌØµ½¸ßÎ»±ÈÌØ ) ¡£×Ö·û´®±»·Ö¸ô×Ö·û´®·Ö¿ª ( Ä¬ÈÏÎª¶ººÅ ¡®,¡¯) £¬°´ÕÕ´Ó×óµ½ÓÒµÄË³Ðò±»Ìí¼Óµ½½á¹ûÖÐ¡£ number_of_bits »á¸ø³ö±»¼ìÑéµÄ¶þ½øÖÆÎ»Êý ( Ä¬ÈÏÎª 64) ¡£
+å‡½æ•°ç”¨æ³•è¯´æ˜Žï¼šå‡å¦‚ expr1 ä¸ä¸º NULL ï¼Œåˆ™ IFNULL() çš„è¿”å›žå€¼ä¸º expr1 ; å¦åˆ™å…¶è¿”å›žå€¼ä¸º expr2 ã€‚ IFNULL() çš„è¿”å›žå€¼æ˜¯æ•°å­—æˆ–æ˜¯å­—ç¬¦ä¸²ï¼Œå…·ä½“æƒ…å†µå–å†³äºŽå…¶æ‰€ä½¿ç”¨çš„è¯­å¢ƒ
 
  
 
-l)          º¯Êý FIELD(str, str1, str2, str3, ¡­...)
+äºŒã€ å­—ç¬¦ä¸²æ¯”è¾ƒå‡½æ•°
 
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÖµÎª str1 , str2 , str3 ,¡­¡­ ÁÐ±íÖÐµÄ str Ö¸Êý¡£ÔÚÕÒ²»µ½ str µÄÇé¿öÏÂ£¬·µ»ØÖµÎª 0 ¡£Èç¹ûËùÓÐ¶ÔÓÚ FIELD() µÄ²ÎÊý¾ùÎª×Ö·û´®£¬ÔòËùÓÐ²ÎÊý¾ù°´ÕÕ×Ö·û´®½øÐÐ±È½Ï¡£Èç¹ûËùÓÐµÄ²ÎÊý¾ùÎªÊý×Ö£¬Ôò°´ÕÕÊý×Ö½øÐÐ±È½Ï¡£·ñÔò£¬²ÎÊý°´ÕÕË«±¶½øÐÐ±È½Ï¡£Èç¹û str Îª NULL £¬Ôò·µ»ØÖµÎª 0 £¬Ô­ÒòÊÇ NULL ²»ÄÜÍ¬ÈÎºÎÖµ½øÐÐÍ¬µÈ±È½Ï¡£ FIELD() ÊÇ ELT() µÄ²¹Êý¡£
-
- 
-
-m)      º¯ÊýFIND_IN_SET(str, strlist)
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º ¼ÙÈç×Ö·û´® str ÔÚÓÉ N ×ÓÁ´×é³ÉµÄ×Ö·û´®ÁÐ±í strlist ÖÐ£¬ Ôò·µ
-
- 
-
-»ØÖµµÄ·¶Î§ÔÚ 1 µ½ N Ö®¼ä ¡£Ò»¸ö×Ö·û´®ÁÐ±í¾ÍÊÇÒ»¸öÓÉÒ»Ð©±» ¡®,¡¯ ·ûºÅ·Ö¿ªµÄ×ÔÁ´×é³ÉµÄ×Ö·û´®¡£Èç¹ûµÚÒ»¸ö²ÎÊýÊÇÒ»¸ö³£Êý×Ö·û´®£¬¶øµÚ¶þ¸öÊÇ type SET ÁÐ£¬Ôò    FIND_IN_SET() º¯Êý±»ÓÅ»¯£¬Ê¹ÓÃ±ÈÌØ¼ÆËã¡£Èç¹û str ²»ÔÚ strlist »ò strlist Îª¿Õ×Ö·û´®£¬Ôò·µ»ØÖµÎª 0 ¡£ÈçÈÎÒâÒ»¸ö²ÎÊýÎª NULL £¬Ôò·µ»ØÖµÎª NULL ¡£ Õâ¸öº¯ÊýÔÚµÚÒ»¸ö²ÎÊý°üº¬Ò»¸ö¶ººÅ (¡®,¡¯) Ê±½«ÎÞ·¨Õý³£ÔËÐÐ¡£
-
- 
-
-n)        º¯Êý FORMAT(X ,D )
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º ½« number X ÉèÖÃÎª¸ñÊ½ '#,###,###.##', ÒÔËÄÉáÎåÈëµÄ·½Ê½±£Áôµ½Ð¡Êýµãºó D Î» , ¶ø·µ»Ø½á¹ûÎªÒ»¸ö×Ö·û´®¡£
-
- 
-
-o)        º¯Êý HEX(N_or_S )
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÈç¹ûN_OR_S ÊÇÒ»¸öÊý×Ö£¬Ôò·µ»ØÒ»¸ö Ê®Áù½øÖÆÖµ N µÄ ×Ö·û´®±íÊ¾£¬ÔÚÕâÀï£¬   N ÊÇÒ»¸ölonglong (BIGINT) Êý¡£ÕâÏàµ±ÓÚ CONV(N,10,16) ¡£Èç¹ûN_OR_S ÊÇÒ»¸ö×Ö·û´®£¬Ôò·µ»ØÖµÎªÒ»¸öN_OR_S µÄÊ®Áù½øÖÆ×Ö·û´®±íÊ¾£¬ÆäÖÐÃ¿¸öN_OR_S ÀïµÄÃ¿¸ö×Ö·û±»×ª»¯ÎªÁ½¸öÊ®Áù½øÖÆÊý×Ö¡£
-
- 
 
-p)      º¯ÊýINSTR(str,substr)
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str ÖÐ×Ó×Ö·û´®µÄµÚÒ»¸ö³öÏÖÎ»ÖÃ¡£ÕâºÍLOCATE() µÄË«²ÎÊýÐÎÊ½ÏàÍ¬£¬³ý·Ç²ÎÊýµÄË³Ðò±»µßµ¹¡£
-
- 
-
-q)      º¯ÊýLCASE(str)
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£ºLCASE() ÊÇ LOWER() µÄÍ¬Òå´Ê
-
- 
-
-r)      º¯ÊýLEFT(str,len)
-
- 
-
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø´Ó×Ö·û´®str ¿ªÊ¼µÄlen ×î×ó×Ö·û
-
  
 
-s)      º¯Êý LENGTH(str )
+c)        å‡½æ•°CHAR(N ,... [USING charset ])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»ØÖµÎª×Ö·û´® str µÄ³¤¶È£¬µ¥Î»Îª×Ö½Ú¡£Ò»¸ö¶à×Ö½Ú×Ö·ûËã×÷¶à×Ö½Ú¡£ÕâÒâÎ¶×Å ¶ÔÓÚÒ»¸ö°üº¬ 5 ¸ö 2 ×Ö½Ú×Ö·ûµÄ×Ö·û´®£¬ LENGTH() µÄ·µ»ØÖµÎª 10, ¶ø CHAR_LENGTH() µÄ·µ»ØÖµÔòÎª5 ¡£
+å‡½æ•°ç”¨æ³•è¯´æ˜Žï¼š CHAR() å°†æ¯ä¸ªå‚æ•° N ç†è§£ä¸ºä¸€ä¸ªæ•´æ•°ï¼Œå…¶è¿”å›žå€¼ä¸ºä¸€ä¸ªåŒ…å«è¿™äº›æ•´æ•°çš„ä»£ç å€¼æ‰€ç»™å‡ºçš„å­—ç¬¦çš„å­—ç¬¦ä¸²ã€‚ NULL å€¼è¢«çœç•¥ã€‚
 
  
 
-t)          º¯Êý LOAD_FILE(file_name)
+g)        å‡½æ•° CONCAT(str1 ,str2 ,...) 
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¶ÁÈ¡ÎÄ¼þ²¢½«ÕâÒ»ÎÄ¼þ°´ÕÕ×Ö·û´®µÄ¸ñÊ½·µ»Ø¡£ ÎÄ¼þµÄÎ»ÖÃ±ØÐëÔÚ·þÎñÆ÷ÉÏ , Äã±ØÐëÎªÎÄ¼þÖÆ¶¨Â·¾¶È«Ãû£¬¶øÇÒÄã»¹±ØÐëÓµÓÐ FILE ÌØÐíÈ¨¡£ÎÄ¼þ±ØÐë¿É¶ÁÈ¡£¬ÎÄ¼þÈÝÁ¿±ØÐëÐ¡ÓÚ max_allowed_packet ×Ö½Ú¡£ÈôÎÄ¼þ²»´æÔÚ£¬»òÒò²»Âú×ãÉÏÊöÌõ¼þ¶ø²»ÄÜ±»¶ÁÈ¡£¬ Ôòº¯Êý·µ»ØÖµÎª NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žç»“æžœä¸ºè¿žæŽ¥å‚æ•°äº§ç”Ÿçš„å­—ç¬¦ä¸²ã€‚å¦‚æœ‰ä»»ä½•ä¸€ä¸ªå‚æ•°ä¸º NULL ï¼Œåˆ™
 
  
 
-u)      º¯Êý LOCATE(substr ,str ) , LOCATE(substr ,str ,pos )
+è¿”å›žå€¼ä¸º NULL ã€‚æˆ–è®¸æœ‰ä¸€ä¸ªæˆ–å¤šä¸ªå‚æ•°ã€‚ å¦‚æžœæ‰€æœ‰å‚æ•°å‡ä¸ºéžäºŒè¿›åˆ¶å­—ç¬¦ä¸²ï¼Œåˆ™ç»“æžœä¸ºéžäºŒè¿›åˆ¶å­—ç¬¦ä¸²ã€‚ å¦‚æžœè‡ªå˜é‡ä¸­å«æœ‰ä»»ä¸€äºŒè¿›åˆ¶å­—ç¬¦ä¸²ï¼Œåˆ™ç»“æžœä¸ºä¸€ä¸ªäºŒè¿›åˆ¶å­—ç¬¦ä¸²ã€‚ä¸€ä¸ªæ•°å­—å‚æ•°è¢«è½¬åŒ–ä¸ºä¸Žä¹‹ç›¸ç­‰çš„äºŒè¿›åˆ¶å­—ç¬¦ä¸²æ ¼å¼ï¼›è‹¥è¦é¿å…è¿™ç§æƒ…å†µï¼Œå¯ä½¿ç”¨æ˜¾å¼ç±»åž‹ cast, ä¾‹å¦‚ï¼š SELECT CONCAT(CAST(int_col AS CHAR), char_col)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºµÚÒ»¸öÓï·¨·µ»Ø×Ö·û´® str ÖÐ×Ó×Ö·û´®substr µÄµÚÒ»¸ö³öÏÖÎ»ÖÃ¡£µÚ¶þ¸öÓï·¨·µ»Ø×Ö·û´® str ÖÐ×Ó×Ö·û´®substr µÄµÚÒ»¸ö³öÏÖÎ»ÖÃ, ÆðÊ¼Î»ÖÃÔÚpos ¡£ÈçÈôsubstr ²»ÔÚstr ÖÐ£¬Ôò·µ»ØÖµÎª0 ¡£
+h)        å‡½æ•° CONCAT_WS(separator ,str1 ,str2 ,...)
 
  
 
-v)      º¯ÊýLOWER(str )
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š CONCAT_WS() ä»£è¡¨ CONCAT With Separator ï¼Œæ˜¯ CONCAT() çš„
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str ÒÔ¼°ËùÓÐ¸ù¾Ý×îÐÂµÄ×Ö·û¼¯Ó³Éä±í±äÎªÐ¡Ð´×ÖÄ¸µÄ×Ö·û
+ç‰¹æ®Šå½¢å¼ã€‚    ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å…¶å®ƒå‚æ•°çš„åˆ†éš”ç¬¦ã€‚åˆ†éš”ç¬¦çš„ä½ç½®æ”¾åœ¨è¦è¿žæŽ¥çš„ä¸¤ä¸ªå­—ç¬¦ä¸²ä¹‹é—´ã€‚åˆ†éš”ç¬¦å¯ä»¥æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œä¹Ÿå¯ä»¥æ˜¯å…¶å®ƒå‚æ•°ã€‚å¦‚æžœåˆ†éš”ç¬¦ä¸º NULL ï¼Œåˆ™ç»“æžœä¸º NULL ã€‚å‡½æ•°ä¼šå¿½ç•¥ä»»ä½•åˆ†éš”ç¬¦å‚æ•°åŽçš„ NULL å€¼ã€‚
 
  
 
-w)      º¯ÊýLPAD(str ,len ,padstr )
+i)      å‡½æ•°CONV(N from_base, to_base)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str , Æä×ó±ßÓÉ×Ö·û´®padstr Ìî²¹µ½len ×Ö·û³¤¶È¡£¼ÙÈçstr µÄ³¤¶È´óÓÚlen , Ôò·µ»ØÖµ±»Ëõ¶ÌÖÁ len ×Ö·û¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä¸åŒæ•°åŸºé—´è½¬æ¢æ•°å­—ã€‚è¿”å›žå€¼ä¸ºæ•°å­—çš„ N å­—ç¬¦ä¸²è¡¨ç¤ºï¼Œç”± from_base åŸºè½¬åŒ–ä¸º to_base åŸºã€‚å¦‚æœ‰ä»»æ„ä¸€ä¸ªå‚æ•°ä¸º NULL ï¼Œåˆ™è¿”å›žå€¼ä¸º NULL ã€‚è‡ªå˜é‡ N è¢«ç†è§£ä¸ºä¸€ä¸ªæ•´æ•°ï¼Œä½†æ˜¯å¯ä»¥è¢«æŒ‡å®šä¸ºä¸€ä¸ªæ•´æ•°æˆ–å­—ç¬¦ä¸²ã€‚æœ€å°åŸºæ•°ä¸º 2 ï¼Œè€Œæœ€å¤§åŸºæ•°åˆ™ä¸º 36 ã€‚ If to_base æ˜¯ä¸€ä¸ªè´Ÿæ•°ï¼Œåˆ™ N è¢«çœ‹ä½œä¸€ä¸ªå¸¦ç¬¦å·æ•°ã€‚å¦åˆ™ï¼Œ N è¢«çœ‹ä½œæ— ç¬¦å·æ•°ã€‚ CONV() çš„è¿è¡Œç²¾ç¡®åº¦ä¸º 64 æ¯”ç‰¹ã€‚
 
  
 
-x)      º¯ÊýLTRIM(str )
+j)          å‡½æ•° ELT(N ,str1 ,str2 ,str3 ,...)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str £¬ÆäÒýµ¼¿Õ¸ñ×Ö·û±»É¾³ý¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè‹¥ N = 1 ï¼Œåˆ™è¿”å›žå€¼ä¸º   str1 ï¼Œè‹¥ N = 2 ï¼Œåˆ™è¿”å›žå€¼ä¸º str2 ï¼Œä»¥æ­¤
 
  
 
-y)      º¯Êý MAKE_SET(bits ,str1 ,str2 ,...)
+ç±»æŽ¨ã€‚    è‹¥ N å°äºŽ 1 æˆ–å¤§äºŽå‚æ•°çš„æ•°ç›®ï¼Œåˆ™è¿”å›žå€¼ä¸º NULL ã€‚ ELT() æ˜¯   FIELD() çš„è¡¥æ•°
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»ØÒ»¸öÉè¶¨Öµ ( Ò»¸ö°üº¬±» ¡®,¡¯ ºÅ·Ö¿ªµÄ×Ö×Ö·û´®µÄ×Ö·û´® ) £¬ÓÉÔÚ bits ×éÖÐ¾ßÓÐÏàÓ¦µÄ±ÈÌØµÄ×Ö·û´®×é³É¡£ str1 ¶ÔÓ¦±ÈÌØ 0, str2 ¶ÔÓ¦±ÈÌØ 1, ÒÔ´ËÀàÍÆ¡£ str1 , str2 , ... ÖÐµÄ NULL Öµ²»»á±»Ìí¼Óµ½½á¹ûÖÐ¡£
+k)      å‡½æ•° EXPORT_SET(bits ,on ,off [,separator [,number_of_bits ]])
 
  
 
-z)      º¯Êý MID(str ,pos ,len )
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žå€¼ä¸ºä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œå…¶ä¸­å¯¹äºŽ bits å€¼ä¸­çš„æ¯ä¸ªä½ç»„ï¼Œå¯ä»¥å¾—åˆ°
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º MID(str ,pos ,len ) ÊÇ SUBSTRING(str ,pos ,len ) µÄÍ¬Òå´Ê¡£
+ä¸€ä¸ª on å­—ç¬¦ä¸²ï¼Œè€Œå¯¹äºŽæ¯ä¸ªæ¸…é›¶æ¯”ç‰¹ä½ï¼Œå¯ä»¥å¾—åˆ°ä¸€ä¸ª off å­—ç¬¦ä¸²ã€‚ bits ä¸­çš„æ¯”ç‰¹å€¼æŒ‰ç…§ä»Žå³åˆ°å·¦çš„é¡ºåºæŽ¥å—æ£€éªŒ ( ç”±ä½Žä½æ¯”ç‰¹åˆ°é«˜ä½æ¯”ç‰¹ ) ã€‚å­—ç¬¦ä¸²è¢«åˆ†éš”å­—ç¬¦ä¸²åˆ†å¼€ ( é»˜è®¤ä¸ºé€—å· â€˜,â€™) ï¼ŒæŒ‰ç…§ä»Žå·¦åˆ°å³çš„é¡ºåºè¢«æ·»åŠ åˆ°ç»“æžœä¸­ã€‚ number_of_bits ä¼šç»™å‡ºè¢«æ£€éªŒçš„äºŒè¿›åˆ¶ä½æ•° ( é»˜è®¤ä¸º 64) ã€‚
 
  
 
-aa) º¯Êý OCT(N )
+l)          å‡½æ•° FIELD(str, str1, str2, str3, â€¦...)
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸ö N µÄ°Ë½øÖÆÖµµÄ×Ö·û´®±íÊ¾£¬ÆäÖÐ N ÊÇÒ»¸ö longlong (BIGINT) Êý¡£ÕâµÈÍ¬ÓÚ CONV(N,10,8) ¡£Èô N Îª NULL £¬Ôò·µ»ØÖµÎª NULL ¡£
-
  
 
-bb) º¯Êý OCTET_LENGTH(str )
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå€¼ä¸º str1 , str2 , str3 ,â€¦â€¦ åˆ—è¡¨ä¸­çš„ str æŒ‡æ•°ã€‚åœ¨æ‰¾ä¸åˆ° str çš„æƒ…å†µä¸‹ï¼Œè¿”å›žå€¼ä¸º 0 ã€‚å¦‚æžœæ‰€æœ‰å¯¹äºŽ FIELD() çš„å‚æ•°å‡ä¸ºå­—ç¬¦ä¸²ï¼Œåˆ™æ‰€æœ‰å‚æ•°å‡æŒ‰ç…§å­—ç¬¦ä¸²è¿›è¡Œæ¯”è¾ƒã€‚å¦‚æžœæ‰€æœ‰çš„å‚æ•°å‡ä¸ºæ•°å­—ï¼Œåˆ™æŒ‰ç…§æ•°å­—è¿›è¡Œæ¯”è¾ƒã€‚å¦åˆ™ï¼Œå‚æ•°æŒ‰ç…§åŒå€è¿›è¡Œæ¯”è¾ƒã€‚å¦‚æžœ str ä¸º NULL ï¼Œåˆ™è¿”å›žå€¼ä¸º 0 ï¼ŒåŽŸå› æ˜¯ NULL ä¸èƒ½åŒä»»ä½•å€¼è¿›è¡ŒåŒç­‰æ¯”è¾ƒã€‚ FIELD() æ˜¯ ELT() çš„è¡¥æ•°ã€‚
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º OCTET_LENGTH() ÊÇ LENGTH() µÄÍ¬Òå´Ê¡£
+m)      å‡½æ•°FIND_IN_SET(str, strlist)
 
  
 
-cc) º¯ÊýORD(str )
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š å‡å¦‚å­—ç¬¦ä¸² str åœ¨ç”± N å­é“¾ç»„æˆçš„å­—ç¬¦ä¸²åˆ—è¡¨ strlist ä¸­ï¼Œ åˆ™è¿”
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÈô×Ö·û´®str µÄ×î×ó×Ö·ûÊÇÒ»¸ö¶à×Ö½Ú×Ö·û£¬Ôò·µ»Ø¸Ã×Ö·ûµÄ´úÂë£¬ ´úÂëµÄ¼ÆËãÍ¨¹ýÊ¹ÓÃÒÔÏÂ¹«Ê½¼ÆËãÆä×é³É×Ö½ÚµÄÊýÖµ¶øµÃ³ö:
+å›žå€¼çš„èŒƒå›´åœ¨ 1 åˆ° N ä¹‹é—´ ã€‚ä¸€ä¸ªå­—ç¬¦ä¸²åˆ—è¡¨å°±æ˜¯ä¸€ä¸ªç”±ä¸€äº›è¢« â€˜,â€™ ç¬¦å·åˆ†å¼€çš„è‡ªé“¾ç»„æˆçš„å­—ç¬¦ä¸²ã€‚å¦‚æžœç¬¬ä¸€ä¸ªå‚æ•°æ˜¯ä¸€ä¸ªå¸¸æ•°å­—ç¬¦ä¸²ï¼Œè€Œç¬¬äºŒä¸ªæ˜¯ type SET åˆ—ï¼Œåˆ™    FIND_IN_SET() å‡½æ•°è¢«ä¼˜åŒ–ï¼Œä½¿ç”¨æ¯”ç‰¹è®¡ç®—ã€‚å¦‚æžœ str ä¸åœ¨ strlist æˆ– strlist ä¸ºç©ºå­—ç¬¦ä¸²ï¼Œåˆ™è¿”å›žå€¼ä¸º 0 ã€‚å¦‚ä»»æ„ä¸€ä¸ªå‚æ•°ä¸º NULL ï¼Œåˆ™è¿”å›žå€¼ä¸º NULL ã€‚ è¿™ä¸ªå‡½æ•°åœ¨ç¬¬ä¸€ä¸ªå‚æ•°åŒ…å«ä¸€ä¸ªé€—å· (â€˜,â€™) æ—¶å°†æ— æ³•æ­£å¸¸è¿è¡Œã€‚
 
  
 
-      
+n)        å‡½æ•° FORMAT(X ,D )
 
  
-
-(1st byte code)
 
- 
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š å°† number X è®¾ç½®ä¸ºæ ¼å¼ '#,###,###.##', ä»¥å››èˆäº”å…¥çš„æ–¹å¼ä¿ç•™åˆ°å°æ•°ç‚¹åŽ D ä½ , è€Œè¿”å›žç»“æžœä¸ºä¸€ä¸ªå­—ç¬¦ä¸²ã€‚
 
-   
+p)      å‡½æ•°INSTR(str,substr)
 
  
 
-+ (2nd byte code ¡Á 256)
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸² str ä¸­å­å­—ç¬¦ä¸²çš„ç¬¬ä¸€ä¸ªå‡ºçŽ°ä½ç½®ã€‚è¿™å’ŒLOCATE() çš„åŒå‚æ•°å½¢å¼ç›¸åŒï¼Œé™¤éžå‚æ•°çš„é¡ºåºè¢«é¢ å€’ã€‚
 
  
 
-   
+r)      å‡½æ•°LEFT(str,len)
 
  
 
-+ (3rd byte code ¡Á 2562
-
- 
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä»Žå­—ç¬¦ä¸²str å¼€å§‹çš„len æœ€å·¦å­—ç¬¦
 
-) ...
+u)      å‡½æ•° LOCATE(substr ,str ) , LOCATE(substr ,str ,pos )
 
  
 
-¼ÙÈç×î×ó×Ö·û²»ÊÇÒ»¸ö¶à×Ö½Ú×Ö·û£¬ÄÇÃ´ ORD() ºÍº¯ÊýASCII() ·µ»ØÏàÍ¬µÄÖµ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç¬¬ä¸€ä¸ªè¯­æ³•è¿”å›žå­—ç¬¦ä¸² str ä¸­å­å­—ç¬¦ä¸²substr çš„ç¬¬ä¸€ä¸ªå‡ºçŽ°ä½ç½®ã€‚ç¬¬äºŒä¸ªè¯­æ³•è¿”å›žå­—ç¬¦ä¸² str ä¸­å­å­—ç¬¦ä¸²substr çš„ç¬¬ä¸€ä¸ªå‡ºçŽ°ä½ç½®, èµ·å§‹ä½ç½®åœ¨pos ã€‚å¦‚è‹¥substr ä¸åœ¨str ä¸­ï¼Œåˆ™è¿”å›žå€¼ä¸º0 ã€‚
 
  
 
-dd) º¯Êý POSITION(substr IN str )
+w)      å‡½æ•°LPAD(str ,len ,padstr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºPOSITION(substr IN str ) ÊÇ LOCATE(substr ,str ) Í¬Òå´Ê
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸² str , å…¶å·¦è¾¹ç”±å­—ç¬¦ä¸²padstr å¡«è¡¥åˆ°len å­—ç¬¦é•¿åº¦ã€‚å‡å¦‚str çš„é•¿åº¦å¤§äºŽlen , åˆ™è¿”å›žå€¼è¢«ç¼©çŸ­è‡³ len å­—ç¬¦ã€‚
 
  
 
-ee) º¯ÊýQUOTE(str )
+y)      å‡½æ•° MAKE_SET(bits ,str1 ,str2 ,...)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÒýÖ¤Ò»¸ö×Ö·û´®£¬ÓÉ´Ë²úÉúÒ»¸öÔÚSQL Óï¾äÖÐ¿ÉÓÃ×÷ÍêÈ«×ªÒåÊý¾ÝÖµµÄ½á¹û¡£ ·µ»ØµÄ×Ö·û´®ÓÉµ¥ÒýºÅ±ê×¢£¬Ã¿Àý¶¼´øÓÐµ¥ÒýºÅ (¡®'¡¯) ¡¢ ·´Ð±Ïß·ûºÅ (¡®\¡¯) ¡¢ ASCII NUL ÒÔ¼°Ç°ÃæÓÐ·´Ð±Ïß·ûºÅµÄControl-Z ¡£Èç¹û×Ô±äÁ¿µÄÖµÎªNULL, Ôò·µ»Ø²»´øµ¥ÒýºÅµÄµ¥´Ê ¡°NULL¡± ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žä¸€ä¸ªè®¾å®šå€¼ ( ä¸€ä¸ªåŒ…å«è¢« â€˜,â€™ å·åˆ†å¼€çš„å­—å­—ç¬¦ä¸²çš„å­—ç¬¦ä¸² ) ï¼Œç”±åœ¨ bits ç»„ä¸­å…·æœ‰ç›¸åº”çš„æ¯”ç‰¹çš„å­—ç¬¦ä¸²ç»„æˆã€‚ str1 å¯¹åº”æ¯”ç‰¹ 0, str2 å¯¹åº”æ¯”ç‰¹ 1, ä»¥æ­¤ç±»æŽ¨ã€‚ str1 , str2 , ... ä¸­çš„ NULL å€¼ä¸ä¼šè¢«æ·»åŠ åˆ°ç»“æžœä¸­ã€‚
 
  
 
-ff) º¯ÊýREPEAT(str ,count )
+z)      å‡½æ•° MID(str ,pos ,len )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸öÓÉÖØ¸´µÄ×Ö·û´®str ×é³ÉµÄ×Ö·û´®£¬×Ö·û´®str µÄÊýÄ¿µÈÓÚcount ¡£ Èô count <= 0, Ôò·µ»ØÒ»¸ö¿Õ×Ö·û´®¡£Èôstr »ò count Îª NULL £¬Ôò·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š MID(str ,pos ,len ) æ˜¯ SUBSTRING(str ,pos ,len ) çš„åŒä¹‰è¯ã€‚
 
- 
 
-gg) º¯ÊýREPLACE(str ,from_str ,to_str )
+dd) å‡½æ•° POSITION(substr IN str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´®str ÒÔ¼°ËùÓÐ±»×Ö·û´®to_str Ìæ´úµÄ×Ö·û´®from_str ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šPOSITION(substr IN str ) æ˜¯ LOCATE(substr ,str ) åŒä¹‰è¯
 
- 
 
-hh) º¯ÊýREVERSE(str )
+ff) å‡½æ•°REPEAT(str ,count )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str £¬Ë³ÐòºÍ×Ö·ûË³ÐòÏà·´¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªç”±é‡å¤çš„å­—ç¬¦ä¸²str ç»„æˆçš„å­—ç¬¦ä¸²ï¼Œå­—ç¬¦ä¸²str çš„æ•°ç›®ç­‰äºŽcount ã€‚ è‹¥ count <= 0, åˆ™è¿”å›žä¸€ä¸ªç©ºå­—ç¬¦ä¸²ã€‚è‹¥str æˆ– count ä¸º NULL ï¼Œåˆ™è¿”å›ž NULL ã€‚
 
  
 
-ii) º¯ÊýRIGHT(str ,len )
+gg) å‡½æ•°REPLACE(str ,from_str ,to_str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º´Ó×Ö·û´®str ¿ªÊ¼£¬·µ»Ø×îÓÒlen ×Ö·û¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸²str ä»¥åŠæ‰€æœ‰è¢«å­—ç¬¦ä¸²to_str æ›¿ä»£çš„å­—ç¬¦ä¸²from_str ã€‚
 
  
+ii) å‡½æ•°RIGHT(str ,len )
 
-jj) º¯ÊýRPAD(str ,len ,padstr )
-
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´®str , ÆäÓÒ±ß±»×Ö·û´® padstr Ìî²¹ÖÁlen ×Ö·û³¤¶È¡£¼ÙÈç×Ö·û´®str µÄ³¤¶È´óÓÚ len , Ôò·µ»ØÖµ±»Ëõ¶Ìµ½Óë len ×Ö·ûÏàÍ¬³¤¶È
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä»Žå­—ç¬¦ä¸²str å¼€å§‹ï¼Œè¿”å›žæœ€å³len å­—ç¬¦ã€‚
 
  
 
-kk) º¯ÊýRTRIM(str )
+jj) å‡½æ•°RPAD(str ,len ,padstr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str £¬½áÎ²¿Õ¸ñ×Ö·û±»É¾È¥¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸²str , å…¶å³è¾¹è¢«å­—ç¬¦ä¸² padstr å¡«è¡¥è‡³len å­—ç¬¦é•¿åº¦ã€‚å‡å¦‚å­—ç¬¦ä¸²str çš„é•¿åº¦å¤§äºŽ len , åˆ™è¿”å›žå€¼è¢«ç¼©çŸ­åˆ°ä¸Ž len å­—ç¬¦ç›¸åŒé•¿åº¦
 
  
-
-ll) º¯Êý SOUNDEX(str )
+----------
+ll) å‡½æ•° SOUNDEX(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º´Óstr ·µ»ØÒ»¸ösoundex ×Ö·û´®¡£ Á½¸ö¾ßÓÐ¼¸ºõÍ¬ÑùÌ½²âµÄ×Ö·û´®Ó¦¸Ã¾ßÓÐÍ¬ÑùµÄ soundex ×Ö·û´®¡£Ò»¸ö±ê×¼µÄsoundex ×Ö·û´®µÄ³¤¶ÈÎª4 ¸ö×Ö·û£¬È»¶øSOUNDEX() º¯Êý»á·µ»ØÒ»¸öÈËÒÔ³¤¶ÈµÄ×Ö·û´®¡£ ¿ÉÊ¹ÓÃ½á¹ûÖÐµÄSUBSTRING() À´µÃµ½Ò»¸ö±ê×¼ soundex ×Ö·û´®¡£ÔÚstr ÖÐ£¬ »áºöÂÔËùÓÐÎ´°´ÕÕ×ÖÄ¸Ë³ÐòÅÅÁÐµÄ×Ö·û¡£ËùÓÐ²»ÔÚA-Z ·¶Î§Ö®ÄÚµÄ¹ú¼Ê×ÖÄ¸·ûºÅ±»ÊÓÎªÔªÒô×ÖÄ¸¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä»Žstr è¿”å›žä¸€ä¸ªsoundex å­—ç¬¦ä¸²ã€‚ ä¸¤ä¸ªå…·æœ‰å‡ ä¹ŽåŒæ ·æŽ¢æµ‹çš„å­—ç¬¦ä¸²åº”è¯¥å…·æœ‰åŒæ ·çš„ soundex å­—ç¬¦ä¸²ã€‚ä¸€ä¸ªæ ‡å‡†çš„soundex å­—ç¬¦ä¸²çš„é•¿åº¦ä¸º4 ä¸ªå­—ç¬¦ï¼Œç„¶è€ŒSOUNDEX() å‡½æ•°ä¼šè¿”å›žä¸€ä¸ªäººä»¥é•¿åº¦çš„å­—ç¬¦ä¸²ã€‚ å¯ä½¿ç”¨ç»“æžœä¸­çš„SUBSTRING() æ¥å¾—åˆ°ä¸€ä¸ªæ ‡å‡† soundex å­—ç¬¦ä¸²ã€‚åœ¨str ä¸­ï¼Œ ä¼šå¿½ç•¥æ‰€æœ‰æœªæŒ‰ç…§å­—æ¯é¡ºåºæŽ’åˆ—çš„å­—ç¬¦ã€‚æ‰€æœ‰ä¸åœ¨A-Z èŒƒå›´ä¹‹å†…çš„å›½é™…å­—æ¯ç¬¦å·è¢«è§†ä¸ºå…ƒéŸ³å­—æ¯ã€‚
 
  
 
-mm) º¯Êýexpr1 SOUNDS LIKE expr2
+mm) å‡½æ•°expr1 SOUNDS LIKE expr2
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ÕâÏàµ±ÓÚSOUNDEX(expr1 ) = SOUNDEX(expr2 ) ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿™ç›¸å½“äºŽSOUNDEX(expr1 ) = SOUNDEX(expr2 ) ã€‚
 
  
 
-nn) º¯ÊýSPACE(N )
+nn) å‡½æ•°SPACE(N )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸öÓÉN ¼ä¸ô·ûºÅ×é³ÉµÄ×Ö·û´®
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªç”±N é—´éš”ç¬¦å·ç»„æˆçš„å­—ç¬¦ä¸²
 
  
 
-oo) º¯ÊýSUBSTRING(str ,pos ) , SUBSTRING(str FROM pos ) SUBSTRING(str ,pos ,len ) , SUBSTRING(str FROM pos FOR len )
+oo) å‡½æ•°SUBSTRING(str ,pos ) , SUBSTRING(str FROM pos ) SUBSTRING(str ,pos ,len ) , SUBSTRING(str FROM pos FOR len )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º²»´øÓÐlen ²ÎÊýµÄ¸ñÊ½´Ó×Ö·û´®str ·µ»ØÒ»¸ö×Ó×Ö·û´®£¬ÆðÊ¼ÓÚÎ»ÖÃ pos ¡£´øÓÐlen ²ÎÊýµÄ¸ñÊ½´Ó×Ö·û´®str ·µ»ØÒ»¸ö³¤¶ÈÍ¬len ×Ö·ûÏàÍ¬µÄ×Ó×Ö·û´®£¬ÆðÊ¼ÓÚÎ»ÖÃ pos ¡£ Ê¹ÓÃ FROM µÄ¸ñÊ½Îª±ê×¼ SQL Óï·¨¡£Ò²¿ÉÄÜ¶Ôpos Ê¹ÓÃÒ»¸ö¸ºÖµ¡£¼ÙÈôÕâÑù£¬Ôò×Ó×Ö·û´®µÄÎ»ÖÃÆðÊ¼ÓÚ×Ö·û´®½áÎ²µÄpos ×Ö·û£¬¶ø²»ÊÇ×Ö·û´®µÄ¿ªÍ·Î»ÖÃ¡£ÔÚÒÔÏÂ¸ñÊ½µÄº¯ÊýÖÐ¿ÉÒÔ¶Ôpos Ê¹ÓÃÒ»¸ö¸ºÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä¸å¸¦æœ‰len å‚æ•°çš„æ ¼å¼ä»Žå­—ç¬¦ä¸²str è¿”å›žä¸€ä¸ªå­å­—ç¬¦ä¸²ï¼Œèµ·å§‹äºŽä½ç½® pos ã€‚å¸¦æœ‰len å‚æ•°çš„æ ¼å¼ä»Žå­—ç¬¦ä¸²str è¿”å›žä¸€ä¸ªé•¿åº¦åŒlen å­—ç¬¦ç›¸åŒçš„å­å­—ç¬¦ä¸²ï¼Œèµ·å§‹äºŽä½ç½® pos ã€‚ ä½¿ç”¨ FROM çš„æ ¼å¼ä¸ºæ ‡å‡† SQL è¯­æ³•ã€‚ä¹Ÿå¯èƒ½å¯¹pos ä½¿ç”¨ä¸€ä¸ªè´Ÿå€¼ã€‚å‡è‹¥è¿™æ ·ï¼Œåˆ™å­å­—ç¬¦ä¸²çš„ä½ç½®èµ·å§‹äºŽå­—ç¬¦ä¸²ç»“å°¾çš„pos å­—ç¬¦ï¼Œè€Œä¸æ˜¯å­—ç¬¦ä¸²çš„å¼€å¤´ä½ç½®ã€‚åœ¨ä»¥ä¸‹æ ¼å¼çš„å‡½æ•°ä¸­å¯ä»¥å¯¹pos ä½¿ç”¨ä¸€ä¸ªè´Ÿå€¼ã€‚
 
  
 
-pp) º¯ÊýSUBSTRING_INDEX(str ,delim ,count )
+pp) å‡½æ•°SUBSTRING_INDEX(str ,delim ,count )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÔÚ¶¨½ç·û delim ÒÔ¼°count ³öÏÖÇ°£¬´Ó×Ö·û´®str ·µ»Ø×Ô×Ö·û´®¡£Èôcount ÎªÕýÖµ, Ôò·µ»Ø×îÖÕ¶¨½ç·û( ´Ó×ó±ß¿ªÊ¼) ×ó±ßµÄÒ»ÇÐÄÚÈÝ¡£Èôcount Îª¸ºÖµ£¬Ôò·µ»Ø¶¨½ç·û£¨´ÓÓÒ±ß¿ªÊ¼£©ÓÒ±ßµÄÒ»ÇÐÄÚÈÝ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šåœ¨å®šç•Œç¬¦ delim ä»¥åŠcount å‡ºçŽ°å‰ï¼Œä»Žå­—ç¬¦ä¸²str è¿”å›žè‡ªå­—ç¬¦ä¸²ã€‚è‹¥count ä¸ºæ­£å€¼, åˆ™è¿”å›žæœ€ç»ˆå®šç•Œç¬¦( ä»Žå·¦è¾¹å¼€å§‹) å·¦è¾¹çš„ä¸€åˆ‡å†…å®¹ã€‚è‹¥count ä¸ºè´Ÿå€¼ï¼Œåˆ™è¿”å›žå®šç•Œç¬¦ï¼ˆä»Žå³è¾¹å¼€å§‹ï¼‰å³è¾¹çš„ä¸€åˆ‡å†…å®¹ã€‚
 
  
 
-qq) º¯Êý TRIM([{BOTH | LEADING | TRAILING} [remstr ] FROM] str ) TRIM(remstr FROM] str )
+qq) å‡½æ•° TRIM([{BOTH | LEADING | TRAILING} [remstr ] FROM] str ) TRIM(remstr FROM] str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str £¬ ÆäÖÐËùÓÐremstr Ç°×ººÍ/ »òºó×º¶¼ÒÑ±»É¾³ý¡£Èô·ÖÀà·ûBOTH ¡¢LEADIN »òTRAILING ÖÐÃ»ÓÐÒ»¸öÊÇ¸ø¶¨µÄ, Ôò¼ÙÉèÎªBOTH ¡£ remstr Îª¿ÉÑ¡Ïî£¬ÔÚÎ´Ö¸¶¨Çé¿öÏÂ£¬¿ÉÉ¾³ý¿Õ¸ñ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸² str ï¼Œ å…¶ä¸­æ‰€æœ‰remstr å‰ç¼€å’Œ/ æˆ–åŽç¼€éƒ½å·²è¢«åˆ é™¤ã€‚è‹¥åˆ†ç±»ç¬¦BOTH ã€LEADIN æˆ–TRAILING ä¸­æ²¡æœ‰ä¸€ä¸ªæ˜¯ç»™å®šçš„, åˆ™å‡è®¾ä¸ºBOTH ã€‚ remstr ä¸ºå¯é€‰é¡¹ï¼Œåœ¨æœªæŒ‡å®šæƒ…å†µä¸‹ï¼Œå¯åˆ é™¤ç©ºæ ¼
 
  
 
-rr) º¯ÊýUCASE(str)
+rr) å‡½æ•°UCASE(str)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºUCASE() ÊÇUPPER() µÄÍ¬Òå´Ê
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šUCASE() æ˜¯UPPER() çš„åŒä¹‰è¯
 
  
 
-ss) º¯ÊýUNCOMPRESS(string_to_uncompress )
+ss) å‡½æ•°UNCOMPRESS(string_to_uncompress )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¶Ô¾­COMPRESS() º¯ÊýÑ¹ËõºóµÄ×Ö·û´®½øÐÐ½âÑ¹Ëõ¡£Èô²ÎÊýÎªÑ¹ËõÖµ£¬Ôò½á¹ûÎª NULL ¡£Õâ¸öº¯ÊýÒªÇó MySQL ÒÑ±»ÖîÈçzlib Ö®ÀàµÄÑ¹Ëõ¿â±àÒë¹ý¡£·ñÔò, ·µ»ØÖµ½«Ê¼ÖÕÊÇ NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå¯¹ç»COMPRESS() å‡½æ•°åŽ‹ç¼©åŽçš„å­—ç¬¦ä¸²è¿›è¡Œè§£åŽ‹ç¼©ã€‚è‹¥å‚æ•°ä¸ºåŽ‹ç¼©å€¼ï¼Œåˆ™ç»“æžœä¸º NULL ã€‚è¿™ä¸ªå‡½æ•°è¦æ±‚ MySQL å·²è¢«è¯¸å¦‚zlib ä¹‹ç±»çš„åŽ‹ç¼©åº“ç¼–è¯‘è¿‡ã€‚å¦åˆ™, è¿”å›žå€¼å°†å§‹ç»ˆæ˜¯ NULL
 
  
 
-tt) º¯Êý UNCOMPRESSED_LENGTH(compressed_string )
+tt) å‡½æ•° UNCOMPRESSED_LENGTH(compressed_string )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»ØÑ¹Ëõ×Ö·û´®Ñ¹ËõÇ°µÄ³¤¶È¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žåŽ‹ç¼©å­—ç¬¦ä¸²åŽ‹ç¼©å‰çš„é•¿åº¦ã€‚
 
  
 
-uu)     º¯Êý UNHEX(str)
+uu)     å‡½æ•° UNHEX(str)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÖ´ÐÐ´Ó HEX(str ) µÄ·´Ïò²Ù×÷¡£¾ÍÊÇËµ£¬Ëü½«²ÎÊýÖÐµÄÃ¿Ò»¶ÔÊ®Áù½øÖÆÊý×ÖÀí½âÎªÒ»¸öÊý×Ö£¬²¢½«Æä×ª»¯Îª¸ÃÊý×Ö´ú±íµÄ×Ö·û¡£½á¹û×Ö·ûÒÔ¶þ½øÖÆ×Ö·û´®µÄÐÎÊ½·µ»Ø
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šæ‰§è¡Œä»Ž HEX(str ) çš„åå‘æ“ä½œã€‚å°±æ˜¯è¯´ï¼Œå®ƒå°†å‚æ•°ä¸­çš„æ¯ä¸€å¯¹åå…­è¿›åˆ¶æ•°å­—ç†è§£ä¸ºä¸€ä¸ªæ•°å­—ï¼Œå¹¶å°†å…¶è½¬åŒ–ä¸ºè¯¥æ•°å­—ä»£è¡¨çš„å­—ç¬¦ã€‚ç»“æžœå­—ç¬¦ä»¥äºŒè¿›åˆ¶å­—ç¬¦ä¸²çš„å½¢å¼è¿”å›ž
 
  
 
-vv)     º¯Êý UPPER(str )
+vv)     å‡½æ•° UPPER(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´® str £¬ ÒÔ¼°¸ù¾Ý×îÐÂ×Ö·û¼¯Ó³Éä×ª»¯Îª´óÐ´×ÖÄ¸µÄ×Ö·û
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸² str ï¼Œ ä»¥åŠæ ¹æ®æœ€æ–°å­—ç¬¦é›†æ˜ å°„è½¬åŒ–ä¸ºå¤§å†™å­—æ¯çš„å­—ç¬¦
 
  
 
-Èý¡¢ ÊýÑ§º¯Êý
+ä¸‰ã€ æ•°å­¦å‡½æ•°
 
  
 
-a)         º¯Êý ABS(X)
+a)         å‡½æ•° ABS(X)
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄ¾ø¶ÔÖµ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„ç»å¯¹å€¼
 
  
 
-b)        º¯Êý ACOS(X )
+b)        å‡½æ•° ACOS(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X ·´ÓàÏÒ , ¼´ , ÓàÏÒÊÇ X µÄÖµ¡£Èô X ²»ÔÚ -1 µ½ 1 µÄ·¶Î§Ö®ÄÚ£¬Ôò·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X åä½™å¼¦ , å³ , ä½™å¼¦æ˜¯ X çš„å€¼ã€‚è‹¥ X ä¸åœ¨ -1 åˆ° 1 çš„èŒƒå›´ä¹‹å†…ï¼Œåˆ™è¿”å›ž NULL ã€‚
 
  
 
-c)        º¯Êý ASIN £¨ X £©
+c)        å‡½æ•° ASIN ï¼ˆ X ï¼‰
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØX µÄ·´ÕýÏÒ£¬¼´£¬ÕýÏÒÎªX µÄÖµ¡£ÈôX   ÈôX ²»ÔÚ-1 µ½ 1 µÄ·¶Î§Ö®ÄÚ£¬Ôò·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žX çš„åæ­£å¼¦ï¼Œå³ï¼Œæ­£å¼¦ä¸ºX çš„å€¼ã€‚è‹¥X   è‹¥X ä¸åœ¨-1 åˆ° 1 çš„èŒƒå›´ä¹‹å†…ï¼Œåˆ™è¿”å›ž NULL ã€‚
 
  
 
-d)      º¯ÊýATAN(X )
+d)      å‡½æ•°ATAN(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄ·´ÕýÇÐ£¬¼´£¬ÕýÇÐÎª X µÄÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„åæ­£åˆ‡ï¼Œå³ï¼Œæ­£åˆ‡ä¸º X çš„å€¼ã€‚
 
  
 
-e)         º¯Êý ATAN(Y ,X ) , ATAN2(Y ,X )
+e)         å‡½æ•° ATAN(Y ,X ) , ATAN2(Y ,X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÁ½¸ö±äÁ¿ X ¼° Y µÄ·´ÕýÇÐ¡£ ËüÀàËÆÓÚ Y »ò X µÄ·´ÕýÇÐ¼Æ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸¤ä¸ªå˜é‡ X åŠ Y çš„åæ­£åˆ‡ã€‚ å®ƒç±»ä¼¼äºŽ Y æˆ– X çš„åæ­£åˆ‡è®¡
 
  
 
-       Ëã , ³ý·ÇÁ½¸ö²ÎÊýµÄ·ûºÅ¾ùÓÃÓÚÈ·¶¨½á¹ûËùÔÚÏóÏÞ¡£
+       ç®— , é™¤éžä¸¤ä¸ªå‚æ•°çš„ç¬¦å·å‡ç”¨äºŽç¡®å®šç»“æžœæ‰€åœ¨è±¡é™ã€‚
 
  
 
-f)         º¯Êý CEILING(X ) CEIL(X )
+f)         å‡½æ•° CEILING(X ) CEIL(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø²»Ð¡ÓÚ X µÄ×îÐ¡ÕûÊýÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸å°äºŽ X çš„æœ€å°æ•´æ•°å€¼ã€‚
 
  
 
-g)        º¯Êý COS(X )
+g)        å‡½æ•° COS(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄÓàÏÒ£¬ÆäÖÐ X ÔÚ»¡¶ÈÉÏÒÑÖª¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„ä½™å¼¦ï¼Œå…¶ä¸­ X åœ¨å¼§åº¦ä¸Šå·²çŸ¥ã€‚
 
  
 
-h)        º¯Êý COT(X )
+h)        å‡½æ•° COT(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄÓàÇÐ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„ä½™åˆ‡
 
  
 
-i)          º¯Êý CRC32(expr )
+i)          å‡½æ•° CRC32(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¼ÆËãÑ­»·ÈßÓàÂëÐ£ÑéÖµ²¢·µ»ØÒ»¸ö 32 ±ÈÌØÎÞ·ûºÅÖµ¡£Èô²ÎÊýÎª NULL £¬Ôò½á¹ûÎª NULL ¡£¸Ã²ÎÊýÓ¦ÎªÒ»¸ö×Ö·û´®£¬¶øÇÒÔÚ²»ÊÇ×Ö·û´®µÄÇé¿öÏÂ»á±»×÷Îª×Ö·û´®´¦Àí£¨ÈôÓÐ¿ÉÄÜ£©
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè®¡ç®—å¾ªçŽ¯å†—ä½™ç æ ¡éªŒå€¼å¹¶è¿”å›žä¸€ä¸ª 32 æ¯”ç‰¹æ— ç¬¦å·å€¼ã€‚è‹¥å‚æ•°ä¸º NULL ï¼Œåˆ™ç»“æžœä¸º NULL ã€‚è¯¥å‚æ•°åº”ä¸ºä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè€Œä¸”åœ¨ä¸æ˜¯å­—ç¬¦ä¸²çš„æƒ…å†µä¸‹ä¼šè¢«ä½œä¸ºå­—ç¬¦ä¸²å¤„ç†ï¼ˆè‹¥æœ‰å¯èƒ½ï¼‰
 
  
 
-j)          º¯Êý DEGREES(X )
+j)          å‡½æ•° DEGREES(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø²ÎÊý X , ¸Ã²ÎÊýÓÉ»¡¶È±»×ª»¯Îª¶È¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå‚æ•° X , è¯¥å‚æ•°ç”±å¼§åº¦è¢«è½¬åŒ–ä¸ºåº¦ã€‚
 
  
 
-k)        º¯Êý EXP(X )
+k)        å‡½æ•° EXP(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø e µÄ X ³Ë·½ºóµÄÖµ ( ×ÔÈ»¶ÔÊýµÄµ× ) ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž e çš„ X ä¹˜æ–¹åŽçš„å€¼ ( è‡ªç„¶å¯¹æ•°çš„åº• ) ã€‚
 
  
 
-l)          º¯Êý FLOOR(X )
+l)          å‡½æ•° FLOOR(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø²»´óÓÚ X µÄ×î´óÕûÊýÖµ ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸å¤§äºŽ X çš„æœ€å¤§æ•´æ•°å€¼ ã€‚
 
  
 
-m)      º¯Êý FORMAT(X ,D )
+m)      å‡½æ•° FORMAT(X ,D )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º½«Êý×Ö X µÄ¸ñÊ½Ð´³É '#,###,###.##' ¸ñÊ½ , ¼´±£ÁôÐ¡Êýµãºó D Î»£¬¶øµÚ D Î»µÄ±£Áô·½Ê½ÎªËÄÉáÎåÈë£¬È»ºó½«½á¹ûÒÔ×Ö·û´®µÄÐÎÊ½·µ»Ø
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå°†æ•°å­— X çš„æ ¼å¼å†™æˆ '#,###,###.##' æ ¼å¼ , å³ä¿ç•™å°æ•°ç‚¹åŽ D ä½ï¼Œè€Œç¬¬ D ä½çš„ä¿ç•™æ–¹å¼ä¸ºå››èˆäº”å…¥ï¼Œç„¶åŽå°†ç»“æžœä»¥å­—ç¬¦ä¸²çš„å½¢å¼è¿”å›ž
 
  
 
-n)        º¯Êý LN(X )
+n)        å‡½æ•° LN(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄ×ÔÈ»¶ÔÊý , ¼´ , X Ïà¶ÔÓÚ»ùÊý e µÄ¶ÔÊý
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„è‡ªç„¶å¯¹æ•° , å³ , X ç›¸å¯¹äºŽåŸºæ•° e çš„å¯¹æ•°
 
  
 
-o)        º¯Êý LOG(X ) LOG(B ,X )
+o)        å‡½æ•° LOG(X ) LOG(B ,X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÈôÓÃÒ»¸ö²ÎÊýµ÷ÓÃ£¬Õâ¸öº¯Êý¾Í»á·µ»Ø X µÄ×ÔÈ»¶ÔÊý¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè‹¥ç”¨ä¸€ä¸ªå‚æ•°è°ƒç”¨ï¼Œè¿™ä¸ªå‡½æ•°å°±ä¼šè¿”å›ž X çš„è‡ªç„¶å¯¹æ•°ã€‚
 
  
 
-p)        º¯Êý LOG2(X )
+p)        å‡½æ•° LOG2(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄ»ùÊýÎª 2 µÄ¶ÔÊý¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„åŸºæ•°ä¸º 2 çš„å¯¹æ•°ã€‚
 
  
 
-q)        º¯Êý LOG10(X )
+q)        å‡½æ•° LOG10(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄ»ùÊýÎª 10 µÄ¶ÔÊý¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„åŸºæ•°ä¸º 10 çš„å¯¹æ•°ã€‚
 
  
 
-r)         º¯Êý MOD(N ,M ) , N % M N MOD M
+r)         å‡½æ•° MOD(N ,M ) , N % M N MOD M
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º Ä£²Ù×÷¡£·µ»Ø N ±» M ³ýºóµÄÓàÊý¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š æ¨¡æ“ä½œã€‚è¿”å›ž N è¢« M é™¤åŽçš„ä½™æ•°ã€‚
 
  
 
-s)         º¯Êý PI()
+s)         å‡½æ•° PI()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø ? (pi) µÄÖµ¡£Ä¬ÈÏµÄÏÔÊ¾Ð¡ÊýÎ»ÊýÊÇ 7 Î» , È»¶ø MySQL ÄÚ²¿»áÊ¹ÓÃÍêÈ«Ë«¾«¶ÈÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž ? (pi) çš„å€¼ã€‚é»˜è®¤çš„æ˜¾ç¤ºå°æ•°ä½æ•°æ˜¯ 7 ä½ , ç„¶è€Œ MySQL å†…éƒ¨ä¼šä½¿ç”¨å®Œå…¨åŒç²¾åº¦å€¼ã€‚
 
  
 
-t)          º¯Êý POW(X ,Y ) , POWER(X ,Y )
+t)          å‡½æ•° POW(X ,Y ) , POWER(X ,Y )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X µÄ Y ³Ë·½µÄ½á¹ûÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X çš„ Y ä¹˜æ–¹çš„ç»“æžœå€¼ã€‚
 
  
 
-u)        º¯Êý RADIANS(X )
+u)        å‡½æ•° RADIANS(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÓÉ¶È×ª»¯Îª»¡¶ÈµÄ²ÎÊý X , ( ×¢Òâ ? »¡¶ÈµÈÓÚ 180 ¶È£©¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žç”±åº¦è½¬åŒ–ä¸ºå¼§åº¦çš„å‚æ•° X , ( æ³¨æ„ ? å¼§åº¦ç­‰äºŽ 180 åº¦ï¼‰ã€‚
 
  
 
-v)        º¯Êý RAND() RAND(N )
+v)        å‡½æ•° RAND() RAND(N )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸öËæ»ú¸¡µãÖµ v £¬·¶Î§ÔÚ 0 µ½ 1 Ö®¼ä ( ¼´ , Æä·¶Î§Îª 0 ¡Ü v ¡Ü 1.0) ¡£ÈôÒÑÖ¸¶¨Ò»¸öÕûÊý²ÎÊý N £¬ÔòËü±»ÓÃ×÷ÖÖ×ÓÖµ£¬ÓÃÀ´²úÉúÖØ¸´ÐòÁÐ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªéšæœºæµ®ç‚¹å€¼ v ï¼ŒèŒƒå›´åœ¨ 0 åˆ° 1 ä¹‹é—´ ( å³ , å…¶èŒƒå›´ä¸º 0 â‰¤ v â‰¤ 1.0) ã€‚è‹¥å·²æŒ‡å®šä¸€ä¸ªæ•´æ•°å‚æ•° N ï¼Œåˆ™å®ƒè¢«ç”¨ä½œç§å­å€¼ï¼Œç”¨æ¥äº§ç”Ÿé‡å¤åºåˆ—ã€‚
 
  
 
-w)      º¯Êý ROUND(X ) ROUND(X ,D )
+w)      å‡½æ•° ROUND(X ) ROUND(X ,D )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø²ÎÊý X , ÆäÖµ½Ó½üÓÚ×î½üËÆµÄÕûÊý¡£ÔÚÓÐÁ½¸ö²ÎÊýµÄÇé¿öÏÂ£¬·µ»Ø X £¬ÆäÖµ±£Áôµ½Ð¡Êýµãºó D Î»£¬¶øµÚ D Î»µÄ±£Áô·½Ê½ÎªËÄÉáÎåÈë¡£ÈôÒª½Ó±£Áô X ÖµÐ¡Êýµã×ó±ßµÄ D Î»£¬¿É½« D ÉèÎª¸ºÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå‚æ•° X , å…¶å€¼æŽ¥è¿‘äºŽæœ€è¿‘ä¼¼çš„æ•´æ•°ã€‚åœ¨æœ‰ä¸¤ä¸ªå‚æ•°çš„æƒ…å†µä¸‹ï¼Œè¿”å›ž X ï¼Œå…¶å€¼ä¿ç•™åˆ°å°æ•°ç‚¹åŽ D ä½ï¼Œè€Œç¬¬ D ä½çš„ä¿ç•™æ–¹å¼ä¸ºå››èˆäº”å…¥ã€‚è‹¥è¦æŽ¥ä¿ç•™ X å€¼å°æ•°ç‚¹å·¦è¾¹çš„ D ä½ï¼Œå¯å°† D è®¾ä¸ºè´Ÿå€¼ã€‚
 
  
 
-x)        º¯Êý SIGN(X )
+x)        å‡½æ•° SIGN(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø²ÎÊý×÷Îª -1 ¡¢ 0 »ò 1 µÄ·ûºÅ£¬¸Ã·ûºÅÈ¡¾öÓÚ X µÄÖµÎª¸º¡¢Áã»òÕý¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå‚æ•°ä½œä¸º -1 ã€ 0 æˆ– 1 çš„ç¬¦å·ï¼Œè¯¥ç¬¦å·å–å†³äºŽ X çš„å€¼ä¸ºè´Ÿã€é›¶æˆ–æ­£ã€‚
 
  
 
-y)        º¯Êý SIN(X )
+y)        å‡½æ•° SIN(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø X ÕýÏÒ£¬ÆäÖÐ X ÔÚ»¡¶ÈÖÐ±»¸ø¶¨¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž X æ­£å¼¦ï¼Œå…¶ä¸­ X åœ¨å¼§åº¦ä¸­è¢«ç»™å®šã€‚
 
  
 
-z)      º¯Êý SQRT(X )
+z)      å‡½æ•° SQRT(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»Ø·Ç¸ºÊý X µÄ¶þ´Î·½¸ù¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žéžè´Ÿæ•° X çš„äºŒæ¬¡æ–¹æ ¹ã€‚
 
  
 
-aa) º¯ÊýTAN(X )
+aa) å‡½æ•°TAN(X )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»Ø X µÄÕýÇÐ£¬ÆäÖÐ X ÔÚ»¡¶ÈÖÐ±»¸ø¶¨¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›ž X çš„æ­£åˆ‡ï¼Œå…¶ä¸­ X åœ¨å¼§åº¦ä¸­è¢«ç»™å®šã€‚
 
  
 
-bb) º¯ÊýTRUNCATE(X ,D )
+bb) å‡½æ•°TRUNCATE(X ,D )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»Ø±»ÉáÈ¥ÖÁÐ¡Êýµãºó D Î»µÄÊý×Ö X ¡£Èô D µÄÖµÎª 0, Ôò½á¹û
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žè¢«èˆåŽ»è‡³å°æ•°ç‚¹åŽ D ä½çš„æ•°å­— X ã€‚è‹¥ D çš„å€¼ä¸º 0, åˆ™ç»“æžœ
 
  
 
-²»´øÓÐÐ¡Êýµã»ò²»´øÓÐÐ¡Êý²¿·Ö¡£¿ÉÒÔ½« D ÉèÎª¸ºÊý , ÈôÒª½ØÈ¥ ( ¹éÁã ) X Ð¡Êýµã×óÆðµÚ D Î»¿ªÊ¼ºóÃæËùÓÐµÍÎ»µÄÖµ
+ä¸å¸¦æœ‰å°æ•°ç‚¹æˆ–ä¸å¸¦æœ‰å°æ•°éƒ¨åˆ†ã€‚å¯ä»¥å°† D è®¾ä¸ºè´Ÿæ•° , è‹¥è¦æˆªåŽ» ( å½’é›¶ ) X å°æ•°ç‚¹å·¦èµ·ç¬¬ D ä½å¼€å§‹åŽé¢æ‰€æœ‰ä½Žä½çš„å€¼
 
  
 
-ËÄ¡¢            ÈÕÆÚºÍÊ±¼äº¯Êý
+å››ã€            æ—¥æœŸå’Œæ—¶é—´å‡½æ•°
 
  
 
-a)      º¯ÊýADDDATE(date ,INTERVAL expr type ) ADDDATE(expr ,days )
+a)      å‡½æ•°ADDDATE(date ,INTERVAL expr type ) ADDDATE(expr ,days )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º µ±±»µÚ¶þ¸ö²ÎÊýµÄ INTERVAL ¸ñÊ½¼¤»îºó£¬ ADDDATE() ¾ÍÊÇ DATE_ADD() µÄÍ¬Òå´Ê¡£Ïà¹Øº¯Êý SUBDATE() ÔòÊÇ DATE_SUB() µÄÍ¬Òå´Ê¡£¶ÔÓÚ INTERVAL ²ÎÊýÉÏµÄÐÅÏ¢ £¬Çë²Î¼û¹ØÓÚ DATE_ADD() µÄÂÛÊö¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š å½“è¢«ç¬¬äºŒä¸ªå‚æ•°çš„ INTERVAL æ ¼å¼æ¿€æ´»åŽï¼Œ ADDDATE() å°±æ˜¯ DATE_ADD() çš„åŒä¹‰è¯ã€‚ç›¸å…³å‡½æ•° SUBDATE() åˆ™æ˜¯ DATE_SUB() çš„åŒä¹‰è¯ã€‚å¯¹äºŽ INTERVAL å‚æ•°ä¸Šçš„ä¿¡æ¯ ï¼Œè¯·å‚è§å…³äºŽ DATE_ADD() çš„è®ºè¿°ã€‚
 
  
 
-b)        º¯Êý ADDTIME(expr ,expr2 )
+b)        å‡½æ•° ADDTIME(expr ,expr2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ADDTIME() ½« expr2 Ìí¼ÓÖÁ expr È»ºó·µ»Ø½á¹û¡£ expr ÊÇÒ»¸öÊ±¼ä»òÊ±¼äÈÕÆÚ±í´ïÊ½£¬¶ø expr2 ÊÇÒ»¸öÊ±¼ä±í´ïÊ½¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š ADDTIME() å°† expr2 æ·»åŠ è‡³ expr ç„¶åŽè¿”å›žç»“æžœã€‚ expr æ˜¯ä¸€ä¸ªæ—¶é—´æˆ–æ—¶é—´æ—¥æœŸè¡¨è¾¾å¼ï¼Œè€Œ expr2 æ˜¯ä¸€ä¸ªæ—¶é—´è¡¨è¾¾å¼ã€‚
 
  
 
-c)      º¯Êý CONVERT_TZ(dt ,from_tz ,to_tz )
+c)      å‡½æ•° CONVERT_TZ(dt ,from_tz ,to_tz )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º CONVERT_TZ() ½«Ê±¼äÈÕÆÚÖµ dt ´Ó from_tz ¸ø³öµÄÊ±Çø×ªµ½ to_tz ¸ø³öµÄÊ±Çø£¬È»ºó·µ»Ø½á¹ûÖµ¡£¹ØÓÚ¿ÉÄÜÖ¸¶¨µÄÊ±ÇøµÄÏêÏ¸ÂÛÊö£¬Èô×Ô±äÁ¿ÎÞÐ§£¬ÔòÕâ¸öº¯Êý»á·µ»Ø NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š CONVERT_TZ() å°†æ—¶é—´æ—¥æœŸå€¼ dt ä»Ž from_tz ç»™å‡ºçš„æ—¶åŒºè½¬åˆ° to_tz ç»™å‡ºçš„æ—¶åŒºï¼Œç„¶åŽè¿”å›žç»“æžœå€¼ã€‚å…³äºŽå¯èƒ½æŒ‡å®šçš„æ—¶åŒºçš„è¯¦ç»†è®ºè¿°ï¼Œè‹¥è‡ªå˜é‡æ— æ•ˆï¼Œåˆ™è¿™ä¸ªå‡½æ•°ä¼šè¿”å›ž NULL
 
  
 
-d)        º¯Êý CURDATE()
+d)        å‡½æ•° CURDATE()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º½«µ±Ç°ÈÕÆÚ°´ÕÕ 'YYYY-MM-DD' »ò YYYYMMDD ¸ñÊ½µÄÖµ·µ»Ø£¬¾ßÌå¸ñÊ½¸ù¾Ýº¯ÊýÓÃÔÚ×Ö·û´®»òÊÇÊý×ÖÓï¾³ÖÐ¶ø¶¨¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå°†å½“å‰æ—¥æœŸæŒ‰ç…§ 'YYYY-MM-DD' æˆ– YYYYMMDD æ ¼å¼çš„å€¼è¿”å›žï¼Œå…·ä½“æ ¼å¼æ ¹æ®å‡½æ•°ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ˜¯æ•°å­—è¯­å¢ƒä¸­è€Œå®šã€‚
 
  
 
-e)         º¯Êý CURRENT_DATE CURRENT_DATE()
+e)         å‡½æ•° CURRENT_DATE CURRENT_DATE()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º CURRENT_DATE ºÍ CURRENT_DATE() ÊÇµÄÍ¬Òå´Ê .
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š CURRENT_DATE å’Œ CURRENT_DATE() æ˜¯çš„åŒä¹‰è¯ .
 
  
 
-f)      º¯Êý CURTIME()
+f)      å‡½æ•° CURTIME()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ½«µ±Ç°Ê±¼äÒÔ 'HH:MM:SS' »ò HHMMSS µÄ¸ñÊ½·µ»Ø£¬ ¾ßÌå¸ñÊ½¸ù¾Ýº¯ÊýÓÃÔÚ×Ö·û´®»òÊÇÊý×ÖÓï¾³ÖÐ¶ø¶¨¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š å°†å½“å‰æ—¶é—´ä»¥ 'HH:MM:SS' æˆ– HHMMSS çš„æ ¼å¼è¿”å›žï¼Œ å…·ä½“æ ¼å¼æ ¹æ®å‡½æ•°ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ˜¯æ•°å­—è¯­å¢ƒä¸­è€Œå®šã€‚
 
  
 
-g)      º¯Êý CURRENT_TIME, CURRENT_TIME()
+g)      å‡½æ•° CURRENT_TIME, CURRENT_TIME()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º CURRENT_TIME ºÍ CURRENT_TIME() ÊÇ CURTIME() µÄÍ¬Òå´Ê¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š CURRENT_TIME å’Œ CURRENT_TIME() æ˜¯ CURTIME() çš„åŒä¹‰è¯ã€‚
 
  
 
-h)      º¯Êý CURRENT_TIMESTAMP, CURRENT_TIMESTAMP()
+h)      å‡½æ•° CURRENT_TIMESTAMP, CURRENT_TIMESTAMP()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º CURRENT_TIMESTAMP ºÍ CURRENT_TIMESTAMP() ÊÇ NOW() µÄÍ¬Òå´Ê
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š CURRENT_TIMESTAMP å’Œ CURRENT_TIMESTAMP() æ˜¯ NOW() çš„åŒä¹‰è¯
 
  
 
-i)      º¯Êý DATE(expr )
+i)      å‡½æ•° DATE(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ÌáÈ¡ÈÕÆÚ»òÊ±¼äÈÕÆÚ±í´ïÊ½ expr ÖÐµÄÈÕÆÚ²¿·Ö¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š æå–æ—¥æœŸæˆ–æ—¶é—´æ—¥æœŸè¡¨è¾¾å¼ expr ä¸­çš„æ—¥æœŸéƒ¨åˆ†ã€‚
 
  
 
-j)          º¯Êý DATEDIFF(expr ,expr2 )
+j)          å‡½æ•° DATEDIFF(expr ,expr2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º DATEDIFF() ·µ»ØÆðÊ¼Ê±¼ä expr ºÍ½áÊøÊ±¼ä expr2 Ö®¼äµÄÌìÊý¡£ Expr ºÍ expr2 ÎªÈÕÆÚ»ò date-and-time ±í´ïÊ½¡£¼ÆËãÖÐÖ»ÓÃµ½ÕâÐ©ÖµµÄÈÕÆÚ²¿·Ö¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š DATEDIFF() è¿”å›žèµ·å§‹æ—¶é—´ expr å’Œç»“æŸæ—¶é—´ expr2 ä¹‹é—´çš„å¤©æ•°ã€‚ Expr å’Œ expr2 ä¸ºæ—¥æœŸæˆ– date-and-time è¡¨è¾¾å¼ã€‚è®¡ç®—ä¸­åªç”¨åˆ°è¿™äº›å€¼çš„æ—¥æœŸéƒ¨åˆ†ã€‚
 
  
 
-k)        º¯Êý DATE_ADD(date ,INTERVAL expr type ) DATE_SUB(date ,INTERVAL expr type )
+k)        å‡½æ•° DATE_ADD(date ,INTERVAL expr type ) DATE_SUB(date ,INTERVAL expr type )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÕâÐ©º¯ÊýÖ´ÐÐÈÕÆÚÔËËã¡£ date ÊÇÒ»¸ö DATETIME »ò DATE Öµ£¬ÓÃÀ´Ö¸¶¨ÆðÊ¼Ê±¼ä¡£ expr ÊÇÒ»¸ö±í´ïÊ½£¬ÓÃÀ´Ö¸¶¨´ÓÆðÊ¼ÈÕÆÚÌí¼Ó»ò¼õÈ¥µÄÊ±¼ä¼ä¸ôÖµ¡£   Expr ÊÇÒ»¸ö×Ö·û´® ; ¶ÔÓÚ¸ºÖµµÄÊ±¼ä¼ä¸ô£¬Ëü¿ÉÒÔÒÔÒ»¸ö ¡®-¡¯ ¿ªÍ·¡£ type Îª¹Ø¼ü´Ê£¬ËüÖ¸Ê¾ÁË±í´ïÊ½±»½âÊÍµÄ·½Ê½¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿™äº›å‡½æ•°æ‰§è¡Œæ—¥æœŸè¿ç®—ã€‚ date æ˜¯ä¸€ä¸ª DATETIME æˆ– DATE å€¼ï¼Œç”¨æ¥æŒ‡å®šèµ·å§‹æ—¶é—´ã€‚ expr æ˜¯ä¸€ä¸ªè¡¨è¾¾å¼ï¼Œç”¨æ¥æŒ‡å®šä»Žèµ·å§‹æ—¥æœŸæ·»åŠ æˆ–å‡åŽ»çš„æ—¶é—´é—´éš”å€¼ã€‚   Expr æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸² ; å¯¹äºŽè´Ÿå€¼çš„æ—¶é—´é—´éš”ï¼Œå®ƒå¯ä»¥ä»¥ä¸€ä¸ª â€˜-â€™ å¼€å¤´ã€‚ type ä¸ºå…³é”®è¯ï¼Œå®ƒæŒ‡ç¤ºäº†è¡¨è¾¾å¼è¢«è§£é‡Šçš„æ–¹å¼ã€‚
 
  
 
-l)          º¯Êý DATE_FORMAT(date ,format )
+l)          å‡½æ•° DATE_FORMAT(date ,format )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸ù¾Ý format ×Ö·û´®°²ÅÅ date ÖµµÄ¸ñÊ½¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šæ ¹æ® format å­—ç¬¦ä¸²å®‰æŽ’ date å€¼çš„æ ¼å¼ã€‚
 
  
 
-m)      º¯Êý DAY(date )
+m)      å‡½æ•° DAY(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º DAY() ºÍ DAYOFMONTH() µÄÒâÒåÏàÍ¬
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š DAY() å’Œ DAYOFMONTH() çš„æ„ä¹‰ç›¸åŒ
 
  
 
-n)        º¯Êý DAYNAME(date )
+n)        å‡½æ•° DAYNAME(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date ¶ÔÓ¦µÄ¹¤×÷ÈÕÃû³Æ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date å¯¹åº”çš„å·¥ä½œæ—¥åç§°ã€‚
 
  
 
-o)        º¯Êý DAYOFMONTH(date )
+o)        å‡½æ•° DAYOFMONTH(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date ¶ÔÓ¦µÄ¸ÃÔÂÈÕÆÚ£¬·¶Î§ÊÇ´Ó 1 µ½ 31
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date å¯¹åº”çš„è¯¥æœˆæ—¥æœŸï¼ŒèŒƒå›´æ˜¯ä»Ž 1 åˆ° 31
 
  
 
-p)        º¯Êý DAYOFWEEK(date )
+p)        å‡½æ•° DAYOFWEEK(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date (1 = ÖÜÈÕ , 2 = ÖÜÒ» , ..., 7 = ÖÜÁù ) ¶ÔÓ¦µÄ¹¤×÷ÈÕË÷Òý¡£ÕâÐ©Ë÷ÒýÖµ·ûºÏ ODBC ±ê×¼
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date (1 = å‘¨æ—¥ , 2 = å‘¨ä¸€ , ..., 7 = å‘¨å…­ ) å¯¹åº”çš„å·¥ä½œæ—¥ç´¢å¼•ã€‚è¿™äº›ç´¢å¼•å€¼ç¬¦åˆ ODBC æ ‡å‡†
 
  
 
-q)        º¯Êý DAYOFYEAR(date )
+q)        å‡½æ•° DAYOFYEAR(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ødate ¶ÔÓ¦µÄÒ»ÄêÖÐµÄÌìÊý£¬·¶Î§ÊÇ´Ó 1 µ½366 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ždate å¯¹åº”çš„ä¸€å¹´ä¸­çš„å¤©æ•°ï¼ŒèŒƒå›´æ˜¯ä»Ž 1 åˆ°366 ã€‚
 
  
 
-r)         º¯Êý EXTRACT(type FROM date )
+r)         å‡½æ•° EXTRACT(type FROM date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º EXTRACT() º¯ÊýËùÊ¹ÓÃµÄÊ±¼ä¼ä¸ôÀàÐÍËµÃ÷·ûÍ¬ DATE_ADD() »ò DATE_SUB() µÄÏàÍ¬ , µ«Ëü´ÓÈÕÆÚÖÐÌáÈ¡Æä²¿·Ö£¬¶ø²»ÊÇÖ´ÐÐÈÕÆÚÔËËã¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š EXTRACT() å‡½æ•°æ‰€ä½¿ç”¨çš„æ—¶é—´é—´éš”ç±»åž‹è¯´æ˜Žç¬¦åŒ DATE_ADD() æˆ– DATE_SUB() çš„ç›¸åŒ , ä½†å®ƒä»Žæ—¥æœŸä¸­æå–å…¶éƒ¨åˆ†ï¼Œè€Œä¸æ˜¯æ‰§è¡Œæ—¥æœŸè¿ç®—ã€‚
 
  
 
-s)      º¯ÊýFROM_DAYS(N )
+s)      å‡½æ•°FROM_DAYS(N )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ¸ø¶¨Ò»¸öÌìÊý   N , ·µ»ØÒ»¸ö DATE Öµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š ç»™å®šä¸€ä¸ªå¤©æ•°   N , è¿”å›žä¸€ä¸ª DATE å€¼ã€‚
 
  
 
-t)          º¯Êý FROM_UNIXTIME(unix_timestamp )ROM_UNIXTIME(unix_timestamp ,format )
+t)          å‡½æ•° FROM_UNIXTIME(unix_timestamp )ROM_UNIXTIME(unix_timestamp ,format )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø'YYYY-MM-DD HH:MM:SS' »òYYYYMMDDHHMMSS ¸ñÊ½ÖµµÄunix_timestamp ²ÎÊý±íÊ¾£¬¾ßÌå¸ñÊ½È¡¾öÓÚ¸Ãº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®ÖÐ»òÊÇÊý×ÖÓï¾³ÖÐ¡£ Èôformat ÒÑ¾­¸ø³ö£¬Ôò½á¹ûµÄ¸ñÊ½ÊÇ¸ù¾Ýformat ×Ö·û´®¶ø¶¨¡£ format ¿ÉÒÔ°üº¬Í¬DATE_FORMAT() º¯ÊýÊäÈëÏîÁÐ±íÖÐÏàÍ¬µÄËµÃ÷·û¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž'YYYY-MM-DD HH:MM:SS' æˆ–YYYYMMDDHHMMSS æ ¼å¼å€¼çš„unix_timestamp å‚æ•°è¡¨ç¤ºï¼Œå…·ä½“æ ¼å¼å–å†³äºŽè¯¥å‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²ä¸­æˆ–æ˜¯æ•°å­—è¯­å¢ƒä¸­ã€‚ è‹¥format å·²ç»ç»™å‡ºï¼Œåˆ™ç»“æžœçš„æ ¼å¼æ˜¯æ ¹æ®format å­—ç¬¦ä¸²è€Œå®šã€‚ format å¯ä»¥åŒ…å«åŒDATE_FORMAT() å‡½æ•°è¾“å…¥é¡¹åˆ—è¡¨ä¸­ç›¸åŒçš„è¯´æ˜Žç¬¦ã€‚
 
  
 
-u)        º¯Êý GET_FORMAT(DATE|TIME|DATETIME, 'EUR'|'USA'|'JIS'|'ISO'|'INTERNAL')
+u)        å‡½æ•° GET_FORMAT(DATE|TIME|DATETIME, 'EUR'|'USA'|'JIS'|'ISO'|'INTERNAL')
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸ö¸ñÊ½×Ö·û´®¡£Õâ¸öº¯ÊýÔÚÍ¬ DATE_FORMAT() ¼° STR_TO_DATE() º¯Êý½áºÏÊ±ºÜÓÐÓÃ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªæ ¼å¼å­—ç¬¦ä¸²ã€‚è¿™ä¸ªå‡½æ•°åœ¨åŒ DATE_FORMAT() åŠ STR_TO_DATE() å‡½æ•°ç»“åˆæ—¶å¾ˆæœ‰ç”¨
 
  
 
-v)        º¯Êý HOUR(time )
+v)        å‡½æ•° HOUR(time )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø time ¶ÔÓ¦µÄÐ¡Ê±Êý¡£¶ÔÓÚÈÕÊ±ÖµµÄ·µ»ØÖµ·¶Î§ÊÇ´Ó 0 µ½ 23
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž time å¯¹åº”çš„å°æ—¶æ•°ã€‚å¯¹äºŽæ—¥æ—¶å€¼çš„è¿”å›žå€¼èŒƒå›´æ˜¯ä»Ž 0 åˆ° 23
 
  
 
-w)      º¯Êý LAST_DAY(date )
+w)      å‡½æ•° LAST_DAY(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º»ñÈ¡Ò»¸öÈÕÆÚ»òÈÕÆÚÊ±¼äÖµ£¬·µ»Ø¸ÃÔÂ×îºóÒ»Ìì¶ÔÓ¦µÄÖµ¡£Èô²ÎÊýÎÞÐ§£¬Ôò·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šèŽ·å–ä¸€ä¸ªæ—¥æœŸæˆ–æ—¥æœŸæ—¶é—´å€¼ï¼Œè¿”å›žè¯¥æœˆæœ€åŽä¸€å¤©å¯¹åº”çš„å€¼ã€‚è‹¥å‚æ•°æ— æ•ˆï¼Œåˆ™è¿”å›ž NULL ã€‚
 
  
 
-x)        º¯Êý LOCALTIME, LOCALTIME()
+x)        å‡½æ•° LOCALTIME, LOCALTIME()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º LOCALTIME ¼° LOCALTIME() ºÍ NOW() ¾ßÓÐÏàÍ¬ÒâÒå¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š LOCALTIME åŠ LOCALTIME() å’Œ NOW() å…·æœ‰ç›¸åŒæ„ä¹‰ã€‚
 
  
 
-y)      º¯Êý LOCALTIMESTAMP, LOCALTIMESTAMP()
+y)      å‡½æ•° LOCALTIMESTAMP, LOCALTIMESTAMP()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º LOCALTIMESTAMP ºÍ LOCALTIMESTAMP() ºÍ NOW() ¾ßÓÐÏàÍ¬ÒâÒå¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š LOCALTIMESTAMP å’Œ LOCALTIMESTAMP() å’Œ NOW() å…·æœ‰ç›¸åŒæ„ä¹‰ã€‚
 
  
 
-z)         º¯Êý MAKEDATE(year ,dayofyear )
+z)         å‡½æ•° MAKEDATE(year ,dayofyear )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸ø³öÄê·ÝÖµºÍÒ»ÄêÖÐµÄÌìÊýÖµ£¬·µ»ØÒ»¸öÈÕÆÚ¡£ dayofyear ±ØÐë´óÓÚ 0 £¬·ñÔò½á¹ûÎª NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç»™å‡ºå¹´ä»½å€¼å’Œä¸€å¹´ä¸­çš„å¤©æ•°å€¼ï¼Œè¿”å›žä¸€ä¸ªæ—¥æœŸã€‚ dayofyear å¿…é¡»å¤§äºŽ 0 ï¼Œå¦åˆ™ç»“æžœä¸º NULL ã€‚
 
  
 
-aa) º¯Êý MAKETIME(hour ,minute ,second )
+aa) å‡½æ•° MAKETIME(hour ,minute ,second )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»ØÓÉ hour ¡¢ minute ºÍ second ²ÎÊý¼ÆËãµÃ³öµÄÊ±¼äÖµ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žç”± hour ã€ minute å’Œ second å‚æ•°è®¡ç®—å¾—å‡ºçš„æ—¶é—´å€¼
 
  
 
-bb)     º¯Êý CROSECOND(expr )
+bb)     å‡½æ•° CROSECOND(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º´ÓÊ±¼ä»òÈÕÆÚÊ±¼ä±í´ïÊ½ expr ·µ»ØÎ¢ÃëÖµ£¬ÆäÊý×Ö·¶Î§´Ó 0 µ½ 999999 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä»Žæ—¶é—´æˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼ expr è¿”å›žå¾®ç§’å€¼ï¼Œå…¶æ•°å­—èŒƒå›´ä»Ž 0 åˆ° 999999 ã€‚
 
  
 
-cc)     º¯Êý MINUTE(time )
+cc)     å‡½æ•° MINUTE(time )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø time ¶ÔÓ¦µÄ·ÖÖÓÊý , ·¶Î§ÊÇ´Ó 0 µ½ 59 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž time å¯¹åº”çš„åˆ†é’Ÿæ•° , èŒƒå›´æ˜¯ä»Ž 0 åˆ° 59 ã€‚
 
  
 
-dd)     º¯Êý MONTH(date )
+dd)     å‡½æ•° MONTH(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date ¶ÔÓ¦µÄÔÂ·Ý£¬·¶Î§Ê±´Ó 1 µ½ 12 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date å¯¹åº”çš„æœˆä»½ï¼ŒèŒƒå›´æ—¶ä»Ž 1 åˆ° 12 ã€‚
 
  
 
-ee) º¯Êý MONTHNAME(date )
+ee) å‡½æ•° MONTHNAME(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»Ø date ¶ÔÓ¦ÔÂ·ÝµÄÈ«Ãû
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›ž date å¯¹åº”æœˆä»½çš„å…¨å
 
  
 
-ff)       º¯Êý NOW()
+ff)       å‡½æ•° NOW()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç°ÈÕÆÚºÍÊ±¼äÖµ£¬Æä¸ñÊ½Îª 'YYYY-MM-DD HH:MM:SS' »ò YYYYMMDDHHMMSS £¬ ¾ßÌå¸ñÊ½È¡¾öÓÚ¸Ãº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®ÖÐ»òÊý×ÖÓï¾³ÖÐ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰æ—¥æœŸå’Œæ—¶é—´å€¼ï¼Œå…¶æ ¼å¼ä¸º 'YYYY-MM-DD HH:MM:SS' æˆ– YYYYMMDDHHMMSS ï¼Œ å…·ä½“æ ¼å¼å–å†³äºŽè¯¥å‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²ä¸­æˆ–æ•°å­—è¯­å¢ƒä¸­ã€‚
 
  
 
-gg)     º¯Êý PERIOD_ADD(P ,N )
+gg)     å‡½æ•° PERIOD_ADD(P ,N )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÌí¼Ó N ¸öÔÂÖÁÖÜÆÚ P ( ¸ñÊ½Îª YYMM »ò YYYYMM) £¬·µ»ØÖµµÄ¸ñÊ½Îª YYYYMM ¡£×¢ÒâÖÜÆÚ²ÎÊý P ²»ÊÇ ÈÕÆÚÖµ¡£ 
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šæ·»åŠ  N ä¸ªæœˆè‡³å‘¨æœŸ P ( æ ¼å¼ä¸º YYMM æˆ– YYYYMM) ï¼Œè¿”å›žå€¼çš„æ ¼å¼ä¸º YYYYMM ã€‚æ³¨æ„å‘¨æœŸå‚æ•° P ä¸æ˜¯ æ—¥æœŸå€¼ã€‚ 
 
  
 
-hh)     º¯Êý PERIOD_DIFF(P1 ,P2 )
+hh)     å‡½æ•° PERIOD_DIFF(P1 ,P2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÖÜÆÚ P1 ºÍ P2 Ö®¼äµÄÔÂ·ÝÊý¡£ P1 ºÍ P2 µÄ¸ñÊ½Ó¦¸ÃÎª YYMM »ò YYYYMM ¡£×¢ÒâÖÜÆÚ²ÎÊý P1 ºÍ P2 ²»ÊÇ ÈÕÆÚÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå‘¨æœŸ P1 å’Œ P2 ä¹‹é—´çš„æœˆä»½æ•°ã€‚ P1 å’Œ P2 çš„æ ¼å¼åº”è¯¥ä¸º YYMM æˆ– YYYYMM ã€‚æ³¨æ„å‘¨æœŸå‚æ•° P1 å’Œ P2 ä¸æ˜¯ æ—¥æœŸå€¼ã€‚
 
  
 
-ii)         º¯Êý QUARTER(date )
+ii)         å‡½æ•° QUARTER(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date ¶ÔÓ¦µÄÒ»ÄêÖÐµÄ¼¾¶ÈÖµ£¬·¶Î§ÊÇ´Ó 1 µ½ 4
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date å¯¹åº”çš„ä¸€å¹´ä¸­çš„å­£åº¦å€¼ï¼ŒèŒƒå›´æ˜¯ä»Ž 1 åˆ° 4
 
  
 
-jj)         º¯Êý SECOND(time )
+jj)         å‡½æ•° SECOND(time )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø time ¶ÔÓ¦µÄÃëÊý , ·¶Î§ÊÇ´Ó 0 µ½ 59 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž time å¯¹åº”çš„ç§’æ•° , èŒƒå›´æ˜¯ä»Ž 0 åˆ° 59 ã€‚
 
  
 
-kk) º¯Êý SEC_TO_TIME(seconds )
+kk) å‡½æ•° SEC_TO_TIME(seconds )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ·µ»Ø±»×ª»¯ÎªÐ¡Ê±¡¢ ·ÖÖÓºÍÃëÊýµÄ seconds ²ÎÊýÖµ , Æä¸ñÊ½Îª 'HH:MM:SS' »ò HHMMSS £¬¾ßÌå¸ñÊ½¸ù¾Ý¸Ãº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®»òÊý×ÖÓï¾³ÖÐ¶ø¶¨
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š è¿”å›žè¢«è½¬åŒ–ä¸ºå°æ—¶ã€ åˆ†é’Ÿå’Œç§’æ•°çš„ seconds å‚æ•°å€¼ , å…¶æ ¼å¼ä¸º 'HH:MM:SS' æˆ– HHMMSS ï¼Œå…·ä½“æ ¼å¼æ ¹æ®è¯¥å‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ•°å­—è¯­å¢ƒä¸­è€Œå®š
 
  
 
-ll) º¯Êý STR_TO_DATE(str ,format )
+ll) å‡½æ•° STR_TO_DATE(str ,format )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÕâÊÇ DATE_FORMAT() º¯ÊýµÄµ¹×ª¡£Ëü»ñÈ¡Ò»¸ö×Ö·û´® str ºÍÒ»¸ö¸ñÊ½×Ö·û´® format ¡£Èô¸ñÊ½×Ö·û´®°üº¬ÈÕÆÚºÍÊ±¼ä²¿·Ö£¬Ôò STR_TO_DATE() ·µ»ØÒ»¸ö DATETIME Öµ£¬ Èô¸Ã×Ö·û´®Ö»°üº¬ÈÕÆÚ²¿·Ö»òÊ±¼ä²¿·Ö£¬Ôò·µ»ØÒ»¸ö DATE »ò TIME Öµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿™æ˜¯ DATE_FORMAT() å‡½æ•°çš„å€’è½¬ã€‚å®ƒèŽ·å–ä¸€ä¸ªå­—ç¬¦ä¸² str å’Œä¸€ä¸ªæ ¼å¼å­—ç¬¦ä¸² format ã€‚è‹¥æ ¼å¼å­—ç¬¦ä¸²åŒ…å«æ—¥æœŸå’Œæ—¶é—´éƒ¨åˆ†ï¼Œåˆ™ STR_TO_DATE() è¿”å›žä¸€ä¸ª DATETIME å€¼ï¼Œ è‹¥è¯¥å­—ç¬¦ä¸²åªåŒ…å«æ—¥æœŸéƒ¨åˆ†æˆ–æ—¶é—´éƒ¨åˆ†ï¼Œåˆ™è¿”å›žä¸€ä¸ª DATE æˆ– TIME å€¼ã€‚
 
  
 
-mm) º¯Êý SUBDATE(date ,INTERVAL expr type ) SUBDATE(expr ,days )
+mm) å‡½æ•° SUBDATE(date ,INTERVAL expr type ) SUBDATE(expr ,days )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºµ±±»µÚ¶þ¸ö²ÎÊýµÄ INTERVAL ÐÍÊ½µ÷ÓÃÊ± , SUBDATE() ºÍ DATE_SUB() µÄÒâÒåÏàÍ¬¡£¶ÔÓÚÓÐ¹Ø INTERVAL ²ÎÊýµÄÐÅÏ¢£¬ ¼ûÓÐ¹Ø DATE_ADD() µÄÌÖÂÛ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå½“è¢«ç¬¬äºŒä¸ªå‚æ•°çš„ INTERVAL åž‹å¼è°ƒç”¨æ—¶ , SUBDATE() å’Œ DATE_SUB() çš„æ„ä¹‰ç›¸åŒã€‚å¯¹äºŽæœ‰å…³ INTERVAL å‚æ•°çš„ä¿¡æ¯ï¼Œ è§æœ‰å…³ DATE_ADD() çš„è®¨è®ºã€‚
 
  
 
-nn)     º¯Êý SUBTIME(expr ,expr2 )
+nn)     å‡½æ•° SUBTIME(expr ,expr2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º SUBTIME() ´Ó expr ÖÐÌáÈ¡ expr2 £¬È»ºó·µ»Ø½á¹û¡£ expr ÊÇÒ»¸öÊ±¼ä»òÈÕÆÚÊ±¼ä±í´ïÊ½£¬¶ø xpr2 ÊÇÒ»¸öÊ±¼ä±í´ïÊ½¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š SUBTIME() ä»Ž expr ä¸­æå– expr2 ï¼Œç„¶åŽè¿”å›žç»“æžœã€‚ expr æ˜¯ä¸€ä¸ªæ—¶é—´æˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼ï¼Œè€Œ xpr2 æ˜¯ä¸€ä¸ªæ—¶é—´è¡¨è¾¾å¼ã€‚
 
  
 
-oo)     º¯Êý SYSDATE()
+oo)     å‡½æ•° SYSDATE()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç°ÈÕÆÚºÍÊ±¼äÖµ£¬¸ñÊ½Îª 'YYYY-MM-DD HH:MM:SS' »ò YYYYMMDDHHMMSS £¬ ¾ßÌå¸ñÊ½¸ù¾Ýº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®»òÊý×ÖÓï¾³¶ø¶¨¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰æ—¥æœŸå’Œæ—¶é—´å€¼ï¼Œæ ¼å¼ä¸º 'YYYY-MM-DD HH:MM:SS' æˆ– YYYYMMDDHHMMSS ï¼Œ å…·ä½“æ ¼å¼æ ¹æ®å‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ•°å­—è¯­å¢ƒè€Œå®šã€‚
 
  
 
-pp)     º¯Êý TIME(expr )
+pp)     å‡½æ•° TIME(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÌáÈ¡Ò»¸öÊ±¼ä»òÈÕÆÚÊ±¼ä±í´ïÊ½µÄÊ±¼ä²¿·Ö£¬²¢½«ÆäÒÔ×Ö·û´®ÐÎÊ½·µ»Ø¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šæå–ä¸€ä¸ªæ—¶é—´æˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼çš„æ—¶é—´éƒ¨åˆ†ï¼Œå¹¶å°†å…¶ä»¥å­—ç¬¦ä¸²å½¢å¼è¿”å›žã€‚
 
  
 
-qq)     º¯Êý TIMEDIFF(expr ,expr2 )
+qq)     å‡½æ•° TIMEDIFF(expr ,expr2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º TIMEDIFF() ·µ»ØÆðÊ¼Ê±¼ä expr ºÍ½áÊøÊ±¼ä expr2 Ö®¼äµÄÊ±¼ä¡£ expr ºÍ expr2 ÎªÊ±¼ä»ò date-and-time ±í´ïÊ½ , Á½¸öµÄÀàÐÍ±ØÐëÒ»Ñù¡£ 
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š TIMEDIFF() è¿”å›žèµ·å§‹æ—¶é—´ expr å’Œç»“æŸæ—¶é—´ expr2 ä¹‹é—´çš„æ—¶é—´ã€‚ expr å’Œ expr2 ä¸ºæ—¶é—´æˆ– date-and-time è¡¨è¾¾å¼ , ä¸¤ä¸ªçš„ç±»åž‹å¿…é¡»ä¸€æ ·ã€‚ 
 
  
 
-rr) º¯ÊýTIMESTAMP(expr ) , TIMESTAMP(expr ,expr2 )
+rr) å‡½æ•°TIMESTAMP(expr ) , TIMESTAMP(expr ,expr2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ¶ÔÓÚÒ»¸öµ¥²ÎÊý , ¸Ãº¯Êý½«ÈÕÆÚ»òÈÕÆÚÊ±¼ä±í´ïÊ½ expr ×÷ÎªÈÕÆÚÊ±¼äÖµ·µ»Ø . ¶ÔÓÚÁ½¸ö²ÎÊý , Ëü½«Ê±¼ä±í´ïÊ½ expr2 Ìí¼Óµ½ÈÕÆÚ»òÈÕÆÚÊ±¼ä±í´ïÊ½ expr ÖÐ£¬½« theresult ×÷ÎªÈÕÆÚÊ±¼äÖµ·µ»Ø¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š å¯¹äºŽä¸€ä¸ªå•å‚æ•° , è¯¥å‡½æ•°å°†æ—¥æœŸæˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼ expr ä½œä¸ºæ—¥æœŸæ—¶é—´å€¼è¿”å›ž . å¯¹äºŽä¸¤ä¸ªå‚æ•° , å®ƒå°†æ—¶é—´è¡¨è¾¾å¼ expr2 æ·»åŠ åˆ°æ—¥æœŸæˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼ expr ä¸­ï¼Œå°† theresult ä½œä¸ºæ—¥æœŸæ—¶é—´å€¼è¿”å›žã€‚
 
  
 
-ss)      º¯Êý TIMESTAMPADD(interval ,int_expr ,datetime_expr )
+ss)      å‡½æ•° TIMESTAMPADD(interval ,int_expr ,datetime_expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º½«ÕûÐÍ±í´ïÊ½int_expr Ìí¼Óµ½ÈÕÆÚ»òÈÕÆÚÊ±¼ä±í´ïÊ½ datetime_expr ÖÐ¡£ int_expr µÄµ¥Î»±»Ê±¼ä¼ä¸ô²ÎÊý¸ø¶¨£¬¸Ã²ÎÊý±ØÐëÊÇÒÔÏÂÖµµÄÆäÖÐÒ»¸ö£º FRAC_SECOND ¡¢SECOND ¡¢ MINUTE ¡¢ HOUR ¡¢ DAY ¡¢ WEEK ¡¢ MONTH ¡¢ QUARTER »ò YEAR ¡£¿ÉÊ¹ÓÃËùÏÔÊ¾µÄ¹Ø¼ü´ÊÖ¸¶¨Interval Öµ£¬»òÊ¹ÓÃSQL_TSI_ Ç°×º¡£ÀýÈç, DAY »òSQL_TSI_DAY ¶¼ÊÇÕýÈ·µÄ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå°†æ•´åž‹è¡¨è¾¾å¼int_expr æ·»åŠ åˆ°æ—¥æœŸæˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼ datetime_expr ä¸­ã€‚ int_expr çš„å•ä½è¢«æ—¶é—´é—´éš”å‚æ•°ç»™å®šï¼Œè¯¥å‚æ•°å¿…é¡»æ˜¯ä»¥ä¸‹å€¼çš„å…¶ä¸­ä¸€ä¸ªï¼š FRAC_SECOND ã€SECOND ã€ MINUTE ã€ HOUR ã€ DAY ã€ WEEK ã€ MONTH ã€ QUARTER æˆ– YEAR ã€‚å¯ä½¿ç”¨æ‰€æ˜¾ç¤ºçš„å…³é”®è¯æŒ‡å®šInterval å€¼ï¼Œæˆ–ä½¿ç”¨SQL_TSI_ å‰ç¼€ã€‚ä¾‹å¦‚, DAY æˆ–SQL_TSI_DAY éƒ½æ˜¯æ­£ç¡®çš„
 
  
 
-tt)        º¯Êý TIMESTAMPDIFF(interval ,datetime_expr1 ,datetime_expr2 )
+tt)        å‡½æ•° TIMESTAMPDIFF(interval ,datetime_expr1 ,datetime_expr2 )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÈÕÆÚ»òÈÕÆÚÊ±¼ä±í´ïÊ½ datetime_expr1 ºÍ datetime_expr2 the Ö®¼äµÄÕûÊý²î¡£Æä½á¹ûµÄµ¥Î»ÓÉ interval ²ÎÊý¸ø³ö¡£ interval µÄ·¨¶¨ÖµÍ¬ TIMESTAMPADD() º¯ÊýËµÃ÷ÖÐËùÁÐ³öµÄÏàÍ¬¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žæ—¥æœŸæˆ–æ—¥æœŸæ—¶é—´è¡¨è¾¾å¼ datetime_expr1 å’Œ datetime_expr2 the ä¹‹é—´çš„æ•´æ•°å·®ã€‚å…¶ç»“æžœçš„å•ä½ç”± interval å‚æ•°ç»™å‡ºã€‚ interval çš„æ³•å®šå€¼åŒ TIMESTAMPADD() å‡½æ•°è¯´æ˜Žä¸­æ‰€åˆ—å‡ºçš„ç›¸åŒã€‚
 
  
 
-uu)     º¯Êý TIME_FORMAT(time ,format )
+uu)     å‡½æ•° TIME_FORMAT(time ,format )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÆäÊ¹ÓÃºÍ DATE_FORMAT() º¯ÊýÏàÍ¬ , È»¶ø format ×Ö·û´®¿ÉÄÜ½ö»á°üº¬´¦ÀíÐ¡Ê±¡¢·ÖÖÓºÍÃëµÄ¸ñÊ½ËµÃ÷·û¡£ÆäËüËµÃ÷·û²úÉúÒ»¸ö NULL Öµ»ò 0 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå…¶ä½¿ç”¨å’Œ DATE_FORMAT() å‡½æ•°ç›¸åŒ , ç„¶è€Œ format å­—ç¬¦ä¸²å¯èƒ½ä»…ä¼šåŒ…å«å¤„ç†å°æ—¶ã€åˆ†é’Ÿå’Œç§’çš„æ ¼å¼è¯´æ˜Žç¬¦ã€‚å…¶å®ƒè¯´æ˜Žç¬¦äº§ç”Ÿä¸€ä¸ª NULL å€¼æˆ– 0 ã€‚
 
  
 
-vv)     º¯Êý TIME_TO_SEC(time )
+vv)     å‡½æ•° TIME_TO_SEC(time )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒÑ×ª»¯ÎªÃëµÄ time ²ÎÊý
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå·²è½¬åŒ–ä¸ºç§’çš„ time å‚æ•°
 
  
 
-ww) º¯Êý TO_DAYS(date )
+ww) å‡½æ•° TO_DAYS(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸ø¶¨Ò»¸öÈÕÆÚ date , ·µ»ØÒ»¸öÌìÊý ( ´ÓÄê·Ý 0 ¿ªÊ¼µÄÌìÊý ) ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç»™å®šä¸€ä¸ªæ—¥æœŸ date , è¿”å›žä¸€ä¸ªå¤©æ•° ( ä»Žå¹´ä»½ 0 å¼€å§‹çš„å¤©æ•° ) ã€‚
 
  
 
-xx)     º¯Êý UNIX_TIMESTAMP(), UNIX_TIMESTAMP(date )
+xx)     å‡½æ•° UNIX_TIMESTAMP(), UNIX_TIMESTAMP(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÈôÎÞ²ÎÊýµ÷ÓÃ£¬Ôò·µ»ØÒ»¸ö Unix timestamp ('1970-01-01 00:00:00' GMT Ö®ºóµÄÃëÊý ) ×÷ÎªÎÞ·ûºÅÕûÊý¡£ÈôÓÃ date À´µ÷ÓÃ UNIX_TIMESTAMP() £¬Ëü»á½«²ÎÊýÖµÒÔ '1970-01-01 00:00:00' GMT ºóµÄÃëÊýµÄÐÎÊ½·µ»Ø¡£ date ¿ÉÒÔÊÇÒ»¸ö DATE ×Ö·û´®¡¢Ò»¸ö DATETIME ×Ö·û´®¡¢Ò»¸ö TIMESTAMP »òÒ»¸öµ±µØÊ±¼äµÄ YYMMDD »ò YYYMMDD ¸ñÊ½µÄÊý×Ö¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè‹¥æ— å‚æ•°è°ƒç”¨ï¼Œåˆ™è¿”å›žä¸€ä¸ª Unix timestamp ('1970-01-01 00:00:00' GMT ä¹‹åŽçš„ç§’æ•° ) ä½œä¸ºæ— ç¬¦å·æ•´æ•°ã€‚è‹¥ç”¨ date æ¥è°ƒç”¨ UNIX_TIMESTAMP() ï¼Œå®ƒä¼šå°†å‚æ•°å€¼ä»¥ '1970-01-01 00:00:00' GMT åŽçš„ç§’æ•°çš„å½¢å¼è¿”å›žã€‚ date å¯ä»¥æ˜¯ä¸€ä¸ª DATE å­—ç¬¦ä¸²ã€ä¸€ä¸ª DATETIME å­—ç¬¦ä¸²ã€ä¸€ä¸ª TIMESTAMP æˆ–ä¸€ä¸ªå½“åœ°æ—¶é—´çš„ YYMMDD æˆ– YYYMMDD æ ¼å¼çš„æ•°å­—ã€‚
 
  
 
-yy) º¯Êý UTC_DATE, UTC_DATE()
+yy) å‡½æ•° UTC_DATE, UTC_DATE()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç° UTC ÈÕÆÚÖµ£¬Æä¸ñÊ½Îª 'YYYY-MM-DD' »ò YYYYMMDD £¬¾ßÌå¸ñÊ½È¡¾öÓÚº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®»òÊý×ÖÓï¾³ÖÐ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰ UTC æ—¥æœŸå€¼ï¼Œå…¶æ ¼å¼ä¸º 'YYYY-MM-DD' æˆ– YYYYMMDD ï¼Œå…·ä½“æ ¼å¼å–å†³äºŽå‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ•°å­—è¯­å¢ƒä¸­ã€‚
 
  
 
-zz)      º¯Êý UTC_TIME, UTC_TIME()
+zz)      å‡½æ•° UTC_TIME, UTC_TIME()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç° UTC Öµ£¬Æä¸ñÊ½Îª   'HH:MM:SS' »ò HHMMSS £¬¾ßÌå¸ñÊ½¸ù¾Ý¸Ãº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®»òÊý×ÖÓï¾³¶ø¶¨¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰ UTC å€¼ï¼Œå…¶æ ¼å¼ä¸º   'HH:MM:SS' æˆ– HHMMSS ï¼Œå…·ä½“æ ¼å¼æ ¹æ®è¯¥å‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ•°å­—è¯­å¢ƒè€Œå®šã€‚
 
  
 
-aaa)   º¯Êý UTC_TIMESTAMP, UTC_TIMESTAMP()
+aaa)   å‡½æ•° UTC_TIMESTAMP, UTC_TIMESTAMP()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç° UTC ÈÕÆÚ¼°Ê±¼äÖµ£¬¸ñÊ½Îª 'YYYY-MM-DD HH:MM:SS' »ò YYYYMMDDHHMMSS £¬¾ßÌå¸ñÊ½¸ù¾Ý¸Ãº¯ÊýÊÇ·ñÓÃÔÚ×Ö·û´®»òÊý×ÖÓï¾³¶ø¶¨
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰ UTC æ—¥æœŸåŠæ—¶é—´å€¼ï¼Œæ ¼å¼ä¸º 'YYYY-MM-DD HH:MM:SS' æˆ– YYYYMMDDHHMMSS ï¼Œå…·ä½“æ ¼å¼æ ¹æ®è¯¥å‡½æ•°æ˜¯å¦ç”¨åœ¨å­—ç¬¦ä¸²æˆ–æ•°å­—è¯­å¢ƒè€Œå®š
 
  
 
-bbb) º¯Êý WEEK(date [,mode ])
+bbb) å‡½æ•° WEEK(date [,mode ])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸Ãº¯Êý·µ»Ø date ¶ÔÓ¦µÄÐÇÆÚÊý¡£ WEEK() µÄË«²ÎÊýÐÎÊ½ÔÊÐíÄãÖ¸¶¨¸ÃÐÇÆÚÊÇ·ñÆðÊ¼ÓÚÖÜÈÕ»òÖÜÒ»£¬ ÒÔ¼°·µ»ØÖµµÄ·¶Î§ÊÇ·ñÎª´Ó 0 µ½ 53 »ò´Ó 1 µ½ 53 ¡£Èô mode ²ÎÊý±»Ê¡ÂÔ£¬ÔòÊ¹ÓÃ default_week_format ÏµÍ³×Ô±äÁ¿µÄÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¯¥å‡½æ•°è¿”å›ž date å¯¹åº”çš„æ˜ŸæœŸæ•°ã€‚ WEEK() çš„åŒå‚æ•°å½¢å¼å…è®¸ä½ æŒ‡å®šè¯¥æ˜ŸæœŸæ˜¯å¦èµ·å§‹äºŽå‘¨æ—¥æˆ–å‘¨ä¸€ï¼Œ ä»¥åŠè¿”å›žå€¼çš„èŒƒå›´æ˜¯å¦ä¸ºä»Ž 0 åˆ° 53 æˆ–ä»Ž 1 åˆ° 53 ã€‚è‹¥ mode å‚æ•°è¢«çœç•¥ï¼Œåˆ™ä½¿ç”¨ default_week_format ç³»ç»Ÿè‡ªå˜é‡çš„å€¼ã€‚
 
  
 
-ccc) º¯Êý WEEKDAY(date )
+ccc) å‡½æ•° WEEKDAY(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date (0 = ÖÜÒ» , 1 = ÖÜ¶þ , ... 6 = ÖÜÈÕ ) ¶ÔÓ¦µÄ¹¤×÷ÈÕË÷Òý   weekday index for
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date (0 = å‘¨ä¸€ , 1 = å‘¨äºŒ , ... 6 = å‘¨æ—¥ ) å¯¹åº”çš„å·¥ä½œæ—¥ç´¢å¼•   weekday index for
 
  
 
-ddd) º¯Êý WEEKOFYEAR(date )
+ddd) å‡½æ•° WEEKOFYEAR(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º½«¸ÃÈÕÆÚµÄÑôÀúÖÜÒÔÊý×ÖÐÎÊ½·µ»Ø£¬·¶Î§ÊÇ´Ó 1 µ½ 53 ¡£ËüÊÇÒ»¸ö¼æÈÝ¶Èº¯Êý£¬Ïàµ±ÓÚ WEEK(date ,3) ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå°†è¯¥æ—¥æœŸçš„é˜³åŽ†å‘¨ä»¥æ•°å­—å½¢å¼è¿”å›žï¼ŒèŒƒå›´æ˜¯ä»Ž 1 åˆ° 53 ã€‚å®ƒæ˜¯ä¸€ä¸ªå…¼å®¹åº¦å‡½æ•°ï¼Œç›¸å½“äºŽ WEEK(date ,3) ã€‚
 
  
 
-eee)   º¯Êý YEAR(date )
+eee)   å‡½æ•° YEAR(date )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø date ¶ÔÓ¦µÄÄê·Ý , ·¶Î§ÊÇ´Ó 1000 µ½ 9999 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž date å¯¹åº”çš„å¹´ä»½ , èŒƒå›´æ˜¯ä»Ž 1000 åˆ° 9999 ã€‚
 
  
 
-fff)    º¯Êý YEARWEEK(date ), YEARWEEK(date ,start )
+fff)    å‡½æ•° YEARWEEK(date ), YEARWEEK(date ,start )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸öÈÕÆÚ¶ÔÓ¦µÄÄê»òÖÜ¡£ start ²ÎÊýµÄ¹¤×÷Í¬ start ²ÎÊý¶Ô WEEK() µÄ¹¤×÷ÏàÍ¬¡£½á¹ûÖÐµÄÄê·Ý¿ÉÒÔºÍ¸ÃÄêµÄµÚÒ»ÖÜºÍ×îºóÒ»ÖÜ¶ÔÓ¦µÄÈÕÆÚ²ÎÊýÓÐËù²»Í¬¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªæ—¥æœŸå¯¹åº”çš„å¹´æˆ–å‘¨ã€‚ start å‚æ•°çš„å·¥ä½œåŒ start å‚æ•°å¯¹ WEEK() çš„å·¥ä½œç›¸åŒã€‚ç»“æžœä¸­çš„å¹´ä»½å¯ä»¥å’Œè¯¥å¹´çš„ç¬¬ä¸€å‘¨å’Œæœ€åŽä¸€å‘¨å¯¹åº”çš„æ—¥æœŸå‚æ•°æœ‰æ‰€ä¸åŒã€‚
 
  
 
-Îå¡¢ È«ÎÄËÑË÷¹¦ÄÜº¯Êý
+äº”ã€ å…¨æ–‡æœç´¢åŠŸèƒ½å‡½æ•°
 
  
 
-a)         º¯Êý MATCH (col1,col2,...) AGAINST (expr [IN BOOLEAN MODE | WITH QUERY EXPANSION])
+a)         å‡½æ•° MATCH (col1,col2,...) AGAINST (expr [IN BOOLEAN MODE | WITH QUERY EXPANSION])
 
  
 
-Áù¡¢ ¼ÓÃÜº¯Êý
+å…­ã€ åŠ å¯†å‡½æ•°
 
  
 
-a)         º¯Êý AES_ENCRYPT(str ,key_str ) , AES_DECRYPT(crypt_str ,key_str )
+a)         å‡½æ•° AES_ENCRYPT(str ,key_str ) , AES_DECRYPT(crypt_str ,key_str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÕâÐ©º¯ÊýÔÊÐíÊ¹ÓÃ¹Ù·½ AES ½øÐÐ¼ÓÃÜºÍÊý¾Ý¼ÓÃÜ ( ¸ß¼¶¼ÓÃÜ±ê×¼ ) Ëã·¨ , ¼´ÒÔÇ°ÈËÃÇËùÊìÖªµÄ ¡°Rijndael¡± ¡£ ±£ÃÜ¹Ø¼ü×ÖµÄ³¤¶ÈÎª 128 ±ÈÌØ£¬²»¹ýÄã¿ÉÒÔÍ¨¹ý¸Ä±äÔ´¶ø½«ÆäÑÓ³¤µ½ 256 ±ÈÌØ¡£ÎÒÃÇÑ¡ÔñÁË 128 ±ÈÌØµÄÔ­ÒòÊÇËüµÄËÙ¶ÈÒª¿ìµÃ¶à£¬ÇÒ¶ÔÓÚ´ó¶àÊýÓÃÍ¾¶øÑÔÕâ¸ö±£ÃÜ³Ì¶ÈÒÑ¾­¹»ÓÃ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿™äº›å‡½æ•°å…è®¸ä½¿ç”¨å®˜æ–¹ AES è¿›è¡ŒåŠ å¯†å’Œæ•°æ®åŠ å¯† ( é«˜çº§åŠ å¯†æ ‡å‡† ) ç®—æ³• , å³ä»¥å‰äººä»¬æ‰€ç†ŸçŸ¥çš„ â€œRijndaelâ€ ã€‚ ä¿å¯†å…³é”®å­—çš„é•¿åº¦ä¸º 128 æ¯”ç‰¹ï¼Œä¸è¿‡ä½ å¯ä»¥é€šè¿‡æ”¹å˜æºè€Œå°†å…¶å»¶é•¿åˆ° 256 æ¯”ç‰¹ã€‚æˆ‘ä»¬é€‰æ‹©äº† 128 æ¯”ç‰¹çš„åŽŸå› æ˜¯å®ƒçš„é€Ÿåº¦è¦å¿«å¾—å¤šï¼Œä¸”å¯¹äºŽå¤§å¤šæ•°ç”¨é€”è€Œè¨€è¿™ä¸ªä¿å¯†ç¨‹åº¦å·²ç»å¤Ÿç”¨ã€‚
 
  
 
-b)      º¯ÊýDECODE(crypt_str ,pass_str )
+b)      å‡½æ•°DECODE(crypt_str ,pass_str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÊ¹ÓÃ pass_str ×÷ÎªÃÜÂë£¬½âÃÜ¼ÓÃÜ×Ö·û´® crypt_str £¬ crypt_str Ó¦¸ÃÊÇÓÉ ENCODE() ·µ»ØµÄ×Ö·û´®¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä½¿ç”¨ pass_str ä½œä¸ºå¯†ç ï¼Œè§£å¯†åŠ å¯†å­—ç¬¦ä¸² crypt_str ï¼Œ crypt_str åº”è¯¥æ˜¯ç”± ENCODE() è¿”å›žçš„å­—ç¬¦ä¸²ã€‚
 
  
 
-c)        º¯Êý ENCODE(str ,pass_str )
+c)        å‡½æ•° ENCODE(str ,pass_str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÊ¹ÓÃ pass_str ×÷ÎªÃÜÂë£¬½âÃÜ str ¡£ Ê¹ÓÃ DECODE() ½âÃÜ½á¹û¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä½¿ç”¨ pass_str ä½œä¸ºå¯†ç ï¼Œè§£å¯† str ã€‚ ä½¿ç”¨ DECODE() è§£å¯†ç»“æžœã€‚
 
  
 
-d)        º¯Êý DES_DECRYPT(crypt_str [,key_str ])
+d)        å‡½æ•° DES_DECRYPT(crypt_str [,key_str ])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÊ¹ÓÃ DES_ENCRYPT() ¼ÓÃÜÒ»¸ö×Ö·û´®¡£Èô³öÏÖ´íÎó£¬Õâ¸öº¯Êý»á·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä½¿ç”¨ DES_ENCRYPT() åŠ å¯†ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚è‹¥å‡ºçŽ°é”™è¯¯ï¼Œè¿™ä¸ªå‡½æ•°ä¼šè¿”å›ž NULL ã€‚
 
  
 
-e)         º¯Êý DES_ENCRYPT(str [,(key_num |key_str )])
+e)         å‡½æ•° DES_ENCRYPT(str [,(key_num |key_str )])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÓÃ Triple-DES Ëã·¨¸ø³öµÄ¹Ø¼ü×Ö¼ÓÃÜ×Ö·û´®¡£Èô³öÏÖ´íÎó£¬Õâ¸öº¯Êý»á·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç”¨ Triple-DES ç®—æ³•ç»™å‡ºçš„å…³é”®å­—åŠ å¯†å­—ç¬¦ä¸²ã€‚è‹¥å‡ºçŽ°é”™è¯¯ï¼Œè¿™ä¸ªå‡½æ•°ä¼šè¿”å›ž NULL ã€‚
 
  
 
-f)         º¯Êý ENCRYPT(str [,salt ])
+f)         å‡½æ•° ENCRYPT(str [,salt ])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÊ¹ÓÃ Unix crypt() ÏµÍ³µ÷ÓÃ¼ÓÃÜ str ¡£ salt ²ÎÊýÓ¦ÎªÒ»¸öÖÁÉÙ°üº¬ 2 ¸ö×Ö·ûµÄ×Ö·û´®¡£ÈôÃ»ÓÐ¸ø³ö salt ²ÎÊý£¬ÔòÊ¹ÓÃÈÎÒâÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä½¿ç”¨ Unix crypt() ç³»ç»Ÿè°ƒç”¨åŠ å¯† str ã€‚ salt å‚æ•°åº”ä¸ºä¸€ä¸ªè‡³å°‘åŒ…å« 2 ä¸ªå­—ç¬¦çš„å­—ç¬¦ä¸²ã€‚è‹¥æ²¡æœ‰ç»™å‡º salt å‚æ•°ï¼Œåˆ™ä½¿ç”¨ä»»æ„å€¼ã€‚
 
  
 
-g)        º¯Êý MD5(str )
+g)        å‡½æ•° MD5(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÎª×Ö·û´®Ëã³öÒ»¸ö MD5 128 ±ÈÌØ¼ì²éºÍ¡£¸ÃÖµÒÔ 32 Î»Ê®Áù½øÖÆÊý×ÖµÄ¶þ½øÖÆ×Ö·û´®µÄÐÎÊ½·µ»Ø , Èô²ÎÊýÎª NULL Ôò»á·µ»Ø NULL ¡£ÀýÈç£¬·µ»ØÖµ¿É±»ÓÃ×÷É¢ÁÐ¹Ø¼ü×Ö
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä¸ºå­—ç¬¦ä¸²ç®—å‡ºä¸€ä¸ª MD5 128 æ¯”ç‰¹æ£€æŸ¥å’Œã€‚è¯¥å€¼ä»¥ 32 ä½åå…­è¿›åˆ¶æ•°å­—çš„äºŒè¿›åˆ¶å­—ç¬¦ä¸²çš„å½¢å¼è¿”å›ž , è‹¥å‚æ•°ä¸º NULL åˆ™ä¼šè¿”å›ž NULL ã€‚ä¾‹å¦‚ï¼Œè¿”å›žå€¼å¯è¢«ç”¨ä½œæ•£åˆ—å…³é”®å­—
 
  
 
-h)        º¯Êý OLD_PASSWORD(str )
+h)        å‡½æ•° OLD_PASSWORD(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºµ± PASSWORD() µÄÖ´ÐÐ±äÎª¸ÄÉÆ°²È«ÐÔÊ±£¬ OLD_PASSWORD() »á±»Ìí¼Óµ½ MySQL ¡£ OLD_PASSWORD() ·µ»Ø´ÓÇ°µÄ PASSWORD() Ö´ÐÐÖµ ( 4.1 Ö®Ç° ) £¬Í¬Ê±ÔÊÐíÄãÎªÈÎºÎ 4.1 Ö®Ç°µÄÐèÒªÁ¬½Óµ½ÄãµÄ 5.1 °æ±¾ MySQL ·þÎñÆ÷Ç°¿Í»§¶ËÉèÖÃÃÜÂë£¬´Ó¶ø²»ÖÁÓÚ½«ËüÃÇÇÐ¶Ï
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå½“ PASSWORD() çš„æ‰§è¡Œå˜ä¸ºæ”¹å–„å®‰å…¨æ€§æ—¶ï¼Œ OLD_PASSWORD() ä¼šè¢«æ·»åŠ åˆ° MySQL ã€‚ OLD_PASSWORD() è¿”å›žä»Žå‰çš„ PASSWORD() æ‰§è¡Œå€¼ ( 4.1 ä¹‹å‰ ) ï¼ŒåŒæ—¶å…è®¸ä½ ä¸ºä»»ä½• 4.1 ä¹‹å‰çš„éœ€è¦è¿žæŽ¥åˆ°ä½ çš„ 5.1 ç‰ˆæœ¬ MySQL æœåŠ¡å™¨å‰å®¢æˆ·ç«¯è®¾ç½®å¯†ç ï¼Œä»Žè€Œä¸è‡³äºŽå°†å®ƒä»¬åˆ‡æ–­
 
  
 
-i)      º¯ÊýPASSWORD(str )
+i)      å‡½æ•°PASSWORD(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º´ÓÔ­ÎÄÃÜÂëstr ¼ÆËã²¢·µ»ØÃÜÂë×Ö·û´®£¬µ±²ÎÊýÎª NULL Ê±·µ»Ø NULL ¡£Õâ¸öº¯ÊýÓÃÓÚÓÃ»§ÊÚÈ¨±íµÄPassword ÁÐÖÐµÄ¼ÓÃÜMySQL ÃÜÂë´æ´¢
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šä»ŽåŽŸæ–‡å¯†ç str è®¡ç®—å¹¶è¿”å›žå¯†ç å­—ç¬¦ä¸²ï¼Œå½“å‚æ•°ä¸º NULL æ—¶è¿”å›ž NULL ã€‚è¿™ä¸ªå‡½æ•°ç”¨äºŽç”¨æˆ·æŽˆæƒè¡¨çš„Password åˆ—ä¸­çš„åŠ å¯†MySQL å¯†ç å­˜å‚¨
 
  
 
-Æß¡¢ ÐÅÏ¢º¯Êý
+ä¸ƒã€ ä¿¡æ¯å‡½æ•°
 
  
 
-a)         º¯Êý BENCHMARK(count ,expr )
+a)         å‡½æ•° BENCHMARK(count ,expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º BENCHMARK() º¯ÊýÖØ¸´ count ´ÎÖ´ÐÐ±í´ïÊ½ expr ¡£ Ëü¿ÉÒÔ±»ÓÃÓÚ¼ÆËã   MySQL ´¦Àí±í´ïÊ½µÄËÙ¶È¡£½á¹ûÖµÍ¨³£Îª 0 ¡£ÁíÒ»ÖÖÓÃ´¦À´×Ô mysql ¿Í»§¶ËÄÚ²¿ , ÄÜ¹»±¨¸æÎÊÑ¯Ö´ÐÐµÄ´ÎÊý
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š BENCHMARK() å‡½æ•°é‡å¤ count æ¬¡æ‰§è¡Œè¡¨è¾¾å¼ expr ã€‚ å®ƒå¯ä»¥è¢«ç”¨äºŽè®¡ç®—   MySQL å¤„ç†è¡¨è¾¾å¼çš„é€Ÿåº¦ã€‚ç»“æžœå€¼é€šå¸¸ä¸º 0 ã€‚å¦ä¸€ç§ç”¨å¤„æ¥è‡ª mysql å®¢æˆ·ç«¯å†…éƒ¨ , èƒ½å¤ŸæŠ¥å‘Šé—®è¯¢æ‰§è¡Œçš„æ¬¡æ•°
 
  
 
-b)        º¯Êý CHARSET(str )
+b)        å‡½æ•° CHARSET(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´®×Ô±äÁ¿µÄ×Ö·û¼¯¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸²è‡ªå˜é‡çš„å­—ç¬¦é›†ã€‚
 
  
 
-c)        º¯Êý COERCIBILITY(str )
+c)        å‡½æ•° COERCIBILITY(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø×Ö·û´®×Ô±äÁ¿µÄÕûÐò¿ÉÑ¹ËõÐÔÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå­—ç¬¦ä¸²è‡ªå˜é‡çš„æ•´åºå¯åŽ‹ç¼©æ€§å€¼ã€‚
 
  
 
-d)      º¯Êý COLLATION(str )
+d)      å‡½æ•° COLLATION(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø»Ý×Ö·û´®²ÎÊýµÄÅÅÐò·½Ê½¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žæƒ å­—ç¬¦ä¸²å‚æ•°çš„æŽ’åºæ–¹å¼ã€‚
 
  
 
-e)         º¯Êý CONNECTION_ID()
+e)         å‡½æ•° CONNECTION_ID()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø¶ÔÓÚÁ¬½ÓµÄÁ¬½Ó ID ( Ïß³Ì ID) ¡£Ã¿¸öÁ¬½Ó¶¼ÓÐ¸÷×ÔµÄÎ¨Ò» ID ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå¯¹äºŽè¿žæŽ¥çš„è¿žæŽ¥ ID ( çº¿ç¨‹ ID) ã€‚æ¯ä¸ªè¿žæŽ¥éƒ½æœ‰å„è‡ªçš„å”¯ä¸€ ID ã€‚
 
  
 
-f)         º¯Êý CURRENT_USER, CURRENT_USER()
+f)         å‡½æ•° CURRENT_USER, CURRENT_USER()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç°»°Â·±»ÑéÖ¤µÄÓÃ»§ÃûºÍÖ÷»úÃû×éºÏ¡£Õâ¸öÖµ·ûºÏÈ·¶¨ÄãµÄ´æÈ¡È¨ÏÞµÄ MySQL ÕË»§¡£ÔÚ±»Ö¸¶¨ SQL SECURITY DEFINER ÌØÕ÷µÄ´æ´¢³ÌÐòÄÚ£¬ CURRENT_USER() ·µ»Ø³ÌÐòµÄ´´½¨Õß
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰è¯è·¯è¢«éªŒè¯çš„ç”¨æˆ·åå’Œä¸»æœºåç»„åˆã€‚è¿™ä¸ªå€¼ç¬¦åˆç¡®å®šä½ çš„å­˜å–æƒé™çš„ MySQL è´¦æˆ·ã€‚åœ¨è¢«æŒ‡å®š SQL SECURITY DEFINER ç‰¹å¾çš„å­˜å‚¨ç¨‹åºå†…ï¼Œ CURRENT_USER() è¿”å›žç¨‹åºçš„åˆ›å»ºè€…
 
  
 
-g)        º¯Êý DATABASE()
+g)        å‡½æ•° DATABASE()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÊ¹ÓÃ utf8 ×Ö·û¼¯µÄÄ¬ÈÏ ( µ±Ç° ) Êý¾Ý¿âÃû¡£ÔÚ´æ´¢³ÌÐòÀï£¬Ä¬ÈÏÊý¾Ý¿âÊÇÍ¬¸Ã³ÌÐòÏò¹ØÁªµÄÊý¾Ý¿â£¬µ«²¢²»Ò»¶¨Óëµ÷ÓÃÓï¾³µÄÄ¬ÈÏÊý¾Ý¿âÏàÍ¬¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä½¿ç”¨ utf8 å­—ç¬¦é›†çš„é»˜è®¤ ( å½“å‰ ) æ•°æ®åº“åã€‚åœ¨å­˜å‚¨ç¨‹åºé‡Œï¼Œé»˜è®¤æ•°æ®åº“æ˜¯åŒè¯¥ç¨‹åºå‘å…³è”çš„æ•°æ®åº“ï¼Œä½†å¹¶ä¸ä¸€å®šä¸Žè°ƒç”¨è¯­å¢ƒçš„é»˜è®¤æ•°æ®åº“ç›¸åŒã€‚
 
  
 
-h)        º¯Êý FOUND_ROWS()
+h)        å‡½æ•° FOUND_ROWS()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º A SELECT Óï¾ä¿ÉÄÜ°üÀ¨Ò»¸ö LIMIT ×Ó¾ä£¬ÓÃÀ´ÏÞÖÆ·þÎñÆ÷·µ»Ø¿Í»§¶ËµÄÐÐÊý¡£ÔÚÓÐÐ©Çé¿öÏÂ£¬ÐèÒª²»ÓÃÔÙ´ÎÔËÐÐ¸ÃÓï¾ä¶øµÃÖªÔÚÃ»ÓÐ LIMIT Ê±µ½µ×¸ÃÓï¾ä·µ»ØÁË¶àÉÙÐÐ¡£ÎªÁËÖªµÀÕâ¸öÐÐÊý , °üÀ¨ÔÚ SELECT Óï¾äÖÐÑ¡Ôñ   SQL_CALC_FOUND_ROWS £¬Ëæºóµ÷ÓÃ FOUND_ROWS()
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š A SELECT è¯­å¥å¯èƒ½åŒ…æ‹¬ä¸€ä¸ª LIMIT å­å¥ï¼Œç”¨æ¥é™åˆ¶æœåŠ¡å™¨è¿”å›žå®¢æˆ·ç«¯çš„è¡Œæ•°ã€‚åœ¨æœ‰äº›æƒ…å†µä¸‹ï¼Œéœ€è¦ä¸ç”¨å†æ¬¡è¿è¡Œè¯¥è¯­å¥è€Œå¾—çŸ¥åœ¨æ²¡æœ‰ LIMIT æ—¶åˆ°åº•è¯¥è¯­å¥è¿”å›žäº†å¤šå°‘è¡Œã€‚ä¸ºäº†çŸ¥é“è¿™ä¸ªè¡Œæ•° , åŒ…æ‹¬åœ¨ SELECT è¯­å¥ä¸­é€‰æ‹©   SQL_CALC_FOUND_ROWS ï¼ŒéšåŽè°ƒç”¨ FOUND_ROWS()
 
  
 
-i)      º¯Êý LAST_INSERT_ID() LAST_INSERT_ID(expr )
+i)      å‡½æ•° LAST_INSERT_ID() LAST_INSERT_ID(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º×Ô¶¯·µ»Ø×îºóÒ»¸ö INSERT »ò UPDATE ÎÊÑ¯Îª AUTO_INCREMENT ÁÐÉèÖÃµÄµÚÒ»¸ö ·¢ÉúµÄÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè‡ªåŠ¨è¿”å›žæœ€åŽä¸€ä¸ª INSERT æˆ– UPDATE é—®è¯¢ä¸º AUTO_INCREMENT åˆ—è®¾ç½®çš„ç¬¬ä¸€ä¸ª å‘ç”Ÿçš„å€¼ã€‚
 
  
 
-j)      º¯Êý ROW_COUNT()
+j)      å‡½æ•° ROW_COUNT()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º ROW_COUNT() ·µ»Ø±»Ç°ÃæÓï¾äÉý¼¶µÄ¡¢²åÈëµÄ»òÉ¾³ýµÄÐÐÊý¡£ Õâ¸öÐÐÊýºÍ mysql ¿Í»§¶ËÏÔÊ¾µÄÐÐÊý¼° mysql_affected_rows() C API º¯Êý·µ»ØµÄÖµÏàÍ¬¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š ROW_COUNT() è¿”å›žè¢«å‰é¢è¯­å¥å‡çº§çš„ã€æ’å…¥çš„æˆ–åˆ é™¤çš„è¡Œæ•°ã€‚ è¿™ä¸ªè¡Œæ•°å’Œ mysql å®¢æˆ·ç«¯æ˜¾ç¤ºçš„è¡Œæ•°åŠ mysql_affected_rows() C API å‡½æ•°è¿”å›žçš„å€¼ç›¸åŒã€‚
 
  
 
-k)      º¯Êý SCHEMA()
+k)      å‡½æ•° SCHEMA()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÕâ¸öº¯ÊýºÍ DATABASE() ¾ßÓÐÏàÍ¬µÄÒâÒå
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿™ä¸ªå‡½æ•°å’Œ DATABASE() å…·æœ‰ç›¸åŒçš„æ„ä¹‰
 
  
 
-l)          º¯Êý SESSION_USER()
+l)          å‡½æ•° SESSION_USER()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º SESSION_USER() ºÍ USER() ¾ßÓÐÏàÍ¬µÄÒâÒå¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š SESSION_USER() å’Œ USER() å…·æœ‰ç›¸åŒçš„æ„ä¹‰ã€‚
 
  
 
-m)      º¯Êý SYSTEM_USER()
+m)      å‡½æ•° SYSTEM_USER()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º SYSTEM_USER() ºÏ USER() ¾ßÓÐÏàÍ¬µÄÒâÒå
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼š SYSTEM_USER() åˆ USER() å…·æœ‰ç›¸åŒçš„æ„ä¹‰
 
  
 
-n)        º¯Êý USER()
+n)        å‡½æ•° USER()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øµ±Ç° MySQL ÓÃ»§ÃûºÍ»úÖ÷Ãû
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žå½“å‰ MySQL ç”¨æˆ·åå’Œæœºä¸»å
 
  
 
-o)      º¯Êý VERSION()
+o)      å‡½æ•° VERSION()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÖ¸Ê¾ MySQL ·þÎñÆ÷°æ±¾µÄ×Ö·û´®¡£Õâ¸ö×Ö·û´®Ê¹ÓÃ utf8 ×Ö·û¼¯¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žæŒ‡ç¤º MySQL æœåŠ¡å™¨ç‰ˆæœ¬çš„å­—ç¬¦ä¸²ã€‚è¿™ä¸ªå­—ç¬¦ä¸²ä½¿ç”¨ utf8 å­—ç¬¦é›†ã€‚
 
  
 
-°Ë¡¢ ÆäËûº¯Êý
+å…«ã€ å…¶ä»–å‡½æ•°
 
  
 
-a)         º¯Êý DEFAULT(col_name )
+a)         å‡½æ•° DEFAULT(col_name )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸ö±íÁÐµÄÄ¬ÈÏÖµ¡£Èô¸ÃÁÐÃ»ÓÐÄ¬ÈÏÖµÔò»á²úÉú´íÎó¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªè¡¨åˆ—çš„é»˜è®¤å€¼ã€‚è‹¥è¯¥åˆ—æ²¡æœ‰é»˜è®¤å€¼åˆ™ä¼šäº§ç”Ÿé”™è¯¯ã€‚
 
  
 
-b)        º¯Êý FORMAT(X ,D )
+b)        å‡½æ•° FORMAT(X ,D )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º½«Êý×Ö X µÄ¸ñÊ½Ð´Îª '#,###,###.##', ÒÔËÄÉáÎåÈëµÄ·½Ê½±£ÁôÐ¡Êýµãºó D Î»£¬ ²¢½«½á¹ûÒÔ×Ö·û´®µÄÐÎÊ½·µ»Ø¡£Èô   D Îª 0, Ôò·µ»Ø½á¹û²»´øÓÐÐ¡Êýµã£¬»ò²»º¬Ð¡Êý²¿·Ö¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šå°†æ•°å­— X çš„æ ¼å¼å†™ä¸º '#,###,###.##', ä»¥å››èˆäº”å…¥çš„æ–¹å¼ä¿ç•™å°æ•°ç‚¹åŽ D ä½ï¼Œ å¹¶å°†ç»“æžœä»¥å­—ç¬¦ä¸²çš„å½¢å¼è¿”å›žã€‚è‹¥   D ä¸º 0, åˆ™è¿”å›žç»“æžœä¸å¸¦æœ‰å°æ•°ç‚¹ï¼Œæˆ–ä¸å«å°æ•°éƒ¨åˆ†ã€‚
 
  
 
-c)        º¯Êý GET_LOCK(str ,timeout )
+c)        å‡½æ•° GET_LOCK(str ,timeout )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÉè·¨Ê¹ÓÃ×Ö·û´® str ¸ø¶¨µÄÃû×ÖµÃµ½Ò»¸öËø£¬ ³¬Ê±Îª timeout Ãë¡£Èô³É¹¦µÃµ½Ëø£¬Ôò·µ»Ø 1 £¬Èô²Ù×÷³¬Ê±Ôò·µ»Ø 0 ( ÀýÈç , ÓÉÓÚÁíÒ»¸ö¿Í»§¶ËÒÑÌáÇ°·âËøÁËÕâ¸öÃû×Ö ), Èô·¢Éú´íÎóÔò·µ»Ø NULL ( ÖîÈçÈ±·¦¼ÇÒä»òÏß³Ì mysqladmin kill ±»¶Ï¿ª ) ¡£¼ÙÈçÄãÓÐÒ»¸öÓÃ GET_LOCK() µÃµ½µÄËø£¬µ±ÄãÖ´ÐÐ RELEASE_LOCK() »òÄãµÄÁ¬½Ó¶Ï¿ª ( Õý³£»ò·ÇÕý³£ ) Ê±£¬Õâ¸öËø¾Í»á½â³ý
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè®¾æ³•ä½¿ç”¨å­—ç¬¦ä¸² str ç»™å®šçš„åå­—å¾—åˆ°ä¸€ä¸ªé”ï¼Œ è¶…æ—¶ä¸º timeout ç§’ã€‚è‹¥æˆåŠŸå¾—åˆ°é”ï¼Œåˆ™è¿”å›ž 1 ï¼Œè‹¥æ“ä½œè¶…æ—¶åˆ™è¿”å›ž 0 ( ä¾‹å¦‚ , ç”±äºŽå¦ä¸€ä¸ªå®¢æˆ·ç«¯å·²æå‰å°é”äº†è¿™ä¸ªåå­— ), è‹¥å‘ç”Ÿé”™è¯¯åˆ™è¿”å›ž NULL ( è¯¸å¦‚ç¼ºä¹è®°å¿†æˆ–çº¿ç¨‹ mysqladmin kill è¢«æ–­å¼€ ) ã€‚å‡å¦‚ä½ æœ‰ä¸€ä¸ªç”¨ GET_LOCK() å¾—åˆ°çš„é”ï¼Œå½“ä½ æ‰§è¡Œ RELEASE_LOCK() æˆ–ä½ çš„è¿žæŽ¥æ–­å¼€ ( æ­£å¸¸æˆ–éžæ­£å¸¸ ) æ—¶ï¼Œè¿™ä¸ªé”å°±ä¼šè§£é™¤
 
  
 
-d)        º¯Êý INET_ATON(expr )
+d)        å‡½æ•° INET_ATON(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸ø³öÒ»¸ö×÷Îª×Ö·û´®µÄÍøÂçµØÖ·µÄµãµØÖ·±íÊ¾£¬·µ»ØÒ»¸ö´ú±í¸ÃµØÖ·ÊýÖµµÄÕûÊý¡£µØÖ·¿ÉÒÔÊÇ 4 »ò 8 ±ÈÌØµØÖ·¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç»™å‡ºä¸€ä¸ªä½œä¸ºå­—ç¬¦ä¸²çš„ç½‘ç»œåœ°å€çš„ç‚¹åœ°å€è¡¨ç¤ºï¼Œè¿”å›žä¸€ä¸ªä»£è¡¨è¯¥åœ°å€æ•°å€¼çš„æ•´æ•°ã€‚åœ°å€å¯ä»¥æ˜¯ 4 æˆ– 8 æ¯”ç‰¹åœ°å€ã€‚
 
  
 
-e)         º¯Êý INET_NTOA(expr )
+e)         å‡½æ•° INET_NTOA(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸ø¶¨Ò»¸öÊý×ÖÍøÂçµØÖ· (4 »ò 8 ±ÈÌØ ), ·µ»Ø×÷Îª×Ö·û´®µÄ¸ÃµØÖ·µÄµçµØÖ·±íÊ¾
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç»™å®šä¸€ä¸ªæ•°å­—ç½‘ç»œåœ°å€ (4 æˆ– 8 æ¯”ç‰¹ ), è¿”å›žä½œä¸ºå­—ç¬¦ä¸²çš„è¯¥åœ°å€çš„ç”µåœ°å€è¡¨ç¤º
 
  
 
-f)         º¯Êý IS_FREE_LOCK(str )
+f)         å‡½æ•° IS_FREE_LOCK(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¼ì²éÃûÎª str µÄËøÊÇ·ñ¿ÉÒÔÊ¹ÓÃ ( »»ÑÔÖ® , Ã»ÓÐ±»·âËø ) ¡£ÈôËø¿ÉÒÔÊ¹ÓÃ£¬Ôò·µ»Ø   1 ( Ã»ÓÐÈËÔÚÓÃÕâ¸öËø ), ÈôÕâ¸öËøÕýÔÚ±»Ê¹ÓÃ£¬Ôò·µ»Ø 0 £¬³öÏÖ´íÎóÔò·µ»Ø NULL ( ÖîÈç²»ÕýÈ·µÄ²ÎÊý ) ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šæ£€æŸ¥åä¸º str çš„é”æ˜¯å¦å¯ä»¥ä½¿ç”¨ ( æ¢è¨€ä¹‹ , æ²¡æœ‰è¢«å°é” ) ã€‚è‹¥é”å¯ä»¥ä½¿ç”¨ï¼Œåˆ™è¿”å›ž   1 ( æ²¡æœ‰äººåœ¨ç”¨è¿™ä¸ªé” ), è‹¥è¿™ä¸ªé”æ­£åœ¨è¢«ä½¿ç”¨ï¼Œåˆ™è¿”å›ž 0 ï¼Œå‡ºçŽ°é”™è¯¯åˆ™è¿”å›ž NULL ( è¯¸å¦‚ä¸æ­£ç¡®çš„å‚æ•° ) ã€‚
 
  
 
-g)        º¯Êý IS_USED_LOCK(str )
+g)        å‡½æ•° IS_USED_LOCK(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¼ì²éÃûÎª str µÄËøÊÇ·ñÕýÔÚ±»Ê¹ÓÃ ( »»ÑÔÖ® , ±»·âËø ) ¡£Èô±»·âËø£¬Ôò·µ»ØÊ¹ÓÃ¸ÃËøµÄ¿Í»§¶ËµÄÁ¬½Ó±êÊ¶·û¡£·ñÔò·µ»Ø NULL ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šæ£€æŸ¥åä¸º str çš„é”æ˜¯å¦æ­£åœ¨è¢«ä½¿ç”¨ ( æ¢è¨€ä¹‹ , è¢«å°é” ) ã€‚è‹¥è¢«å°é”ï¼Œåˆ™è¿”å›žä½¿ç”¨è¯¥é”çš„å®¢æˆ·ç«¯çš„è¿žæŽ¥æ ‡è¯†ç¬¦ã€‚å¦åˆ™è¿”å›ž NULL ã€‚
 
  
 
-h)      º¯Êý MASTER_POS_WAIT(log_name ,log_pos [,timeout ])
+h)      å‡½æ•° MASTER_POS_WAIT(log_name ,log_pos [,timeout ])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸Ãº¯Êý¶ÔÓÚ¿ØÖÆÖ÷´ÓÍ¬²½ºÜÓÐÓÃ´¦¡£Ëü»á³ÖÐø·âËø£¬Ö±µ½´ÓÉè±¸ÔÄ¶ÁºÍÓ¦ÓÃÖ÷»ú¼ÇÂ¼ÖÐËùÓÐ²¹³ä×ÊÁÏµ½Ö¸¶¨µÄÎ»ÖÃ¡£·µ»ØÖµÊÇÆäÎªµ½´ïÖ¸¶¨Î»ÖÃ¶ø±ØÐëµÈ´ýµÄ¼ÇÂ¼ÊÂ¼þµÄÊýÄ¿¡£Èô´ÓÉè±¸ SQL Ïß³ÌÃ»ÓÐ±»Æô¶¯¡¢´ÓÉè±¸Ö÷»úÐÅÏ¢ÉÐÎ´³õÊ¼»¯¡¢²ÎÊý²»ÕýÈ·»ò³öÏÖÈÎºÎ´íÎó£¬Ôò¸Ãº¯Êý·µ»Ø NULL ¡£Èô³¬Ê±Ê±¼ä±»³¬¹ý£¬Ôò·µ»Ø -1 ¡£ÈôÔÚ MASTER_POS_WAIT() µÈ´ýÆÚ¼ä£¬´ÓÉè±¸ SQL Ïß³ÌÖÐÖ¹£¬Ôò¸Ãº¯Êý·µ»Ø NULL ¡£Èô´ÓÉè±¸ÓÉÖ¸¶¨Î»ÖÃÍ¨¹ý£¬Ôòº¯Êý»áÁ¢¼´·µ»Ø½á¹û¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¯¥å‡½æ•°å¯¹äºŽæŽ§åˆ¶ä¸»ä»ŽåŒæ­¥å¾ˆæœ‰ç”¨å¤„ã€‚å®ƒä¼šæŒç»­å°é”ï¼Œç›´åˆ°ä»Žè®¾å¤‡é˜…è¯»å’Œåº”ç”¨ä¸»æœºè®°å½•ä¸­æ‰€æœ‰è¡¥å……èµ„æ–™åˆ°æŒ‡å®šçš„ä½ç½®ã€‚è¿”å›žå€¼æ˜¯å…¶ä¸ºåˆ°è¾¾æŒ‡å®šä½ç½®è€Œå¿…é¡»ç­‰å¾…çš„è®°å½•äº‹ä»¶çš„æ•°ç›®ã€‚è‹¥ä»Žè®¾å¤‡ SQL çº¿ç¨‹æ²¡æœ‰è¢«å¯åŠ¨ã€ä»Žè®¾å¤‡ä¸»æœºä¿¡æ¯å°šæœªåˆå§‹åŒ–ã€å‚æ•°ä¸æ­£ç¡®æˆ–å‡ºçŽ°ä»»ä½•é”™è¯¯ï¼Œåˆ™è¯¥å‡½æ•°è¿”å›ž NULL ã€‚è‹¥è¶…æ—¶æ—¶é—´è¢«è¶…è¿‡ï¼Œåˆ™è¿”å›ž -1 ã€‚è‹¥åœ¨ MASTER_POS_WAIT() ç­‰å¾…æœŸé—´ï¼Œä»Žè®¾å¤‡ SQL çº¿ç¨‹ä¸­æ­¢ï¼Œåˆ™è¯¥å‡½æ•°è¿”å›ž NULL ã€‚è‹¥ä»Žè®¾å¤‡ç”±æŒ‡å®šä½ç½®é€šè¿‡ï¼Œåˆ™å‡½æ•°ä¼šç«‹å³è¿”å›žç»“æžœã€‚
 
  
 
-i)          º¯Êý NAME_CONST(name ,value )
+i)          å‡½æ•° NAME_CONST(name ,value )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø¸ø¶¨Öµ¡£ µ±ÓÃÀ´²úÉúÒ»¸ö½á¹û¼¯ºÏÁÐÊ± , NAME_CONST() ´ÙÊ¹¸ÃÁÐÊ¹ÓÃ¸ø¶¨Ãû³Æ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žç»™å®šå€¼ã€‚ å½“ç”¨æ¥äº§ç”Ÿä¸€ä¸ªç»“æžœé›†åˆåˆ—æ—¶ , NAME_CONST() ä¿ƒä½¿è¯¥åˆ—ä½¿ç”¨ç»™å®šåç§°ã€‚
 
  
 
-j)          º¯Êý RELEASE_LOCK(str )
+j)          å‡½æ•° RELEASE_LOCK(str )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º½â¿ª±» GET_LOCK() »ñÈ¡µÄ£¬ÓÃ×Ö·û´® str ËùÃüÃûµÄËø¡£ÈôËø±»½â¿ª£¬Ôò·µ»Ø   1 £¬Èô¸ÄÏß³ÌÉÐÎ´´´½¨Ëø£¬Ôò·µ»Ø 0 ( ´ËÊ±ËøÃ»ÓÐ±»½â¿ª ), ÈôÃüÃûµÄËø²»´æÔÚ£¬Ôò·µ»Ø NULL ¡£Èô¸ÃËø´ÓÎ´±»¶Ô GET_LOCK() µÄµ÷ÓÃ»ñÈ¡£¬»òËøÒÑ¾­±»ÌáÇ°½â¿ª£¬Ôò¸ÃËø²»´æÔÚ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè§£å¼€è¢« GET_LOCK() èŽ·å–çš„ï¼Œç”¨å­—ç¬¦ä¸² str æ‰€å‘½åçš„é”ã€‚è‹¥é”è¢«è§£å¼€ï¼Œåˆ™è¿”å›ž   1 ï¼Œè‹¥æ”¹çº¿ç¨‹å°šæœªåˆ›å»ºé”ï¼Œåˆ™è¿”å›ž 0 ( æ­¤æ—¶é”æ²¡æœ‰è¢«è§£å¼€ ), è‹¥å‘½åçš„é”ä¸å­˜åœ¨ï¼Œåˆ™è¿”å›ž NULL ã€‚è‹¥è¯¥é”ä»Žæœªè¢«å¯¹ GET_LOCK() çš„è°ƒç”¨èŽ·å–ï¼Œæˆ–é”å·²ç»è¢«æå‰è§£å¼€ï¼Œåˆ™è¯¥é”ä¸å­˜åœ¨ã€‚
 
  
 
-k)        º¯Êý SLEEP(duration )
+k)        å‡½æ•° SLEEP(duration )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºË¯Ãß ( ÔÝÍ£ ) Ê±¼äÎª duration ²ÎÊý¸ø¶¨µÄÃëÊý£¬È»ºó·µ»Ø 0 ¡£Èô SLEEP() ±»ÖÐ¶Ï , Ëü»á·µ»Ø 1 ¡£ duration »òÐí»ò°üÀ¨Ò»¸ö¸ø¶¨µÄÒÔÎ¢ÃëÎªµ¥Î»µÄ·ÖÊý²¿·Ö¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šç¡çœ  ( æš‚åœ ) æ—¶é—´ä¸º duration å‚æ•°ç»™å®šçš„ç§’æ•°ï¼Œç„¶åŽè¿”å›ž 0 ã€‚è‹¥ SLEEP() è¢«ä¸­æ–­ , å®ƒä¼šè¿”å›ž 1 ã€‚ duration æˆ–è®¸æˆ–åŒ…æ‹¬ä¸€ä¸ªç»™å®šçš„ä»¥å¾®ç§’ä¸ºå•ä½çš„åˆ†æ•°éƒ¨åˆ†ã€‚
 
  
 
-l)          º¯Êý UUID()
+l)          å‡½æ•° UUID()
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØÒ»¸öÍ¨ÓÃÎ¨Ò»±êÊ¶·û (UUID) £¬ UUID ±»Éè¼Æ³ÉÒ»¸öÔÚÊ±¼äºÍ¿Õ¼äÉÏ¶¼¶ÀÒ»ÎÞ¶þµÄÊý×Ö¡£ 2 ¸ö¶Ô UUID() µÄµ÷ÓÃÓ¦²úÉú 2 ¸ö²»Í¬µÄÖµ£¬¼´Ê¹ÕâÐ©µ÷ÓÃµÄÖ´ÐÐÊÇÔÚÁ½¸ö»¥²»ÏàÁ¬µÄµ¥¶ÀµçÄÔÉÏ½øÐÐ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸€ä¸ªé€šç”¨å”¯ä¸€æ ‡è¯†ç¬¦ (UUID) ï¼Œ UUID è¢«è®¾è®¡æˆä¸€ä¸ªåœ¨æ—¶é—´å’Œç©ºé—´ä¸Šéƒ½ç‹¬ä¸€æ— äºŒçš„æ•°å­—ã€‚ 2 ä¸ªå¯¹ UUID() çš„è°ƒç”¨åº”äº§ç”Ÿ 2 ä¸ªä¸åŒçš„å€¼ï¼Œå³ä½¿è¿™äº›è°ƒç”¨çš„æ‰§è¡Œæ˜¯åœ¨ä¸¤ä¸ªäº’ä¸ç›¸è¿žçš„å•ç‹¬ç”µè„‘ä¸Šè¿›è¡Œã€‚
 
  
 
-m)      º¯Êý VALUES(col_name )
+m)      å‡½æ•° VALUES(col_name )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£ºÔÚÒ»¸ö INSERT ¡­ ON DUPLICATE KEY UPDATE ¡­ Óï¾äÖÐ£¬Äã¿ÉÒÔÔÚ UPDATE ×Ó¾äÖÐÊ¹ÓÃ VALUES(col_name ) º¯Êý£¬ÓÃÀ´·ÃÎÊÀ´×Ô¸ÃÓï¾äµÄ INSERT ²¿·ÖµÄÁÐÖµ¡£»»ÑÔÖ®£¬ UPDATE ×Ó¾äÖÐµÄ VALUES(col_name ) ·ÃÎÊÐèÒª±»²åÈëµÄ col_name µÄÖµ , ²¢²»»á·¢ÉúÖØ¸´¼ü³åÍ»¡£Õâ¸öº¯ÊýÔÚ¶àÐÐ²åÈëÖÐÌØ±ðÓÐÓÃ¡£   VALUES() º¯ÊýÖ»ÔÚ INSERT ... UPDATE Óï¾äÖÐÓÐÒâÒå£¬¶øÔÚÆäËüÇé¿öÏÂÖ»»á·µ»Ø NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šåœ¨ä¸€ä¸ª INSERT â€¦ ON DUPLICATE KEY UPDATE â€¦ è¯­å¥ä¸­ï¼Œä½ å¯ä»¥åœ¨ UPDATE å­å¥ä¸­ä½¿ç”¨ VALUES(col_name ) å‡½æ•°ï¼Œç”¨æ¥è®¿é—®æ¥è‡ªè¯¥è¯­å¥çš„ INSERT éƒ¨åˆ†çš„åˆ—å€¼ã€‚æ¢è¨€ä¹‹ï¼Œ UPDATE å­å¥ä¸­çš„ VALUES(col_name ) è®¿é—®éœ€è¦è¢«æ’å…¥çš„ col_name çš„å€¼ , å¹¶ä¸ä¼šå‘ç”Ÿé‡å¤é”®å†²çªã€‚è¿™ä¸ªå‡½æ•°åœ¨å¤šè¡Œæ’å…¥ä¸­ç‰¹åˆ«æœ‰ç”¨ã€‚   VALUES() å‡½æ•°åªåœ¨ INSERT ... UPDATE è¯­å¥ä¸­æœ‰æ„ä¹‰ï¼Œè€Œåœ¨å…¶å®ƒæƒ…å†µä¸‹åªä¼šè¿”å›ž NULL
 
  
 
  
 
-¾Å¡¢ ¾ÛºÏº¯Êý
+ä¹ã€ èšåˆå‡½æ•°
 
  
 
-a)         º¯Êý AVG([DISTINCT] expr )
+a)         å‡½æ•° AVG([DISTINCT] expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø expr µÄÆ½¾ùÖµ¡£ DISTINCT Ñ¡Ïî¿ÉÓÃÓÚ·µ»Ø expr µÄ²»Í¬ÖµµÄÆ½¾ùÖµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž expr çš„å¹³å‡å€¼ã€‚ DISTINCT é€‰é¡¹å¯ç”¨äºŽè¿”å›ž expr çš„ä¸åŒå€¼çš„å¹³å‡å€¼ã€‚
 
  
 
-b)        º¯Êý BIT_AND(expr )
+b)        å‡½æ•° BIT_AND(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr ÖÐËùÓÐ±ÈÌØµÄ bitwise AND ¡£¼ÆËãÖ´ÐÐµÄ¾«È·¶ÈÎª64 ±ÈÌØ(BIGINT) ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬ÔòÕâ¸öº¯Êý·µ»Ø18446744073709551615 ¡£( ÕâÊÇÎÞ·ûºÅ BIGINT Öµ£¬ËùÓÐ±ÈÌØ±»ÉèÖÃÎª 1 £©¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr ä¸­æ‰€æœ‰æ¯”ç‰¹çš„ bitwise AND ã€‚è®¡ç®—æ‰§è¡Œçš„ç²¾ç¡®åº¦ä¸º64 æ¯”ç‰¹(BIGINT) ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™è¿™ä¸ªå‡½æ•°è¿”å›ž18446744073709551615 ã€‚( è¿™æ˜¯æ— ç¬¦å· BIGINT å€¼ï¼Œæ‰€æœ‰æ¯”ç‰¹è¢«è®¾ç½®ä¸º 1 ï¼‰ã€‚
 
  
 
-c)      º¯Êý BIT_OR(expr )
+c)      å‡½æ•° BIT_OR(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr ÖÐËùÓÐ±ÈÌØµÄbitwise OR ¡£¼ÆËãÖ´ÐÐµÄ¾«È·¶ÈÎª64 ±ÈÌØ(BIGINT) ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬Ôòº¯Êý·µ»Ø 0 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr ä¸­æ‰€æœ‰æ¯”ç‰¹çš„bitwise OR ã€‚è®¡ç®—æ‰§è¡Œçš„ç²¾ç¡®åº¦ä¸º64 æ¯”ç‰¹(BIGINT) ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™å‡½æ•°è¿”å›ž 0 ã€‚
 
  
 
-d)      º¯ÊýBIT_XOR(expr )
+d)      å‡½æ•°BIT_XOR(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr ÖÐËùÓÐ±ÈÌØµÄbitwise XOR ¡£¼ÆËãÖ´ÐÐµÄ¾«È·¶ÈÎª64 ±ÈÌØ(BIGINT) ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬Ôòº¯Êý·µ»Ø 0 ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr ä¸­æ‰€æœ‰æ¯”ç‰¹çš„bitwise XOR ã€‚è®¡ç®—æ‰§è¡Œçš„ç²¾ç¡®åº¦ä¸º64 æ¯”ç‰¹(BIGINT) ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™å‡½æ•°è¿”å›ž 0 ã€‚
 
  
 
-e)         º¯Êý COUNT(expr )
+e)         å‡½æ•° COUNT(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»ØSELECT Óï¾ä¼ìË÷µ½µÄÐÐÖÐ·ÇNULL ÖµµÄÊýÄ¿¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬ÔòCOUNT() ·µ»Ø 0
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žSELECT è¯­å¥æ£€ç´¢åˆ°çš„è¡Œä¸­éžNULL å€¼çš„æ•°ç›®ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™COUNT() è¿”å›ž 0
 
  
 
-f)         º¯Êý COUNT(DISTINCT expr ,[expr ...])
+f)         å‡½æ•° COUNT(DISTINCT expr ,[expr ...])
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø²»Í¬µÄ·ÇNULL ÖµÊýÄ¿¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÏî£¬ÔòCOUNT(DISTINCT) ·µ»Ø 0
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žä¸åŒçš„éžNULL å€¼æ•°ç›®ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„é¡¹ï¼Œåˆ™COUNT(DISTINCT) è¿”å›ž 0
 
  
 
-g)        º¯Êý GROUP_CONCAT(expr )
+g)        å‡½æ•° GROUP_CONCAT(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º¸Ãº¯Êý·µ»Ø´øÓÐÀ´×ÔÒ»¸ö×éµÄÁ¬½ÓµÄ·ÇNULL ÖµµÄ×Ö·û´®½á¹û¡£ÆäÍêÕûµÄÓï·¨ÈçÏÂËùÊ¾£º
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¯¥å‡½æ•°è¿”å›žå¸¦æœ‰æ¥è‡ªä¸€ä¸ªç»„çš„è¿žæŽ¥çš„éžNULL å€¼çš„å­—ç¬¦ä¸²ç»“æžœã€‚å…¶å®Œæ•´çš„è¯­æ³•å¦‚ä¸‹æ‰€ç¤ºï¼š
 
  
 
@@ -2102,64 +1767,64 @@ GROUP_CONCAT([DISTINCT] expr [,expr ...]
 
  
 
-h)        º¯Êý MIN([DISTINCT] expr ), MAX([DISTINCT] expr )
+h)        å‡½æ•° MIN([DISTINCT] expr ), MAX([DISTINCT] expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø expr µÄ×îÐ¡ÖµºÍ×î´óÖµ¡£ MIN() ºÍ MAX() µÄÈ¡Öµ¿ÉÒÔÊÇÒ»¸ö×Ö·û´®²ÎÊý£»ÔÚÕâÐ©Çé¿öÏÂ£¬ ËüÃÇ·µ»Ø×îÐ¡»ò×î´ó×Ö·û´®Öµ¡£
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž expr çš„æœ€å°å€¼å’Œæœ€å¤§å€¼ã€‚ MIN() å’Œ MAX() çš„å–å€¼å¯ä»¥æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²å‚æ•°ï¼›åœ¨è¿™äº›æƒ…å†µä¸‹ï¼Œ å®ƒä»¬è¿”å›žæœ€å°æˆ–æœ€å¤§å­—ç¬¦ä¸²å€¼ã€‚
 
  
 
-i)          º¯Êý STD(expr ) STDDEV(expr )
+i)          å‡½æ•° STD(expr ) STDDEV(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø expr µÄ×ÜÌå±ê×¼Æ«²î¡£ÕâÊÇ±ê×¼ SQL µÄÑÓÉì¡£Õâ¸öº¯ÊýµÄ STDDEV() ÐÎÊ½ÓÃÀ´Ìá¹©ºÍ Oracle µÄ¼æÈÝÐÔ¡£¿ÉÊ¹ÓÃ±ê×¼ SQL º¯Êý STDDEV_POP() ½øÐÐ´úÌæ
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž expr çš„æ€»ä½“æ ‡å‡†åå·®ã€‚è¿™æ˜¯æ ‡å‡† SQL çš„å»¶ä¼¸ã€‚è¿™ä¸ªå‡½æ•°çš„ STDDEV() å½¢å¼ç”¨æ¥æä¾›å’Œ Oracle çš„å…¼å®¹æ€§ã€‚å¯ä½¿ç”¨æ ‡å‡† SQL å‡½æ•° STDDEV_POP() è¿›è¡Œä»£æ›¿
 
  
 
-j)          º¯Êý STDDEV_POP(expr )
+j)          å‡½æ•° STDDEV_POP(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr µÄ×ÜÌå±ê×¼Æ«²î(VAR_POP() µÄÆ½·½¸ù) ¡£ÄãÒ²¿ÉÒÔÊ¹ÓÃ STD() »òSTDDEV(), ËüÃÇ¾ßÓÐÏàÍ¬µÄÒâÒå£¬È»¶ø²»ÊÇ±ê×¼µÄ SQL ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬ÔòSTDDEV_POP() ·µ»Ø NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr çš„æ€»ä½“æ ‡å‡†åå·®(VAR_POP() çš„å¹³æ–¹æ ¹) ã€‚ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨ STD() æˆ–STDDEV(), å®ƒä»¬å…·æœ‰ç›¸åŒçš„æ„ä¹‰ï¼Œç„¶è€Œä¸æ˜¯æ ‡å‡†çš„ SQL ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™STDDEV_POP() è¿”å›ž NULL
 
  
 
-k)        º¯Êý STDDEV_SAMP(expr )
+k)        å‡½æ•° STDDEV_SAMP(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr µÄÑù±¾±ê×¼²î ( VAR_SAMP() µÄÆ½·½¸ù) ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬ÔòSTDDEV_SAMP() ·µ»Ø NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr çš„æ ·æœ¬æ ‡å‡†å·® ( VAR_SAMP() çš„å¹³æ–¹æ ¹) ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™STDDEV_SAMP() è¿”å›ž NULL
 
  
 
-l)          º¯Êý SUM([DISTINCT] expr )
+l)          å‡½æ•° SUM([DISTINCT] expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr µÄ×ÜÊý¡£ Èô·µ»Ø¼¯ºÏÖÐÎÞÈÎºÎÐÐ£¬Ôò SUM() ·µ»ØNULL ¡£DISTINCT ¹Ø¼ü´Ê¿ÉÓÃÓÚ MySQL 5.1 ÖÐ£¬ÇóµÃexpr ²»Í¬ÖµµÄ×ÜºÍ¡£ ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬ÔòSUM() ·µ»Ø NULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr çš„æ€»æ•°ã€‚ è‹¥è¿”å›žé›†åˆä¸­æ— ä»»ä½•è¡Œï¼Œåˆ™ SUM() è¿”å›žNULL ã€‚DISTINCT å…³é”®è¯å¯ç”¨äºŽ MySQL 5.1 ä¸­ï¼Œæ±‚å¾—expr ä¸åŒå€¼çš„æ€»å’Œã€‚ è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™SUM() è¿”å›ž NULL
 
  
 
-m)      º¯Êý VAR_POP(expr )
+m)      å‡½æ•° VAR_POP(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Ø expr ×ÜÌå±ê×¼·½²î¡£Ëü½«ÐÐÊÓÎª×ÜÌå£¬¶ø²»ÊÇÒ»¸öÑù±¾£¬ ËùÒÔËü½«ÐÐÊý×÷Îª·ÖÄ¸¡£ÄãÒ²¿ÉÒÔÊ¹ÓÃ VARIANCE(), Ëü¾ßÓÐÏàÍ¬µÄÒâÒåÈ»¶ø²»ÊÇ ±ê×¼µÄ SQL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›ž expr æ€»ä½“æ ‡å‡†æ–¹å·®ã€‚å®ƒå°†è¡Œè§†ä¸ºæ€»ä½“ï¼Œè€Œä¸æ˜¯ä¸€ä¸ªæ ·æœ¬ï¼Œ æ‰€ä»¥å®ƒå°†è¡Œæ•°ä½œä¸ºåˆ†æ¯ã€‚ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨ VARIANCE(), å®ƒå…·æœ‰ç›¸åŒçš„æ„ä¹‰ç„¶è€Œä¸æ˜¯ æ ‡å‡†çš„ SQL
 
  
 
-n)        º¯Êý VAR_SAMP(expr )
+n)        å‡½æ•° VAR_SAMP(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr µÄÑù±¾·½²î¡£¸üÈ·ÇÐµÄËµ£¬·ÖÄ¸µÄÊý×ÖÊÇÐÐÊý¼õÈ¥1 ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÐÐ£¬ÔòVAR_SAMP() ·µ»ØNULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr çš„æ ·æœ¬æ–¹å·®ã€‚æ›´ç¡®åˆ‡çš„è¯´ï¼Œåˆ†æ¯çš„æ•°å­—æ˜¯è¡Œæ•°å‡åŽ»1 ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„è¡Œï¼Œåˆ™VAR_SAMP() è¿”å›žNULL
 
  
 
-o)      º¯ÊýVARIANCE(expr )
+o)      å‡½æ•°VARIANCE(expr )
 
  
 
-º¯ÊýÊ¹ÓÃËµÃ÷£º·µ»Øexpr µÄ×ÜÌå±ê×¼·½²î¡£ÕâÊÇ±ê×¼SQL µÄÑÓÉì¡£¿ÉÊ¹ÓÃ±ê×¼SQL º¯Êý VAR_POP() ½øÐÐ´úÌæ¡£ÈôÕÒ²»µ½Æ¥ÅäµÄÏî£¬ÔòVARIANCE() ·µ»ØNULL
+å‡½æ•°ä½¿ç”¨è¯´æ˜Žï¼šè¿”å›žexpr çš„æ€»ä½“æ ‡å‡†æ–¹å·®ã€‚è¿™æ˜¯æ ‡å‡†SQL çš„å»¶ä¼¸ã€‚å¯ä½¿ç”¨æ ‡å‡†SQL å‡½æ•° VAR_POP() è¿›è¡Œä»£æ›¿ã€‚è‹¥æ‰¾ä¸åˆ°åŒ¹é…çš„é¡¹ï¼Œåˆ™VARIANCE() è¿”å›žNULL
