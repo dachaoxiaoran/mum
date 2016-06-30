@@ -2,6 +2,8 @@ package com.mum.db.pojo;
 
 import java.util.Map;
 
+import com.mum.db.function.FunctionEnum;
+
 /**
  * 数据库表字段
  * @author 王超
@@ -77,6 +79,11 @@ public class DbField {
 	 * 外键集合，key是表名
 	 */
 	private Map<String, DbField> foreignFields;
+	
+	/**
+	 * 函数
+	 */
+	private FunctionEnum functionEnum;
 
 	/**
 	 * 获得{@link #name}
@@ -328,5 +335,21 @@ public class DbField {
 	public DbField setForeignFields(Map<String, DbField> foreignFields) {
 		this.foreignFields = foreignFields;
 		return this;
+	}
+
+	/**
+	 * 获得{@link #functionEnum}
+	 * @return {@link #functionEnum}
+	 */
+	public FunctionEnum getFunctionEnum() {
+		return functionEnum;
+	}
+
+	/**
+	 * 设置{@link #functionEnum}
+	 * @param functionEnum {@link #functionEnum}
+	 */
+	public void setFunctionEnum(FunctionEnum functionEnum) {
+		this.functionEnum = functionEnum;
 	}
 }
