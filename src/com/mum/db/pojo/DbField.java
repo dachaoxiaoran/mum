@@ -66,11 +66,6 @@ public class DbField {
 	private boolean isOperation;
 	
 	/**
-	 * 是否条件字段。true：是；false：不是
-	 */
-	private boolean isCondition;
-	
-	/**
 	 * 条件值
 	 */
 	private String conditionValue;
@@ -84,6 +79,46 @@ public class DbField {
 	 * 函数
 	 */
 	private FunctionEnum functionEnum;
+	
+	/**
+	 * 传值
+	 * @param name {@link #name}
+	 */
+	public DbField(String name) {
+		this.name = name;
+	}
+	
+	/**
+	 * 传值
+	 * @param name {@link #name}
+	 * @param value {@link #value}
+	 */
+	public DbField(String name, String value) {
+		this(name);
+		this.value = value;
+	}
+	
+	/**
+	 * 传值
+	 * @param name {@link #name}
+	 * @param value {@link #value}
+	 * @param isOperation {@link #isOperation}
+	 */
+	public DbField(String name, String value, boolean isOperation) {
+		this(name, value);
+		this.isOperation = isOperation;
+	}
+	
+	/**
+	 * 传值
+	 * @param name {@link #name}
+	 * @param value {@link #value}
+	 * @param conditionValue {@link #conditionValue}
+	 */
+	public DbField(String name, String value, String conditionValue) {
+		this(name, value);
+		this.conditionValue = conditionValue;
+	}
 
 	/**
 	 * 获得{@link #name}
@@ -280,24 +315,6 @@ public class DbField {
 	 */
 	public DbField setOperation(boolean isOperation) {
 		this.isOperation = isOperation;
-		return this;
-	}
-
-	/**
-	 * 获得{@link #isCondition}
-	 * @return {@link #isCondition}
-	 */
-	public boolean isCondition() {
-		return isCondition;
-	}
-
-	/**
-	 * 设置{@link #isCondition}
-	 * @param isCondition {@link #isCondition}
-	 * @return this{@link com.mum.db.pojo.DbField}对象
-	 */
-	public DbField setCondition(boolean isCondition) {
-		this.isCondition = isCondition;
 		return this;
 	}
 

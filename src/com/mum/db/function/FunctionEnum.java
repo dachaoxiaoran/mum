@@ -669,7 +669,27 @@ public enum FunctionEnum {
 	/**
 	 * SUBSTRING_INDEX(str,delim,count)。返回从字符串str的第count个出现的分隔符delim之后的子串。如果count是正数，返回最后的分隔符到左边(从左边数) 的所有字符。如果count是负数，返回最后的分隔符到右边的所有字符(从右边数)。 该函数对多字节是可靠的
 	 */
-	SUBSTRING_INDEX("name", null, null)
+	SUBSTRING_INDEX("name", null, null),
+	
+	/**
+	 * TRIM([[BOTH | LEADING | TRAILING] [remstr] FROM] str) 返回字符串str，其所有remstr前缀或后缀被删除了。如果没有修饰符BOTH、LEADING或TRAILING给出，BOTH被假定。如果remstr没被指定，空格被删除，该函数对多字节是可靠的
+	 */
+	TRIM("name", null, null),
+	
+	/**
+	 * REPLACE(str,from_str,to_str) 返回字符串str，其字符串from_str的所有出现由字符串to_str代替，该函数对多字节是可靠的
+	 */
+	REPLACE("name", null, null),
+	
+	/**
+	 * 返回由重复count次的字符串str组成的一个字符串。如果count <= 0，返回一个空字符串。如果str或count是NULL，返回NULL
+	 */
+	REPEAT("name", null),
+	
+	/**
+	 * 返回字符串str，在位置pos起始的子串且len个字符长的子串由字符串newstr代替，该函数对多字节是可靠的
+	 */
+	INSERT("name", null, null, null)
 	;
 	
 	/**

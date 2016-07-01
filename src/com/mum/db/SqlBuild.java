@@ -1,14 +1,10 @@
 package com.mum.db;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
 import com.mum.db.pojo.DbField;
-import com.mum.db.pojo.DbInfo;
 import com.mum.db.pojo.DbTable;
-
-import static com.mum.constant.IConstant.*;
 
 /**
  * 生成sql语句
@@ -19,84 +15,58 @@ public class SqlBuild {
 	/**
 	 * 生成的sql语句
 	 */
-	private StringBuilder sqlBuilder = new StringBuilder();
+	private StringBuilder sqlBuilder;
 	
 	/**
 	 * 生成的where语句
 	 */
-	private StringBuilder whereBuilder = new StringBuilder();
+	private StringBuilder whereBuilder;
 	
 	/**
-	 * @see com.mum.db.pojo.DbInfo
+	 * 初始化{@link #sqlBuilder}和{@link #whereBuilder}
 	 */
-	private DbInfo dbInfo;
-	
-	/**
-	 * 传值
-	 * @param dbInfo {@link #dbInfo}
-	 */
-	public SqlBuild(DbInfo dbInfo) {
-		this.dbInfo = dbInfo;
+	public SqlBuild() {
+		sqlBuilder = new StringBuilder();
+		whereBuilder = new StringBuilder();
 	}
 	
 	/**
 	 * 生成insert语句
-	 * @param dbTables {@link com.mum.db.pojo.DbTable}数组
+	 * @param dbTable {@link com.mum.db.pojo.DbTable}
 	 * @return 生成的insert语句
 	 */
-	public StringBuilder insert(DbTable... dbTables) {
-		sqlBuilder.delete(0, sqlBuilder.length());
-		whereBuilder.delete(0, whereBuilder.length());
-		for (DbTable dbTable : dbTables) {
-			sqlBuilder.append("insert into ").append(dbTable.getName()).append("(");
-			
-			Map<String, DbField> dbFields = dbTable.getDbFields();
-			Iterator<Map.Entry<String, DbField>> iterator = dbFields.entrySet().iterator();
-			while (iterator.hasNext()) {
-				Map.Entry<String, DbField> entry = iterator.next();
-				DbField dbField = entry.getValue();
-				sqlBuilder.append(dbField.getName());
-				whereBuilder.append("'").append(dbField.getValue()).append("'");
-				if (iterator.hasNext()) {		//存在下一个要操作的字段
-					sqlBuilder.append(", ");
-					whereBuilder.append(", ");
-				}
-			}
-			
-			sqlBuilder.append(") values(").append(whereBuilder).append(");");
-		}
+	public StringBuilder insert(DbTable dbTable) {
+		clear();
+		sqlBuilder.append("insert into ").append(dbTable.getName()).append("(");
+		Map<String, DbField> dbFields = dbTable.getDbFields();
+		dbFields.forEach((name, dbField) -> {
+			sqlBuilder.append(dbField.getName()).append(", ");
+			whereBuilder.append("'").append(dbField.getValue()).append("'").append(", ");
+		});
+		
+		sqlBuilder.delete(sqlBuilder.length() - 2, sqlBuilder.length());
+		whereBuilder.delete(whereBuilder.length() - 2, whereBuilder.length());
+		
+		sqlBuilder.append(") values(").append(whereBuilder).append(")");
 		
 		return sqlBuilder;
 	}
 	
 	/**
 	 * 生成delete语句
-	 * @param dbTables {@link com.mum.db.pojo.DbTable}数组
+	 * @param dbTable {@link com.mum.db.pojo.DbTable}
 	 * @return 生成的delete语句
 	 */
-	public StringBuilder delete(DbTable... dbTables) {
-		sqlBuilder.delete(0, sqlBuilder.length());
-		whereBuilder.delete(0, whereBuilder.length());
-		for (DbTable dbTable : dbTables) {
-			sqlBuilder.append("delete from ").append(dbTable.getName());
+	public StringBuilder delete(DbTable dbTable) {
+		clear();
+		sqlBuilder.append("delete from ").append(dbTable.getName());
+		Map<String, DbField> dbFields = dbTable.getDbFields();
+		if (Objects.nonNull(dbFields)) dbFields.forEach((name, dbField) -> whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("'").append(" and "));	//字段集合不为null
 			
-			Map<String, DbField> dbFields = dbTable.getDbFields();
-			if (dbFields != null) {					//字段集合不为null
-				Iterator<Map.Entry<String, DbField>> iterator = dbFields.entrySet().iterator();
-				while (iterator.hasNext()) {
-					Map.Entry<String, DbField> entry = iterator.next();
-					DbField dbField = entry.getValue();
-					whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("'");
-					if (iterator.hasNext()) {		//存在下一个要操作的字段
-						whereBuilder.append(" and ");
-					}
-				}
-			}
-			if (whereBuilder.length() != 0) {		//存在where条件
-				whereBuilder.insert(0, " where ");
-				sqlBuilder.append(whereBuilder);
-			}
-			sqlBuilder.append(";");
+		if (whereBuilder.length() != 0) {		//存在where条件
+			whereBuilder.insert(0, " where ");
+			whereBuilder.delete(whereBuilder.length() - 5, whereBuilder.length());
+			sqlBuilder.append(whereBuilder);
 		}
 		
 		return sqlBuilder;
@@ -104,39 +74,26 @@ public class SqlBuild {
 	
 	/**
 	 * 生成update语句，where条件为主键
-	 * @param dbTables {@link com.mum.db.pojo.DbTable}数组
+	 * @param dbTable {@link com.mum.db.pojo.DbTable}
 	 * @return 生成的update语句
 	 */
-	public StringBuilder update(DbTable... dbTables) {
-		sqlBuilder.delete(0, sqlBuilder.length());
-		whereBuilder.delete(0, whereBuilder.length());
-		for (DbTable dbTable : dbTables) {
-			Map<String, DbField> dbFields = dbTable.getDbFields();
-			Iterator<Map.Entry<String, DbField>> iterator = dbFields.entrySet().iterator();
-			while (iterator.hasNext()) {
-				Map.Entry<String, DbField> entry = iterator.next();
-				DbField dbField = entry.getValue();
-				if (dbField.isOperation()) {								//操作字段
-					sqlBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("', ");
-				}
-				if (dbField.isCondition()) {								//条件字段
-					whereBuilder.append(dbField.getName()).append(" = '");
-					if (Objects.isNull(dbField.getConditionValue())) {		//没有指定条件值
-						whereBuilder.append(dbField.getValue());
-					} else {												//制定了条件值，适用于字段既是操作项，又是条件项的情况
-						whereBuilder.append(dbField.getConditionValue());
-					}
-					whereBuilder.append("' and ");
-				}
-				if (sqlBuilder.length() != 0) {								//有操作项
-					sqlBuilder.insert(0, " set ").insert(0, dbTable.getName()).insert(0, "update ").delete(sqlBuilder.length() - 2, sqlBuilder.length());
-				}
-				if (whereBuilder.length() != 0) {							//有条件项
-					whereBuilder.insert(0, " where ").delete(whereBuilder.length() - 5, whereBuilder.length());
-				}
+	public StringBuilder update(DbTable dbTable) {
+		clear();
+		Map<String, DbField> dbFields = dbTable.getDbFields();
+		dbFields.forEach((name, dbField) -> {
+			if (dbField.isOperation()) sqlBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("', ");	//操作字段
+			else {													//条件字段
+				whereBuilder.append(dbField.getName()).append(" = '");
+				if (Objects.isNull(dbField.getConditionValue())) whereBuilder.append(dbField.getValue());								//没有指定条件值
+				else whereBuilder.append(dbField.getConditionValue());																	//制定了条件值，适用于字段既是操作项，又是条件项的情况
+				whereBuilder.append("' and ");
 			}
-			sqlBuilder.append(whereBuilder).append(";");
-		}
+		});
+		if (sqlBuilder.length() != 0) sqlBuilder.insert(0, " set ").insert(0, dbTable.getName()).insert(0, "update ").delete(sqlBuilder.length() - 2, sqlBuilder.length());	//有操作项
+
+		if (whereBuilder.length() != 0) whereBuilder.insert(0, " where ").delete(whereBuilder.length() - 5, whereBuilder.length());		//有条件项
+
+		sqlBuilder.append(whereBuilder);
 		
 		return sqlBuilder;
 	}
@@ -147,42 +104,31 @@ public class SqlBuild {
 	 * @return select语句
 	 */
 	public StringBuilder select(DbTable dbTable) {
-		sqlBuilder.delete(0, sqlBuilder.length());
-		whereBuilder.delete(0, whereBuilder.length());
+		clear();
 		Map<String, DbField> dbFields = dbTable.getDbFields();
-		if (dbFields != null) {									//字段集合不为null
-			Iterator<Map.Entry<String, DbField>> iterator = dbFields.entrySet().iterator();
-			while (iterator.hasNext()) {
-				Map.Entry<String, DbField> entry = iterator.next();
-				DbField dbField = entry.getValue();
-				if (Objects.nonNull(dbField.getValue())) {		//字段存在值
+		if (Objects.nonNull(dbFields)) {																										//字段集合不为null
+			dbFields.forEach((name, dbField) -> {
+				if (Objects.nonNull(dbField.getValue())) {																						//字段是条件项
 					whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("' and ");
-				}
-				if (dbField.isOperation()) {					//字段是操作项
-					sqlBuilder.append(dbField.getName()).append(", ");
-				}
-			}
+					if (dbField.isOperation()) sqlBuilder.append(dbField.getName()).append(", ");												//字段是操作项
+				} else sqlBuilder.append(dbField.getName()).append(", ");																		//字段是操作项
+			});
 		}
-		if (sqlBuilder.length() == 0) {							//查询全部
-			sqlBuilder.append("select * from ").append(dbTable.getName());
-		} else {												//查询部分字段
-			sqlBuilder.insert(0, "select ").delete(sqlBuilder.length() - 2, sqlBuilder.length()).append(" from ").append(dbTable.getName());
-		}
-		if (whereBuilder.length() != 0) {						//查询条件
+		if (sqlBuilder.length() == 0) sqlBuilder.append("select * from ").append(dbTable.getName());											//查询全部
+		else sqlBuilder.insert(0, "select ").delete(sqlBuilder.length() - 2, sqlBuilder.length()).append(" from ").append(dbTable.getName());	//查询部分字段
+			
+		if (whereBuilder.length() != 0) {																										//查询条件
 			whereBuilder.insert(0, " where ").delete(whereBuilder.length() - 5, whereBuilder.length());
 			sqlBuilder.append(whereBuilder);
 		}
-		sqlBuilder.append(";");
 		return sqlBuilder;
 	}
 	
 	/**
-	 * 判断某个表的某个字段是否是主键。
-	 * @param dbTable {@link com.mum.db.pojo.DbTable}
-	 * @param dbField {@link com.mum.db.pojo.DbField}
-	 * @return true：是主键；false：不是主键。
+	 * 清空{@link #sqlBuilder}和{@link #whereBuilder}
 	 */
-	private boolean isPrimary(DbTable dbTable, DbField dbField) {
-		return dbInfo.getDbTables().get(dbTable.getName()).getDbFields().get(dbField.getName()).getKey().equals(PRIMARY_KEY);
+	private void clear() {
+		sqlBuilder.delete(0, sqlBuilder.length());
+		whereBuilder.delete(0, whereBuilder.length());
 	}
 }

@@ -1,6 +1,5 @@
 package com.mum.db.init;
 
-import com.mum.db.Conn;
 import com.mum.db.pojo.DbField;
 import com.mum.db.pojo.DbInfo;
 import com.mum.db.pojo.DbTable;
@@ -21,7 +20,7 @@ import java.util.Map;
 public class Injection {
 	
 	/**
-	 * @see com.mum.db.Conn
+	 * @see com.mum.db.init.Conn
 	 */
 	private Conn conn;
 	
@@ -82,19 +81,19 @@ public class Injection {
 			try (PreparedStatement preparedStatement = (PreparedStatement) conn.getConnection().prepareStatement(String.format(SHOW_FIELDS, tableName));
 				ResultSet resultSet = preparedStatement.executeQuery()) {
 				while (resultSet.next()) {
-					DbField dbField = new DbField();
-					dbField.setName(resultSet.getString(FIELD));
-					dbField.setType(resultSet.getString(TYPE));
-					dbField.setCollation(resultSet.getString(COLLATION));
-					dbField.setNull_(resultSet.getString(NULL));
-					dbField.setKey(resultSet.getString(KEY));
-					dbField.setDefault_(resultSet.getString(DEFAULT));
-					dbField.setExtra(resultSet.getString(EXTRA));
-					dbField.setPrivileges(resultSet.getString(PRIVILEGES));
-					dbField.setComment(resultSet.getString(COMMENT));
-					dbField.setForeignFields(new HashMap<>());
-					
-					dbFields.put(resultSet.getString(FIELD), dbField);
+//					DbField dbField = new DbField();
+//					dbField.setName(resultSet.getString(FIELD));
+//					dbField.setType(resultSet.getString(TYPE));
+//					dbField.setCollation(resultSet.getString(COLLATION));
+//					dbField.setNull_(resultSet.getString(NULL));
+//					dbField.setKey(resultSet.getString(KEY));
+//					dbField.setDefault_(resultSet.getString(DEFAULT));
+//					dbField.setExtra(resultSet.getString(EXTRA));
+//					dbField.setPrivileges(resultSet.getString(PRIVILEGES));
+//					dbField.setComment(resultSet.getString(COMMENT));
+//					dbField.setForeignFields(new HashMap<>());
+//					
+//					dbFields.put(resultSet.getString(FIELD), dbField);
 				}
 			}
 		}
