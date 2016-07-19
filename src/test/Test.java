@@ -1,10 +1,33 @@
 package test;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TimeZone;
+import java.util.TreeSet;
 
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
@@ -12,12 +35,13 @@ import org.htmlparser.Parser;
 import org.htmlparser.filters.TagNameFilter;
 import org.htmlparser.util.NodeList;
 
-import com.mum.db.DbOperator;
+import com.mum.db.DAO;
 import com.mum.db.function.FunctionEnum;
 import com.mum.db.pojo.DbField;
 import com.mum.db.pojo.DbOperateEnum;
 import com.mum.db.pojo.DbTable;
 import com.mum.utils.PropertiesUtil;
+import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 
 import static com.mum.constant.IConstant.*;
 
@@ -43,9 +67,69 @@ public class Test {
 //	            break;
 //			}
 //			
-//			
+		
+//			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/new.txt"));
+//				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "gb2312");
+//				BufferedReader br = new BufferedReader(inputStreamReader);) {
+//				DbOperator dbOperator = new DbOperator();
+//				StringBuilder stringBuilder = new StringBuilder();
+//				String s = null;
+//				DbTable dbTable = new DbTable("country");
+//				DbField dbField = new DbField("code_two");
+//				dbTable.putField(dbField);
+//				List<Map<String, String>> list = dbOperator.select(dbTable);
+//				while ((s = br.readLine())!=null) {
+//					String[] strings = s.split(";");
+//					for (int i = 0; i < list.size(); i++) {
+//						if (list.get(i).get("code_two").equals(strings[0])) {
+//							list.remove(i);
+//							break;
+//						}
+//					}
+//					
+//				}
+				
+//				try (FileWriter fw = new FileWriter("F:/new1.txt");
+//					BufferedWriter bw = new BufferedWriter(fw);) {
+//					bw.write(stringBuilder.toString());
+//				}
 
-			new DbOperator().modify(new DbTable("test", DbOperateEnum.INSERT).putField(new DbField("a", "a")).putField(new DbField("b", "b")));
+
+				   
+//			}
+			
+			
+			
+			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/infoHeader.txt"));
+				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "utf-8");
+				BufferedReader br = new BufferedReader(inputStreamReader);) {
+				
+				StringBuilder stringBuilder = new StringBuilder();
+				String s = null;
+				while ((s = br.readLine())!=null) {
+					String[] strings = s.split(",");
+					for (int i = 0; i < strings.length; i++) {
+						char[] cs = strings[i].toCharArray();
+						boolean flag = false;
+						for (char c : cs) {
+							if (c == '-') continue;
+							if (!Character.isDigit(c)) {
+								flag = true;
+								break;
+							}
+						}
+						if (flag) {
+							stringBuilder.append(strings[i]).append(",");
+						}
+					}
+					stringBuilder.deleteCharAt(stringBuilder.length() - 1).append("\n");
+				}
+				
+				try (FileWriter fw = new FileWriter("F:/new1.txt");
+					BufferedWriter bw = new BufferedWriter(fw);) {
+					bw.write(stringBuilder.toString());
+				}
+			}
 			
 		} catch(Exception e) {
 			e.printStackTrace();
