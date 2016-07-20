@@ -100,32 +100,17 @@ public class Test {
 			
 			
 			
-			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/infoHeader.txt"));
-				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "utf-8");
+			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/new1.txt"));
+				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "gbk");
 				BufferedReader br = new BufferedReader(inputStreamReader);) {
 				
 				StringBuilder stringBuilder = new StringBuilder();
 				String s = null;
 				while ((s = br.readLine())!=null) {
-					String[] strings = s.split(",");
-					for (int i = 0; i < strings.length; i++) {
-						char[] cs = strings[i].toCharArray();
-						boolean flag = false;
-						for (char c : cs) {
-							if (c == '-') continue;
-							if (!Character.isDigit(c)) {
-								flag = true;
-								break;
-							}
-						}
-						if (flag) {
-							stringBuilder.append(strings[i]).append(",");
-						}
-					}
-					stringBuilder.deleteCharAt(stringBuilder.length() - 1).append("\n");
+					stringBuilder.append("insert into subdivision1(isoCode, nameEN, nameCN) values(").append(s).append(");\n");
 				}
 				
-				try (FileWriter fw = new FileWriter("F:/new1.txt");
+				try (FileWriter fw = new FileWriter("F:/new2.txt");
 					BufferedWriter bw = new BufferedWriter(fw);) {
 					bw.write(stringBuilder.toString());
 				}
