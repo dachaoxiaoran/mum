@@ -4,6 +4,12 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.mum.db.pojo.DbField;
+import com.mum.db.pojo.DbFieldDelete;
+import com.mum.db.pojo.DbFieldInsert;
+import com.mum.db.pojo.DbFieldSelectCondition;
+import com.mum.db.pojo.DbFieldSelectOperation;
+import com.mum.db.pojo.DbFieldUpdateCondition;
+import com.mum.db.pojo.DbFieldUpdateOperation;
 import com.mum.db.pojo.DbTable;
 
 /**
@@ -41,7 +47,7 @@ public class SqlBuild {
 		Map<String, DbField> dbFields = dbTable.getDbFields();
 		dbFields.forEach((name, dbField) -> {
 			sqlBuilder.append(dbField.getName()).append(", ");
-			whereBuilder.append("'").append(dbField.getValue()).append("'").append(", ");
+			whereBuilder.append("'").append(((DbFieldInsert) dbField).getValue()).append("'").append(", ");
 		});
 		
 		sqlBuilder.delete(sqlBuilder.length() - 2, sqlBuilder.length());
@@ -61,7 +67,7 @@ public class SqlBuild {
 		clear();
 		sqlBuilder.append("delete from ").append(dbTable.getName());
 		Map<String, DbField> dbFields = dbTable.getDbFields();
-		if (Objects.nonNull(dbFields)) dbFields.forEach((name, dbField) -> whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("'").append(" and "));	//字段集合不为null
+		if (Objects.nonNull(dbFields)) dbFields.forEach((name, dbField) -> whereBuilder.append(dbField.getName()).append(" = '").append(((DbFieldDelete) dbField).getValue()).append("'").append(" and "));	//字段集合不为null
 			
 		if (whereBuilder.length() != 0) {		//存在where条件
 			whereBuilder.insert(0, " where ");
@@ -81,11 +87,10 @@ public class SqlBuild {
 		clear();
 		Map<String, DbField> dbFields = dbTable.getDbFields();
 		dbFields.forEach((name, dbField) -> {
-			if (dbField.isOperation()) sqlBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("', ");	//操作字段
+			if (dbField instanceof DbFieldUpdateOperation) sqlBuilder.append(dbField.getName()).append(" = '").append(((DbFieldUpdateOperation) dbField).getValue()).append("', ");	//操作字段
 			else {													//条件字段
 				whereBuilder.append(dbField.getName()).append(" = '");
-				if (Objects.isNull(dbField.getConditionValue())) whereBuilder.append(dbField.getValue());								//没有指定条件值
-				else whereBuilder.append(dbField.getConditionValue());																	//制定了条件值，适用于字段既是操作项，又是条件项的情况
+				whereBuilder.append(((DbFieldUpdateCondition) dbField).getValue());
 				whereBuilder.append("' and ");
 			}
 		});
@@ -108,10 +113,8 @@ public class SqlBuild {
 		Map<String, DbField> dbFields = dbTable.getDbFields();
 		if (Objects.nonNull(dbFields)) {																										//字段集合不为null
 			dbFields.forEach((name, dbField) -> {
-				if (Objects.nonNull(dbField.getValue())) {																						//字段是条件项
-					whereBuilder.append(dbField.getName()).append(" = '").append(dbField.getValue()).append("' and ");
-					if (dbField.isOperation()) sqlBuilder.append(dbField.getName()).append(", ");												//字段是操作项
-				} else sqlBuilder.append(dbField.getName()).append(", ");																		//字段是操作项
+				if (dbField instanceof DbFieldSelectOperation) sqlBuilder.append(dbField.getName()).append(", ");	//查询字段
+				else whereBuilder.append(dbField.getName()).append(" = '").append(((DbFieldSelectCondition) dbField).getValue()).append("' and ");	//查询条件
 			});
 		}
 		if (sqlBuilder.length() == 0) sqlBuilder.append("select * from ").append(dbTable.getName());											//查询全部

@@ -3,7 +3,7 @@ package com.mum;
 import static com.mum.constant.IConstant.*;
 
 import com.mum.db.init.Conn;
-import com.mum.db.init.Injection;
+//import com.mum.db.init.Injection;
 import com.mum.db.pojo.DbInfo;
 
 /**
