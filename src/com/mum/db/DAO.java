@@ -88,7 +88,10 @@ public class DAO {
 			ResultSetMetaData resultSetMetaData = (ResultSetMetaData) resultSet.getMetaData();
 			while (resultSet.next()) {
 				Map<String, String> selectMap = new HashMap<>();
-				for (int i = 0; i <= resultSetMetaData.getColumnCount(); i++) selectMap.put(resultSetMetaData.getColumnName(i), resultSet.getObject(i).toString());
+				for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
+					Object resultSetElm = resultSet.getObject(i);
+					selectMap.put(resultSetMetaData.getColumnName(i), resultSetElm == null ? null : resultSetElm.toString());
+				}
 				selectList.add(selectMap);
 			}
 		}
