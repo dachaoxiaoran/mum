@@ -38,6 +38,7 @@ import org.htmlparser.util.NodeList;
 import com.mum.db.DAO;
 import com.mum.db.function.FunctionEnum;
 import com.mum.db.pojo.DbField;
+import com.mum.db.pojo.DbFieldSelectOperation;
 import com.mum.db.pojo.DbOperateEnum;
 import com.mum.db.pojo.DbTable;
 import com.mum.utils.PropertiesUtil;
@@ -98,22 +99,26 @@ public class Test {
 				   
 //			}
 			
+			DbTable dbTable = new DbTable("country");
+			dbTable.putField(new DbFieldSelectOperation("id")).putField(new DbFieldSelectOperation("continentId")).putField(new DbFieldSelectOperation("nameCN")).putField(new DbFieldSelectOperation("nameTW")).putField(new DbFieldSelectOperation("nameHK"));
+			List<Map<String, String>> countrys = DAO.select(dbTable);
 			
-			
-			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/new1.txt"));
-				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "gbk");
+			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/infoHeader.txt"));
+				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "utf-8");
 				BufferedReader br = new BufferedReader(inputStreamReader);) {
 				
 				StringBuilder stringBuilder = new StringBuilder();
 				String s = null;
-				while ((s = br.readLine())!=null) {
-					stringBuilder.append("insert into subdivision1(isoCode, nameEN, nameCN) values(").append(s).append(");\n");
+				while ((s = br.readLine()) != null) {
+					String[] ss = s.split(",");
+					if (ss[0].equals("")) System.out.println(s);
+					
 				}
 				
-				try (FileWriter fw = new FileWriter("F:/new2.txt");
-					BufferedWriter bw = new BufferedWriter(fw);) {
-					bw.write(stringBuilder.toString());
-				}
+//				try (FileWriter fw = new FileWriter("F:/new.txt");
+//					BufferedWriter bw = new BufferedWriter(fw);) {
+//					bw.write(stringBuilder.toString());
+//				}
 			}
 			
 		} catch(Exception e) {
