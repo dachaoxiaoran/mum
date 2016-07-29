@@ -99,26 +99,41 @@ public class Test {
 				   
 //			}
 			
-			DbTable dbTable = new DbTable("country");
-			dbTable.putField(new DbFieldSelectOperation("id")).putField(new DbFieldSelectOperation("continentId")).putField(new DbFieldSelectOperation("nameCN")).putField(new DbFieldSelectOperation("nameTW")).putField(new DbFieldSelectOperation("nameHK"));
-			List<Map<String, String>> countrys = DAO.select(dbTable);
-			
 			try(FileInputStream fileInputStream = new FileInputStream(new File("F:/infoHeader.txt"));
 				InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "utf-8");
 				BufferedReader br = new BufferedReader(inputStreamReader);) {
 				
 				StringBuilder stringBuilder = new StringBuilder();
 				String s = null;
+				Set<String> set = new TreeSet<>();
 				while ((s = br.readLine()) != null) {
 					String[] ss = s.split(",");
-					if (ss[0].equals("")) System.out.println(s);
+					for (String sss : ss) {
+						if (sss.indexOf("-") != -1) {
+							set.add(sss);
+							continue;
+						}
+						try {
+							if (Double.parseDouble(sss) > 2000) {
+								set.add(sss);
+								continue;
+							}
+						}catch(Exception e) {
+							continue;
+						}
+					}
 					
 				}
 				
-//				try (FileWriter fw = new FileWriter("F:/new.txt");
-//					BufferedWriter bw = new BufferedWriter(fw);) {
-//					bw.write(stringBuilder.toString());
-//				}
+				Iterator<String> iterator = set.iterator();
+				while (iterator.hasNext()) {
+					stringBuilder.append(iterator.next()).append("\n");
+				}
+				
+				try (FileWriter fw = new FileWriter("F:/new.txt");
+					BufferedWriter bw = new BufferedWriter(fw);) {
+					bw.write(stringBuilder.toString());
+				}
 			}
 			
 		} catch(Exception e) {
