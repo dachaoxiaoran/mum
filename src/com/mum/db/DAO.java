@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.mum.db.init.Conn;
-import com.mum.db.pojo.DbOperateEnum;
 import com.mum.db.pojo.DbTable;
+import com.mum.db.pojo.DbTableDelete;
+import com.mum.db.pojo.DbTableInsert;
+import com.mum.db.pojo.DbTableUpdate;
 import com.mysql.jdbc.ResultSetMetaData;
 import com.mysql.jdbc.Statement;
 
@@ -114,9 +116,9 @@ public class DAO {
 	 * @return sql语句
 	 */
 	private static String sqlBuild(DbTable dbTable) {
-		if (dbTable.getDbOperateEnum() == DbOperateEnum.INSERT) return sqlBuild.insert(dbTable).toString();			//插入
-		else if (dbTable.getDbOperateEnum() == DbOperateEnum.UPDATE) return sqlBuild.update(dbTable).toString();	//更新
-		else if (dbTable.getDbOperateEnum() == DbOperateEnum.DELETE) return sqlBuild.delete(dbTable).toString();	//删除
-		throw new RuntimeException("dbTable的getDbOperateEnum为null，表名为：".concat(dbTable.getName()));
+		if (dbTable instanceof DbTableInsert) return sqlBuild.insert(dbTable).toString();		//插入
+		else if (dbTable instanceof DbTableUpdate) return sqlBuild.update(dbTable).toString();	//更新
+		else if (dbTable instanceof DbTableDelete) return sqlBuild.delete(dbTable).toString();	//删除
+		throw new RuntimeException("sqlBuild方法出错，表名为：".concat(dbTable.getName()));
 	}
 }

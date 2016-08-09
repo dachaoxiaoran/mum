@@ -8,17 +8,12 @@ import java.util.Objects;
  * 数据库表
  * @author 王超
  */
-public class DbTable {
+public abstract class DbTable {
 
 	/**
 	 * 表名
 	 */
 	private String name;
-	
-	/**
-	 * @see com.mum.db.pojo.DbOperateEnum
-	 */
-	private DbOperateEnum dbOperateEnum;
 	
 	/**
 	 * 表字段集合，key是字段名
@@ -31,16 +26,6 @@ public class DbTable {
 	 */
 	public DbTable(String name) {
 		this.name = name;
-	}
-	
-	/**
-	 * 传值
-	 * @param name {@link #name}
-	 * @param dbOperateEnum {@link #dbOperateEnum}
-	 */
-	public DbTable(String name, DbOperateEnum dbOperateEnum) {
-		this(name);
-		this.dbOperateEnum = dbOperateEnum;
 	}
 
 	/**
@@ -67,24 +52,6 @@ public class DbTable {
 	 */
 	public Map<String, DbField> getDbFields() {
 		return dbFields;
-	}
-
-	/**
-	 * 获得{@link #dbOperateEnum}
-	 * @return {@link #dbOperateEnum}
-	 */
-	public DbOperateEnum getDbOperateEnum() {
-		return dbOperateEnum;
-	}
-
-	/**
-	 * 设置{@link #dbOperateEnum}
-	 * @param dbOperateEnum {@link #dbOperateEnum}
-	 * @return this{@link com.mum.db.pojo.DbTable}对象
-	 */
-	public DbTable setDbOperateEnum(DbOperateEnum dbOperateEnum) {
-		this.dbOperateEnum = dbOperateEnum;
-		return this;
 	}
 
 	/**
