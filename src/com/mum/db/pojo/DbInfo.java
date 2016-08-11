@@ -1,7 +1,5 @@
 package com.mum.db.pojo;
 
-import java.util.Map;
-
 /**
  * 数据库信息
  * @author 王超
@@ -27,11 +25,6 @@ public class DbInfo {
 	 * 密码
 	 */
 	private String pwd;
-	
-	/**
-	 * 数据库表集合，key是表名
-	 */
-	private Map<String, DbTable> dbTables;
 
 	/**
 	 * 获得{@link #driver}
@@ -102,24 +95,6 @@ public class DbInfo {
 	 */
 	public DbInfo setPwd(String pwd) {
 		this.pwd = pwd;
-		return this;
-	}
-
-	/**
-	 * 获得{@link #dbTables}
-	 * @return {@link #dbTables}
-	 */
-	public Map<String, DbTable> getDbTables() {
-		return dbTables;
-	}
-
-	/**
-	 * 设置{@link #dbTables}
-	 * @param dbTables {@link #dbTables}
-	 * @return this{@link com.mum.db.pojo.DbInfo}对象
-	 */
-	public DbInfo setDbTables(Map<String, DbTable> dbTables) {
-		this.dbTables = dbTables;
 		return this;
 	}
 }
