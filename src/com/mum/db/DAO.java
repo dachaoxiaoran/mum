@@ -9,7 +9,6 @@ import java.util.Map;
 
 import com.mum.db.init.Conn;
 import com.mysql.jdbc.ResultSetMetaData;
-import com.mysql.jdbc.Statement;
 
 /**
  * 数据库操作
@@ -45,12 +44,10 @@ public class DAO {
 	 * @throws SQLException
 	 */
 	public static int[] modify(String... sqls) throws SQLException {
-		try(Statement statement = (Statement) conn.getConnection().createStatement()) {
-			for (String sql : sqls) statement.addBatch(sql);
-			int[] res = statement.executeBatch();
-			statement.getConnection().commit();
-			return res;
-		}
+		for (String sql : sqls) conn.getStatement().addBatch(sql);
+		int[] res = conn.getStatement().executeBatch();
+		conn.getStatement().getConnection().commit();
+		return res;
 	}
 	
 	/**
@@ -61,8 +58,7 @@ public class DAO {
 	 */
 	public static List<Map<String, String>> select(String sql) throws SQLException {
 		List<Map<String, String>> selectList = new ArrayList<>();
-		try(Statement statement = (Statement) conn.getConnection().createStatement();
-			ResultSet resultSet = statement.executeQuery(sql)) {
+		try(ResultSet resultSet = conn.getStatement().executeQuery(sql)) {
 			ResultSetMetaData resultSetMetaData = (ResultSetMetaData) resultSet.getMetaData();
 			while (resultSet.next()) {
 				Map<String, String> selectMap = new HashMap<>();
